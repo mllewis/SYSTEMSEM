@@ -1,0 +1,156 @@
+---
+title: Language distance plots
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    code_folding: hide
+    number_sections: no
+    toc: yes
+---
+  
+******
+
+```{r setup, include = F}
+
+# load packages
+library(rmarkdown)
+library(knitr)
+library(tidyverse)
+library(dendextend)
+library(here)
+
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+
+DENDRO PLOT
+```{r}
+LANG_CENTROIDS <-  here("analyses/04_predicting_semantic_sim/data/language_semantics_centroids.csv") 
+
+# get dendro
+prompt_mean_centroids_mat <- read_csv(LANG_CENTROIDS) %>%
+  column_to_rownames("rowname") %>%
+  as.matrix()
+
+dist_matrix <- dist(prompt_mean_centroids_mat, method = "euclidean")
+
+semantic_dist <- dist_matrix %>% 
+  as.matrix() %>%
+  as.data.frame() %>%
+  rownames_to_column("lang1_ETS") %>%
+  gather("lang2_ETS", "semantic_dist", -1) %>%
+  mutate_if(is.character, tolower)
+
+p <- hclust(dist_matrix)
+pd <- as.dendrogram(p, horiz = FALSE)
+
+# change labels
+LANGNAMES <-  here("data/processed/lang_names/ets_to_google_langcodes_complete.csv")
+GLOTTOLOG_NAMES <- here('analyses/04_predicting_semantic_sim/data/glottolog.original.RData')# from olld version of lingtypology package
+load(GLOTTOLOG_NAMES)
+
+# get language family 
+langs <- read_csv(LANGNAMES) %>%
+  select(lang_name2, ETS_lang_name) %>%
+  mutate(iso = as.character(lingtypology::iso.lang(lang_name2))) %>%
+  left_join(glottolog.original %>% select(iso, affiliation)) %>% # glottolog 2.7
+  mutate(aff = word(affiliation,1),
+         aff = gsub('[[:punct:]]', '', aff)) %>%
+  select(ETS_lang_name, lang_name2, iso,  aff)
+
+langs[langs$lang_name2 == "Korean", "aff"] <- "Korean" # Korean is categorized as "language isolate"; 
+
+langs_clean <- langs %>%
+  mutate_if(is.character, as.factor) %>%
+  mutate(aff = fct_recode(aff, 
+                          `Afro-Asiatic` = "AfroAsiatic", 
+                          `Indo-European` = "IndoEuropean",
+                          `Sino-Tibetan` = "SinoTibetan",
+                          `Tai-Kadai`  = "TaiKadai",
+                          `Austro-Asiatic` = "AustroAsiatic",
+                          `Niger-Congo` = "NigerCongo"))
+
+new_labs <- langs_clean %>% 
+  select(ETS_lang_name, lang_name2) %>%
+  mutate(ETS_lang_name = toupper(ETS_lang_name),
+         ETS_lang_name = fct_relevel(ETS_lang_name, 
+                                     labels(pd))) %>%
+  arrange(ETS_lang_name)
+
+pd2 <- pd %>% 
+  set("labels_to_char") %>% 
+  set("labels", rev(as.character(new_labs$lang_name2))) %>%
+  set("branches_lwd", 2)
+
+# change label colors
+aff_df <- langs_clean %>%
+  arrange(ETS_lang_name) %>% 
+  pull(aff) 
+
+aff_order <- data.frame(lang_names_ordered = labels(pd2)) %>%
+  left_join(langs_clean %>% select(lang_name2, aff), 
+            by = c("lang_names_ordered" = "lang_name2")) %>%
+  mutate(aff_numeric = as.numeric(aff)) %>%
+  pull(aff_numeric)
+
+reordered_colors <- c("#AEA200","#64B200", "#00BD5C", "#DB8E00", "#F8766D", 
+                        "#00C1A7" ,"#00BADE", "#00A6FF" ,"#B385FF", "#EF67EB",
+                        "#FF63B6")# this is just reordered so similiar colors aren't next to eachother on the dendro
+
+labels_colors(pd2) <- reordered_colors[aff_order] 
+
+plot(pd2, horiz = TRUE, yaxt = 'n', ann = FALSE)
+```
+
+```{r, eval = F}
+# dendrogram fig
+DENDRO_FIG <- here("analyses/04_predicting_semantic_sim/results/dendro_fig.pdf")
+pdf(DENDRO_FIG, width = 6, height = 8)
+par(mar = c(2,0,0,15))
+plot(pd2, horiz = TRUE, yaxt = 'n', ann = FALSE)
+dev.off()
+
+# pretty legend
+DENDRO_LEGEND <- here("analyses/04_predicting_semantic_sim/results/dendro_legend.pdf")
+pdf(DENDRO_LEGEND)
+langs_clean %>%
+  select(lang_name2, aff) %>%
+  ggplot(aes(x = 1, y = jitter(1:35), label = lang_name2, color = aff)) +
+  geom_point(shape = 15) +
+  scale_color_manual(values = reordered_colors, name = "Language Family") +
+  guides(colour = guide_legend(override.aes = list(size=5))) +
+  theme_classic()
+dev.off()
+```
+
+CENTROID PLOT
+```{r}
+TSNE_COORDS <- here("analyses/04_predicting_semantic_sim/data/tsne_language_coordinates.csv")
+tsne_prompt_mean_centroids <- read_csv(TSNE_COORDS)
+
+centroid_plot <- tsne_prompt_mean_centroids %>%
+  left_join(langs_clean %>% 
+              mutate(ETS_lang_name = toupper(ETS_lang_name)), 
+            by = c("L1_code" = "ETS_lang_name")) %>%
+  ggplot(aes(x = tsne_X, y = tsne_Y)) +
+  scale_color_manual(values = reordered_colors, name = "Language Family") +
+  ggrepel::geom_text_repel(aes(x = tsne_X, y = tsne_Y, 
+                               label = lang_name2, color = aff), size = 6) +
+  geom_point(size = 3) +
+  xlab("") +
+  ylab("") +
+  theme_minimal()  
+
+centroid_plot
+```
+
+```{r, eval = F}
+CENTROID_FIG <- here("analyses/04_predicting_semantic_sim/results/centroid_fig.pdf")
+
+pdf(CENTROID_FIG, width = 9, height = 7)
+centroid_plot
+dev.off()
+```

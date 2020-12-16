@@ -1,0 +1,422 @@
+---
+title: Concreteness decile analysis - ETS and WIKI
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: yes
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(corrr)
+library(ggridges)
+library(cowplot)
+library(broom)
+library(psych)
+library(directlabels)
+library(here)
+library(sna)
+library(compute.es)
+library(glue)
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+### Semantics overlap
+```{r}
+CLUSTER_ETS <- here("analyses/02_concreteness_semantics/data/ets/target_word_cluster_assignments_ets.csv")
+CLUSTER_WIKI <- here("analyses/02_concreteness_semantics/data/wiki/target_word_cluster_assignments.csv")
+CONC_ETS <- here("analyses/02_concreteness_semantics/data/ets/concreteness_deciles.csv")
+CONC_WIKI <-  here("analyses/02_concreteness_semantics/data/wiki/target_translations_xling_words.csv") 
+```
+
+```{r, ridge_plot}
+cluster_assignments_raw_ets <- read_csv(CLUSTER_ETS)
+cluster_assignments_raw_wiki <- read_csv(CLUSTER_WIKI)
+conc_assignments_ets <- read_csv(CONC_ETS) 
+conc_assignments_wiki <- read_csv(CONC_WIKI) %>%
+  distinct(word, concreteness_tile)
+
+all_assignments_ets <- full_join(cluster_assignments_raw_ets, conc_assignments_ets) %>%
+  rename(concreteness_tile = conc_tile) %>%
+  mutate(type = "ets",
+         cluster = as.factor(cluster), # reorder by means
+         cluster2 = fct_recode(cluster, "1" = "9", "2" = "1", "3" = "2", "4" = "8", "5" = "4",
+                              "6"= "3", "7" = "10", "8" = "7", "9" = "5", "10" = "6"))
+
+all_assignments_wiki <- full_join(conc_assignments_wiki, cluster_assignments_raw_wiki) %>%
+  mutate(type = "wiki",
+        cluster = as.factor(cluster),
+        cluster2 = fct_recode(cluster, "1" = "9", "2"=  "3", "3" = "8", "4"= "1",
+                              "6"= "7", "7"= "4", "8" = "6", "9"= "2"))
+
+all_assignments <- bind_rows(all_assignments_ets, all_assignments_wiki) %>%
+        mutate(cluster2 = fct_relevel(cluster2, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"), 
+               type = fct_recode(type, "Second-Language TOEFL Corpus" = "ets",
+                                        "Multilingual Wikipedia Corpus" = "wiki"))
+
+#pdf("figs/concreteness_semantics.pdf", width = 10, height = 5.5)
+ggplot(all_assignments, aes(x = concreteness_tile, y = cluster2, fill = cluster2)) + 
+  scale_fill_viridis_d(option = "plasma", begin = 1, end = 0, 
+                       guide = guide_legend(nrow = 1)) +
+  ggridges::geom_density_ridges(scale = 3, rel_min_height = .01, bandwidth = .6) +
+  facet_wrap(.~type) +
+  ylab("Semantic Cluster") +
+  scale_x_continuous(breaks = 1:10,
+                     label = c("1\n(abstract)",  "2" ,"3", "4", "5", "6", "7", "8", "9", "10\n(concrete)")) +
+  xlab("Word Concreteness") +
+  theme_classic(base_size = 15) +
+  theme(legend.position = "none",
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        strip.background = element_rect(colour = "white", fill="white"),
+        strip.text = element_text(size = 16))
+#dev.off()
+```
+
+Are semantics and concreteness overlaping?  Yes.
+
+ETS:
+<br>
+```{r}
+ets_count_mat <- all_assignments %>% 
+  filter(type == "Second-Language TOEFL Corpus") %>%
+  count(type, concreteness_tile, cluster2) %>%
+  select(-type) %>%
+  spread(cluster2, n, -1, fill = 0) %>%
+  select(-1) %>%
+  as.matrix()
+
+chisq.test(ets_count_mat)
+```
+
+
+WIKI:
+```{r}
+wiki_count_mat <- all_assignments %>% 
+  filter(type == "Multilingual Wikipedia Corpus") %>%
+  count(type, concreteness_tile, cluster2) %>%
+  select(-type) %>%
+  spread(cluster2, n, -1, fill = 0) %>%
+  select(-1) %>%
+  as.matrix()
+
+chisq.test(wiki_count_mat)
+```
+
+### Concrentess and similarity
+
+```{r}
+WIKI_PATH <- here("analyses/02_concreteness_semantics/data/wiki/lang_pairwise_tile_correlations.csv")
+ETS_PATH <- here("analyses/02_concreteness_semantics/data/ets/lang_pairwise_tile_correlations_ets_decile.csv")
+```
+
+```{r}
+conc_corr_wiki <- read_csv(WIKI_PATH,
+                      col_names = c("tile1", "tile2", "corr", "lang1", "lang2"))  %>%
+  mutate(corpus = "wiki")
+conc_corr_ets <- read_csv(ETS_PATH,
+                      col_names = c("tile1", "tile2", "corr",  "lang1", "lang2"))  %>%
+  mutate(corpus = "ets")
+
+conc_corr <- bind_rows(conc_corr_wiki, conc_corr_ets) %>%
+  filter(tile1 >= tile2) 
+```
+
+
+```{r, fig.width = 10}
+## Within deciles
+conc_corr_ms_same <- conc_corr %>%
+  group_by(tile1, tile2, corpus) %>%
+  multi_boot_standard(col = "corr") %>%
+  ungroup() %>%
+  filter(tile2 == tile1) %>%
+  mutate(tile1 = as.factor(tile1),
+         lab = case_when(tile2 == 9 & corpus == "ets" ~ "Second-\nLanguage TOEFL Corpus",
+                         tile2 == 9 & corpus == "wiki" ~ "Multilingual\nWikipedia Corpus",
+                         TRUE ~ "")) %>%
+    mutate(corpus = fct_recode(corpus, 
+                             "TOEFL" = "ets",
+"Wikipedia" = "wiki"))
+
+pdf("figs/concreteness_plot.pdf", width = 5, height = 4.7)
+ggplot(conc_corr_ms_same, aes(x = tile2, y = mean,
+                         line_type = corpus, group = corpus, color = tile2)) +
+  geom_smooth(method = "lm", alpha = .2, color = "black") +
+  geom_pointrange(aes(ymin = ci_lower, max = ci_upper, shape = rev(corpus)), size = .7, alpha = .7)  +
+  viridis::scale_color_viridis(option = "plasma", begin = 1, end = 0, 
+                       #guide = guide_legend(nrow = 0)) +
+                       guide =FALSE) +
+  
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  #geom_dl(aes(label=corpus), method = list('last.bumpup', cex = 1.3, hjust = 1)) +
+ # ggtitle("Within Concreteness Deciles") + 
+  #scale_y_continuous(position = "right", limits = c(.14, .52)) +
+   scale_x_continuous(breaks = 1:10,
+                     label = c("1\n(abstract)",  "2" ,"3", "4", "5", "6", "7", "8", "9", "10\n(concrete)"))  +
+  xlab("Word Concreteness") +
+  theme_classic(base_size = 18)  +
+  guides(shape=guide_legend(title="Corpus")) +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.position=c(0.25,0.77),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10),
+        legend.background = element_rect(linetype = 1, size = 0.5, 
+                                         colour = 1),
+        plot.margin = margin(10, 20, 10, 20))
+
+dev.off()
+```
+
+```{r}
+conc_corr_ms_same %>%
+  group_by(corpus) %>%
+  do(tidy(cor.test(.$mean,.$tile2))) %>%
+  mutate(estimate = round(estimate,2)) %>%
+  kable()
+
+```
+
+
+# Discrete local-global concreteness analysis
+
+```{r}
+conc_in_out <- conc_corr %>%
+  filter(tile1 >= tile2) %>%
+  mutate(local_global = case_when(tile1 == tile2 ~ "local", TRUE ~ "global")) %>%
+  group_by(corpus, lang1, lang2, local_global) %>%
+  summarize(mean_corr = mean(corr))  %>%
+  mutate(lang_pair = paste0(lang1, lang2)) %>%
+  ungroup() %>%
+  select(corpus, local_global, lang_pair, lang1, lang2, mean_corr)
+
+conc_in_out_summary <- conc_in_out %>%
+  group_by(corpus, local_global) %>%
+  multi_boot_standard(col = "mean_corr") %>%
+  arrange(corpus)
+
+ggplot(conc_in_out_summary, aes(x = local_global, y = mean,
+                        color = corpus)) +
+  geom_pointrange(aes(ymin = ci_lower, ymax = ci_upper)) +
+  ylab("Mean Correlation") +
+  ggtitle("Local-global for concreteness deciles") +
+  theme_classic()
+
+```
+
+## Stats
+
+## Summary Stats
+```{r}
+conc_dif_wide_wiki <- conc_in_out %>%
+  filter(corpus == "wiki") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(corpus, dif)
+
+conc_dif_wide_ets <- conc_in_out %>%
+  filter(corpus == "ets") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(corpus, dif)
+
+summary_stats <- conc_dif_wide_ets %>%
+  bind_rows(conc_dif_wide_wiki) %>%
+  group_by(corpus) %>%
+  summarize(mean_dif = mean(dif),
+            sd_dif = sd(dif)) %>%
+  mutate_if(is.numeric, round, 3)
+
+glue("TOEFL: $M$  = {summary_stats %>% filter(corpus == 'ets') %>% pull(mean_dif)}, $SD$ =  {summary_stats %>% filter(corpus == 'ets') %>% pull(sd_dif)}; Wikipedia: $M$  = {summary_stats %>% filter(corpus == 'wiki') %>% pull(mean_dif)}, $SD$  =  {summary_stats %>% filter(corpus == 'wiki') %>% pull(sd_dif)}")
+
+
+```
+
+## Local vs. global concreteness stats{.tabset}
+### Wiki
+
+
+```{r}
+conc_in_out_wide <- conc_in_out %>%
+  filter(corpus == "wiki") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(lang1, lang2, local, global, dif) 
+```
+
+```{r, eval = F}
+
+conc_in_out_wide_wiki <- conc_in_out %>%
+  filter(corpus == "wiki") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(lang1, lang2, local, global, dif) %>%
+  mutate(corpus = "wiki")
+
+conc_in_out_wide_ets <- conc_in_out %>%
+  filter(corpus == "ets") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(lang1, lang2, local, global, dif) %>%
+  mutate(corpus = "ets")
+
+conc_in_out_wide <- bind_rows(conc_in_out_wide_wiki, conc_in_out_wide_ets)
+
+
+OUTFILE <- here("analyses/02_concreteness_semantics/data/local_global_conc.csv")
+#write_csv(conc_in_out_wide, OUTFILE)
+```
+
+This is what the data look like: 
+````{r}
+head(conc_in_out_wide) %>%
+  kable()
+```
+
+#### regression
+```{r}
+lm(dif ~ 1, conc_in_out_wide) %>%
+  summary() %>%
+  tidy() %>%
+  kable()
+```
+
+#### paired t-test
+```{r}
+paired_t_wiki <- t.test(conc_in_out_wide$local, conc_in_out_wide$global, paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2)
+
+kable(paired_t_wiki)
+
+glue("Wiki: t({paired_t_wiki$parameter}) = {paired_t_wiki$statistic}; p < .0001")
+```
+
+```{r}
+wilcox_paired_wiki <- wilcox.test(conc_in_out_wide$local, conc_in_out_wide$global, paired = TRUE)
+wilcox_paired_wiki
+glue("$W$ = {wilcox_paired_wiki$statistic}, $p$ $<$ .0001")
+```
+
+####  Effect size
+```{r}
+es_data_wiki <- conc_in_out_wide %>%
+  mutate(id = 1:n()) %>%
+  select(id, local, global) %>%
+  pivot_longer(cols = 2:3) %>%
+  group_by(name) %>%
+  summarize(m = mean(value),
+         sd = sd(value),
+         n= n())
+  
+wiki_es <- mes(es_data_wiki %>% filter(name == "local") %>% pull(m),
+    es_data_wiki %>% filter(name == "global") %>% pull(m),
+    es_data_wiki %>% filter(name == "local") %>% pull(sd),
+    es_data_wiki %>% filter(name == "global") %>% pull(sd),
+    es_data_wiki %>% filter(name == "local") %>% pull(n),
+    es_data_wiki %>% filter(name == "global") %>% pull(n),
+    verbose = F)
+glue("Wiki: $d$ = {wiki_es$d} [{wiki_es$l.d}, {wiki_es$u.d}]")
+```
+
+
+
+```{r}
+conc_in_out_wide_full <- conc_in_out_wide %>%
+  select(-local, -global) %>%
+  bind_rows(conc_in_out_wide %>%  
+  select(-local, -global) %>% rename(lang1 = lang2, 
+                                      lang2 = lang1)) 
+  
+ggplot(conc_in_out_wide_full, aes(x = dif, fill = lang1)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept = 0), linetype = 2) + 
+  facet_wrap(~lang1)
+
+```
+
+
+
+### ETS
+
+```{r}
+conc_in_out_wide <- conc_in_out %>%
+  filter(corpus == "ets") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) %>%
+  select(lang1, lang2, local, global, dif) 
+```
+
+
+#### regression
+```{r}
+lm(dif ~ 1, conc_in_out_wide) %>%
+  summary() %>%
+  tidy() %>%
+  kable()
+```
+
+#### paired t-test
+```{r}
+paired_t_ets <- t.test(conc_in_out_wide$local, 
+                       conc_in_out_wide$global, 
+                       paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2)
+
+kable(paired_t_ets)
+
+glue("TOEFL: t({paired_t_ets$parameter}) = {paired_t_ets$statistic}; p < .0001")
+```
+
+
+```{r}
+wilcox_paired_ets <- wilcox.test(conc_in_out_wide$local, conc_in_out_wide$global, paired = TRUE)
+wilcox_paired_ets
+glue("$W$ = {wilcox_paired_ets$statistic}, $p$ $<$ .0001")
+```
+
+#### Effect size
+```{r}
+es_data_ets <- conc_in_out_wide %>%
+  mutate(id = 1:n()) %>%
+  select(id, local, global) %>%
+  pivot_longer(cols = 2:3) %>%
+  group_by(name) %>%
+  summarize(m = mean(value),
+         sd = sd(value),
+         n= n())
+  
+ets_es <- mes(es_data_ets %>% filter(name == "local") %>% pull(m),
+    es_data_ets %>% filter(name == "global") %>% pull(m),
+    es_data_ets %>% filter(name == "local") %>% pull(sd),
+    es_data_ets %>% filter(name == "global") %>% pull(sd),
+    es_data_ets %>% filter(name == "local") %>% pull(n),
+    es_data_ets %>% filter(name == "global") %>% pull(n),
+    verbose = F)
+glue("TOEFL: $d$ = {ets_es$d} [{ets_es$l.d}, {ets_es$u.d}]")
+```
+
+
+```{r}
+conc_in_out_wide_full <- conc_in_out_wide %>%
+  select(-local, -global) %>%
+  bind_rows(conc_in_out_wide %>%  
+  select(-local, -global) %>% rename(lang1 = lang2, 
+                                      lang2 = lang1)) 
+  
+ggplot(conc_in_out_wide_full, aes(x = dif, fill = lang1)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept = 0), linetype = 2) + 
+  facet_wrap(~lang1)
+
+```

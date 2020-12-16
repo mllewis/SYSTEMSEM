@@ -1,0 +1,99 @@
+---
+title: Continuous semantics control analysis
+subtitle: 
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(here)
+library(psych)
+library(broom)
+
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+```{r}
+ETS_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/ets/lang_pairwise_semantics_correlations_ets_by_cluster.csv")
+WIKI_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/wiki/lang_pairwise_semantics_correlations_wiki_by_cluster.csv")
+# continuous semantics correlation
+CLUSTER_DISTANCES_ETS <- here("analyses/08_continuous_semantics_control/data/target_word_cluster_distances_ets.csv")
+CLUSTER_DISTANCES_WIKI <-  here("analyses/08_continuous_semantics_control/data/target_word_cluster_distances_wiki.csv")
+
+PLOT_PATH <- here("analyses/08_continuous_semantics_control/results/continuous_semantic_clusters.pdf")
+```
+
+Pairwise cluster corrs
+```{r}
+cluster_ets <-  read_csv(ETS_CLUSTER_CORR_PATH,
+                        col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  mutate(corpus = "TOEFL")
+
+cluster_wiki <- read_csv(WIKI_CLUSTER_CORR_PATH,
+                        col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  distinct() %>%
+  mutate(corpus = "Wikipedia")
+
+cluster_pair_means <- cluster_ets %>%
+  bind_rows(cluster_wiki) %>%
+  group_by(corpus, cluster1, cluster2) %>%
+  summarize(cor = mean(cor, na.rm = T)) 
+```
+
+Pairwise distances between cluster centroids
+```{r, fig.width = 10}
+ets_clust_distances <- read_csv(CLUSTER_DISTANCES_ETS) %>%
+  mutate(corpus = "TOEFL")
+wiki_clust_distances <- read_csv(CLUSTER_DISTANCES_WIKI) %>%
+  mutate(corpus = "Wikipedia")
+
+wiki_ets_corrs_with_distance <- bind_rows(wiki_clust_distances, ets_clust_distances) %>%
+  left_join(cluster_pair_means) %>%
+  filter(!is.na(cor)) %>%
+ # mutate(corpus = fct_recode(corpus, "Multi-Lingual Wikipedia Corpus" = "Wikipedia",
+ #                            "English Second-Language Corpus" = "TOEFL")) %>%
+  mutate(cluster_pair_type = case_when(cluster1 == cluster2 ~ "local", TRUE ~ "global"),
+         cluster_pair_type = fct_rev(cluster_pair_type))
+
+fig <- ggplot(wiki_ets_corrs_with_distance, aes(x = cosine_distance, y = cor)) +
+  geom_point(alpha = .6, aes(color = cluster_pair_type), size = 4) +
+  geom_smooth(method = "lm", color = "black") +
+  scale_color_manual(name =  "Cluster Pair Type", values = c("#E41A1C", "#377EB8" )) +
+  ylab("Cross-linguistic Word Distance Correlation") +
+  xlab("Cluster Centroid Cosine Distance") +
+  facet_grid(~corpus) +
+  theme_classic(base_size = 16)  
+
+fig
+
+wiki_ets_corrs_with_distance %>%
+  group_by(corpus) %>%
+  nest()%>%
+  mutate(temp = map(data, ~tidy(cor.test(.$cosine_distance, .$cor)))) %>%
+  select(-data) %>%
+  unnest() %>%
+  kable()
+```
+
+
+```{r eval = F}
+pdf(PLOT_PATH, width = 11, height = 5)
+fig
+dev.off()
+```
+

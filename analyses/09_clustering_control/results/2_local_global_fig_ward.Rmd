@@ -1,0 +1,98 @@
+---
+title: Semantics by clusters correlations 
+subtitle: Alternative clustering approaches
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(here)
+library(psych)
+library(cowplot)
+
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+
+```{r}
+ETS_CLUSTER_CORR_PATH <- here("analyses/09_clustering_control/data/ets/lang_pairwise_semantics_correlations_ets_by_cluster_ward.csv")
+
+
+cluster_ets <-  read_csv(ETS_CLUSTER_CORR_PATH,
+                        col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  mutate(corpus = "TOEFL")
+
+
+cluster_pair_means <- cluster_ets %>%
+  group_by(corpus, cluster1, cluster2) %>%
+  summarize(cor = mean(cor, na.rm = T)) 
+
+full_cluster_pair_means <- cluster_pair_means %>%
+  bind_rows(data.frame(corpus = cluster_pair_means$corpus,
+                       cluster2 = cluster_pair_means$cluster1,
+                       cluster1 = cluster_pair_means$cluster2,
+                       cor = cluster_pair_means$cor)) %>%
+  mutate(same = case_when(cluster1 == cluster2 ~ "Local", TRUE ~ "Global")) %>%
+  distinct()
+
+df <- full_cluster_pair_means %>%
+  group_by(corpus, cluster1, same) %>%
+  multi_boot_standard(col = "cor") %>%
+  ungroup()  %>%
+  mutate(same = fct_rev(same))
+
+overall_means <- df %>%
+  group_by(corpus, same) %>%
+  multi_boot_standard(col = "mean") 
+
+label_df <- data.frame(corpus = c("TOEFL", "TOEFL"), 
+                       same = c("Global", "Local"),
+                       ypos = c(.2, .4),
+                       x = c(10, 10))
+
+
+
+df_segment <- df %>%
+  select(corpus, cluster1, same, mean) %>%
+  spread(same, mean) 
+
+scale_label <- "Comparison"
+
+#pdf("figs/local_global_plot.pdf", width = 10, height  = 4.4)
+ggplot() +
+    ggtitle("TOEFL- Ward Distance Clusters") +
+
+  facet_wrap(~corpus)+
+  geom_segment(data = df_segment, aes(y = Global, yend = Local, x = cluster1, xend = cluster1), 
+              linetype = 1, size = .6) +
+  geom_linerange(data = filter(df, same == "Global"),
+                 aes(x = cluster1, ymin = ci_lower, ymax = ci_upper), color = "#377EB8", size = 1.5) +
+  geom_point(data = df, size = 5, aes(x = cluster1, y = mean, color = same, shape = same)) +
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  scale_x_continuous(breaks = 1:10, name = "Cluster") +
+  scale_shape_manual(scale_label, values = c(19, 15)) +
+  scale_fill_manual(scale_label, values = c( "#E41A1C", "#377EB8" )) +
+  scale_color_manual(scale_label, values = c("#E41A1C", "#377EB8" )) +
+  theme_classic(base_size = 20) +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10),
+        legend.background = element_rect(linetype = 1, size = 0.5, colour = 1))
+#dev.off()
+```

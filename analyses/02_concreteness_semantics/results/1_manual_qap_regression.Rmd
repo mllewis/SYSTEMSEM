@@ -1,0 +1,114 @@
+---
+title: QAP regression
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: show 
+    number_sections: no
+    toc: yes
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(broom)
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+This markdown demonstrates that doing QAP regression doesn't make  sense for analyses comparing local versus global.
+
+
+The dataframe below has the average local and global correlation for each language pair, for each of the two corpora Our hypothesis is that the difference between local and global is positive (local more correlated than global). To test this we ask whether "dif" is greater than zero.
+
+```{r}
+DIF_PATH <- "/Users/mollylewis/Documents/research/Projects/1_in_progress/L2ETS/analyses/02_concreteness_semantics/data/local_global_conc.csv"
+difs <- read_csv(DIF_PATH)
+
+kable(difs %>% slice(1:10))
+```
+
+
+Let's start by getting the data into wide format (Wiki only).
+```{r}
+difs_wiki <- difs %>%
+  filter(corpus == "wiki") %>%
+  bind_rows(difs %>% filter(corpus == "wiki") %>%
+                select(-local, -global,) %>% rename(lang1 = lang2, 
+                                      lang2 = lang1)) %>%
+  select(lang1, lang2, dif) %>%
+  arrange(lang1, lang2) %>%
+  pivot_wider(names_from = "lang2", values_from = "dif") %>%
+  select("lang1", "ar", everything()) %>%
+  select(-lang1)
+
+difs_wiki
+```
+
+Next, let's do the QAP scramble procedure. The algorithm is:  shuffle the corresponding rows and columns together of the dependent matrix. In this case our dependent matrix is the dif column, and the independent matrix is a matrix of 1s. 
+
+The following code does the scrambling:
+
+```{r}
+get_scrambled_mat <- function(x) {
+  mat_x <- as.matrix(x)
+  random_indices <- sample(1:nrow(x), nrow(x))
+  row_col_shuffled_mat <- mat_x[random_indices, random_indices]
+}
+```
+
+The following code converts a matrix form wide to long form (for doing regression):
+```{r}
+get_mat_in_long_form <- function(x){
+    as.data.frame(x) %>%
+    mutate(lang1 = colnames(x)) %>%
+    pivot_longer(cols = 1:nrow(x), names_to = "lang2")
+}
+```
+
+### The scrambled version
+
+```{r}
+conc_in_out_wide_scrambled <- difs_wiki %>%
+  get_scrambled_mat() %>%
+  get_mat_in_long_form()
+```
+
+Matrix is definitely scrambled:
+```{r}
+kable(head(conc_in_out_wide_scrambled))
+```
+
+
+Run the regression
+```{r}
+lm(value ~ 1, conc_in_out_wide_scrambled) %>%
+  summary() %>%
+  tidy() %>%
+  kable()
+```
+
+
+### The unscrambled version
+```{r}
+conc_in_out_wide_unscrambled <- difs_wiki %>%
+  get_mat_in_long_form()
+```
+
+Matrix is not scrambled:
+```{r}
+kable(head(conc_in_out_wide_unscrambled))
+```
+
+
+```{r}
+lm(value ~ 1, conc_in_out_wide_unscrambled) %>%
+  summary() %>%
+  tidy() %>%
+  kable()
+```
+
+.... The results are the same. That's because no matter how you scramble the dependent variable the predictor is always the same (1). This is not true for the swadesh analyses and for the analysis where were predicting semantic distance with five predictors. 

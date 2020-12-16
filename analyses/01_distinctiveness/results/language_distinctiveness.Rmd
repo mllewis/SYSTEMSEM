@@ -1,0 +1,267 @@
+---
+title: Language distinctiveness
+subtitle: ratio
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    number_sections: no
+    code_folding: hide
+    toc: no
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(tidyboot)
+library(cowplot)
+library(here)
+library(broom)
+library(glue)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+## scores
+```{r}
+SCORE_METADATA <-  here("data/raw/models/all_model/merged_metadata.csv")
+meta_data <- read_csv(SCORE_METADATA)
+
+score_means_text <- meta_data %>%
+  summarize(mean_score = mean(score), 
+            sd_score = sd(score)) %>%
+  mutate_if(is.numeric, round, 2)
+
+kable(score_means_text)
+
+glue("$M$ = {score_means_text$mean_score}, $SD$ = {score_means_text$sd_score}") 
+```
+
+
+
+
+## Disinctiveness by score group{.tabset}
+
+
+### All
+```{r}
+LANG_NAME_PATH <- here("data/processed/lang_names/ets_to_google_langcodes_complete.csv")
+
+langs_clean <- read_csv(LANG_NAME_PATH)
+
+
+DISTANCE_INFILE_ALL <- here("analyses/01_distinctiveness/data/sampled_essay_distances_all.csv")
+
+mean_language_distances_all <- read_csv(DISTANCE_INFILE_ALL, 
+                                        col_names = c("language", "score_group", "distance_type", "distance", "n", "sample_id")) %>%
+  mutate_if(is.character, as.factor)
+
+dists_wide_all <- mean_language_distances_all %>%
+  select(-n) %>%
+  spread(distance_type, distance) %>%
+  mutate(same_diff_distance = same_language/diff_language) %>%
+  select(-diff_language, -same_language)
+
+lang_means_all <- dists_wide_all %>%
+  group_by(language) %>%
+  tidyboot_mean(column = same_diff_distance, nboot = 1000)
+
+lang_means_all %>%
+  left_join(langs_clean %>% 
+            mutate(ETS_lang_name = toupper(ETS_lang_name)), 
+          by = c("language" = "ETS_lang_name")) %>%
+  ggplot(aes(x = lang_name3, y = mean - 1))   +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_linerange(aes(ymin = ci_lower - 1, ymax = ci_upper - 1),
+                 position = position_dodge(width = 1)) +
+  scale_y_continuous(name = "Semantic Distinctiveness \n(between / within cosine distance)",
+                     breaks = c(0, .2, .4, .6), 
+                     labels = c("1.0", "1.2", "1.4", "1.6"),
+                     limits = c(0, .6)) + # rescale so y-axis starts at 1
+  scale_fill_manual(values = c( "#fb9a99", "#a6cee3"), name = "Essay Score") + 
+  xlab("Language") +
+  theme_classic(base_size = 20) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        legend.position = c(.1, 0.8),
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.background = element_blank())
+```
+
+
+#### Stats
+Descriptives
+```{r}
+# take mean across runs
+language_means <- dists_wide_all %>%
+  group_by(language) %>%
+  summarize(same_diff_distance = mean(same_diff_distance)) 
+
+# take mean across langauges
+lang_means_all_text <- language_means %>%
+  summarize(mean = mean(same_diff_distance),
+            sd = sd(same_diff_distance)) %>%
+  mutate_all(round, 2) 
+
+kable(lang_means_all_text)
+```
+
+Is each language > 1?
+```{r}
+MU <- 1
+t_test_all_text  <- t.test(language_means %>% 
+         pull(same_diff_distance),
+       mu = MU) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2) 
+
+kable(t_test_all_text)
+
+glue("$M$ = {lang_means_all_text$mean}, $SD$ = {lang_means_all_text$sd}; $t$({t_test_all_text$parameter}) = {t_test_all_text$statistic}, $p$ $<$ .00001")
+```
+
+#####  Testing for normality: Kolmogorov-Smirnov test.
+
+Null hypothesis: test distribution is normal
+```{r}
+ks.test(language_means$same_diff_distance, "pnorm", 
+        mean=mean(language_means$same_diff_distance), 
+        sd=sd(language_means$same_diff_distance))
+```
+
+##### Non-parameteric t-test: Wilcoxon signed-rank test
+null hypothesis: two means the same
+
+```{r}
+wilcox.test(language_means$same_diff_distance, mu = MU)
+```
+
+
+### Low vs.high
+```{r paths}
+DISTANCE_INFILE <- here("analyses/01_distinctiveness/data/sampled_essay_distances_high_low.csv")
+FIG_PATH <- here("analyses/01_distinctiveness/results/distinctiveness_fig.pdf")
+```
+
+Main plot
+```{r, fig.width = 10}
+
+mean_language_distances <- read_csv(DISTANCE_INFILE,
+                                         col_names = c("language", "score_group", "distance_type", "distance", "n", "sample_id"))  
+
+dists_wide <- mean_language_distances %>%
+  select(-n) %>%
+  group_by(score_group) %>%
+  spread(distance_type, distance) %>%
+  mutate(same_diff_distance = same_language/diff_language) %>%
+  select(-diff_language, -same_language)
+
+lang_means <- dists_wide %>%
+  group_by(language, score_group) %>%
+  tidyboot_mean(column = same_diff_distance, nboot = 1000)
+
+main_plot <- lang_means %>%
+  left_join(langs_clean %>% 
+            mutate(ETS_lang_name = toupper(ETS_lang_name)), 
+          by = c("language" = "ETS_lang_name")) %>%
+  ggplot(aes(x = lang_name3, y = mean - 1, group = score_group, fill = score_group))   +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_linerange(aes(ymin = ci_lower - 1, ymax = ci_upper - 1),
+                 position = position_dodge(width = 1)) +
+  scale_y_continuous(name = "Semantic Distinctiveness \n(between / within cosine distance)",
+                     breaks = c(0, .2, .4, .6), 
+                     labels = c("1.0", "1.2", "1.4", "1.6"),
+                     limits = c(0, .6)) + # rescale so y-axis starts at 1
+  scale_fill_manual(values = c( "#fb9a99", "#a6cee3"), name = "Essay Score") + 
+  xlab("Language") +
+  theme_classic(base_size = 20) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        legend.position = c(.1, 0.8),
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.background = element_blank())
+```
+
+Histogram inset
+```{r}
+inset_plot <- ggplot(meta_data, aes(x = score)) +
+  geom_histogram(binwidth = 1) +
+  xlab("Essay Score") +
+  ylab("N Essays") +
+  theme_classic(base_size = 10) 
+```
+
+```{r}
+plot_with_inset <-
+  ggdraw() +
+  draw_plot(main_plot) +
+  draw_plot(inset_plot, x = 0.83, y = .75, width = .14, height = .2)
+
+plot_with_inset
+```
+
+```{r paper_fig, eval = F}
+pdf(FIG_PATH, width = 14)
+plot_with_inset
+dev.off()
+```
+
+#### Stats
+
+##### Descriptives
+```{r}
+language_means_hl <- dists_wide %>%
+  group_by(language, score_group) %>%
+  summarize(same_diff_distance = mean(same_diff_distance)) %>%
+  mutate(score_group = fct_rev(score_group))
+
+language_means_hl_text <- language_means_hl %>%
+  group_by(score_group) %>%
+  summarize(mean = mean(same_diff_distance),
+            sd = sd(same_diff_distance)) %>%
+  mutate_if(is.numeric, round, 2) 
+
+kable(language_means_hl_text)
+```
+
+##### paired t-tests: For each language pair is low > high?
+```{r}
+t_test_hl_text <- t.test(same_diff_distance ~ score_group, 
+       data = language_means_hl, paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2) 
+
+kable(t_test_hl_text)
+
+glue("$M$ = {language_means_hl_text %>% filter(score_group == 'low') %>% pull(mean)}, $SD$ = {language_means_hl_text %>% filter(score_group == 'low') %>% pull(sd)}") 
+
+glue("$M$ = {language_means_hl_text %>% filter(score_group == 'high') %>% pull(mean)}, $SD$ = {language_means_hl_text %>% filter(score_group == 'high') %>% pull(sd)}; $t$({t_test_hl_text$parameter}) = {t_test_hl_text$statistic}, $p$ $<$ .001")
+
+```
+
+#####  Testing for normality: Kolmogorov-Smirnov test.
+
+Null hypothesis: test distribution is normal
+```{r}
+low_data <- language_means_hl %>%
+  filter(score_group == "low") %>%
+  pull(same_diff_distance)
+
+high_data <- language_means_hl %>%
+  filter(score_group == "high") %>%
+  pull(same_diff_distance)
+  
+ks.test(low_data, "pnorm", mean=mean(low_data), sd=sd(low_data))
+ks.test(high_data, "pnorm", mean=mean(high_data), sd=sd(high_data))
+```
+
+##### Non-parameteric t-test: Wilcoxin signed-rank test
+null hypothesis: two samples come from same distribution
+
+```{r}
+wilcox.test(low_data, high_data, paired=TRUE)
+```

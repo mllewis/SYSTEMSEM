@@ -1,0 +1,36 @@
+ETS_code,ETS_language_name,EA_language_Name,EA_language_Name2,in_cultural_dataset,closest_code,distant_code,notes
+GER,German,,,N,,,
+GRE,Greek,Modern Greek,Modern Greek,N,,,
+ITA,Italian,Continental Southern Italian,Continental Southern Italian,N,,,
+POR,Portuguese,Brazilian Portuguese,Brazilian Portuguese,N,,,
+RUM,Romanian,,,N,,,
+FAS,Farsi/Persian,,,N,,,
+HIN,Hindi,Gujarati,Gujarati,M,,Gujarati,both indo-aryan
+MAR,Marathi ,Gujarati,Gujarati,M,,Gujarati,both indo-aryan
+URD,Urdu,Gujarati,Gujarati,M,,Gujarati,both indo-aryan
+POL,Polish,Bulgarian,Bulgarian,M,,Bulgarian,Bulgarian - both Slavic
+KAN,Kannada,Tamil,Tamil,Y,Tamil,,very closely related
+GUJ,Gujarati,Gujarati,Gujarati,Y,,,
+PAN,Punjabi/Panjabi,Eastern Panjabi,Eastern Punjabi,Y,,,
+TEL,Telugu,Telugu,Telugu,Y,,,
+IBO,Igbo,Igbo,Igbo,Y,,,
+NEP,Nepalese,Tibetan,Tibetan,Y,Tibetan,,Tibetan- both spoekn in nepal
+TGL,Tagalog,Cebuano,Cebuano,Y,Cebuano,,overlap in philipenes (Cebuano)
+YOR,Yoruba,Ila (Yoruba),Ila (Yoruba),Y,,,
+IND,Indonesian,Colloquial Malay,Malay,Y,Malay,,same
+BEN,Bengali,Bengali,Bengali,Y,,,
+BUL,Bulgarian,Bulgarian,Bulgarian,Y,,,
+ARA,Arabic,Egyptian Arabic,Egyptian Arabic,Y,,,
+CHI,Chinese,Mandarin Chinese,Chinese,Y,,,
+DUT,Dutch,Dutch,Dutch,Y,,,
+ENG,English,English,English,Y,,,
+FRE,French,French,French,Y,,,
+JPN,Japanese,Japanese,Japanese,Y,,,
+KOR,Korean,Korean,Korean,Y,,,
+MAL,Malayalam,Malayalam,Malayalam,Y,,,
+RUS,Russian,Russian,Russian,Y,,,
+SPA,Spanish,Spanish,Spanish,Y,,,
+TAM,Tamil,Tamil,Tamil,Y,,,
+THA,Thai,Thai,Thai,Y,,,
+TUR,Turkish,Turkish,Turkish,Y,,,
+VIE,Vietnamese,Vietnamese,Vietnamese,Y,,,

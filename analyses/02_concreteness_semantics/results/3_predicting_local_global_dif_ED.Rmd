@@ -1,0 +1,194 @@
+---
+title: "Predicting local-global difference"
+subtitle: 
+author: "Molly Lewis"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(here)
+library(janitor)
+library(broom)
+library(langcog)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+with mean cluster concreteness
+
+### 10 cluster solutions
+
+```{r}
+BRYSBAERT_PATH <- here("analyses/02_concreteness_semantics/data/brysbaert_corpus.csv")
+CLUSTER_ETS <- here("analyses/02_concreteness_semantics/data/ets/target_word_cluster_assignments_ets.csv")
+ETS_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/ets/lang_pairwise_semantics_correlations_ets_by_cluster.csv")
+
+CLUSTER_WIKI <- here("analyses/02_concreteness_semantics/data/wiki/target_word_cluster_assignments.csv")
+WIKI_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/wiki/lang_pairwise_semantics_correlations_wiki_by_cluster.csv")
+
+brysbaert_norms <- read_csv(BRYSBAERT_PATH) %>%
+  clean_names() %>%
+  select(word, conc_m) %>%
+  filter(!is.na(word))
+
+# 10 clusters
+cluster_assignments_raw_ets <- read_csv(CLUSTER_ETS) %>%
+  mutate(corpus = "TOEFL")
+cluster_assignments_raw_wiki <- read_csv(CLUSTER_WIKI) %>%
+  mutate(corpus = "Wikipedia")
+
+mean_conc_by_cluster <- bind_rows(cluster_assignments_raw_ets, cluster_assignments_raw_wiki)  %>%
+  mutate(cluster = as.numeric(as.character(cluster))) %>%
+  left_join(brysbaert_norms) %>%
+  group_by(cluster, corpus) %>%
+  multi_boot_standard(col = "conc_m") %>%
+  arrange(corpus, mean)
+
+cluster_ets <-  read_csv(ETS_CLUSTER_CORR_PATH,
+                         col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  mutate(corpus = "TOEFL")
+
+cluster_wiki <- read_csv(WIKI_CLUSTER_CORR_PATH,
+                         col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  distinct() %>%
+  mutate(corpus = "Wikipedia")
+
+cluster_pair_means <- cluster_ets %>%
+  bind_rows(cluster_wiki) %>%
+  group_by(corpus, cluster1, cluster2) %>% # aggregate across languages
+  summarize(cor = mean(cor, na.rm = T))
+
+full_cluster_pair_means <- cluster_pair_means %>%
+  bind_rows(data.frame(corpus = cluster_pair_means$corpus,
+                       cluster2 = cluster_pair_means$cluster1,
+                       cluster1 = cluster_pair_means$cluster2,
+                       cor = cluster_pair_means$cor)) %>%
+  mutate(same = case_when(cluster1 == cluster2 ~ "Local", TRUE ~ "Global")) %>%
+  distinct()
+
+df <- full_cluster_pair_means %>%
+  group_by(corpus, cluster1, same) %>%
+  multi_boot_standard(col = "cor") %>%
+  ungroup()  %>%
+  mutate(same = fct_rev(same))
+
+df_segment <- df %>%
+  select(corpus, cluster1, same, mean) %>%
+  spread(same, mean)  %>%
+  mutate(dif = Local-Global) %>%
+  arrange(corpus, dif) %>%
+  select(corpus, cluster1, dif) %>%
+  rename(cluster = cluster1)
+```
+
+
+Local global diff as a function of cluster concreteness: 
+```{r}
+full_join(df_segment, mean_conc_by_cluster) %>%
+  ggplot(aes(x = mean, y = dif)) +
+  xlab("Mean concreteness") +
+  ylab("Local-Global difference") +
+  geom_point() +
+  geom_errorbarh(aes(xmin = ci_lower, xmax = ci_upper)) +
+  geom_smooth(method = "lm") +
+  facet_wrap(~corpus) +
+  theme_classic()
+```
+
+
+### 250 cluster solutions
+
+```{r}
+CLUSTER_ETS_ALL <- here("analyses/02_concreteness_semantics/data/ets/target_word_cluster_assignments_ets_all.csv")
+ETS_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/ets/mean_cluster_corrs/")
+
+
+CLUSTER_WIKI_ALL <- here("analyses/02_concreteness_semantics/data/wiki/target_word_cluster_assignments_all.csv")
+WIKI_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/wiki/mean_cluster_corrs_250/")
+
+# get cluster concreteness
+cluster_assignments_raw_ets_all <- read_csv(CLUSTER_ETS_ALL) %>%
+  mutate(word = tolower(word),
+         corpus = "TOEFL") %>%
+  rename(nclusters = n_clusters) %>%
+  filter(nclusters == 250)
+
+
+cluster_assignments_raw_wiki_all <- read_csv(CLUSTER_WIKI_ALL, col_names = c("word", "cluster", "n_clusters")) %>%
+  mutate(word = tolower(word),
+         corpus = "Wikipedia") %>%
+  rename(nclusters = n_clusters) %>%
+  filter(nclusters == 250)
+
+mean_conc_by_cluster <- cluster_assignments_raw_ets_all %>%
+  bind_rows(cluster_assignments_raw_wiki_all) %>%
+  left_join(brysbaert_norms) %>%
+  group_by(corpus, nclusters, cluster) %>%
+  multi_boot_standard(col = "conc_m")
+
+# get local-global difference by cluster
+cluster_ets <- map_df(list.files(ETS_CLUSTER_CORR_PATH, full.names = T),
+                      ~read_csv(., 
+                                col_names = c("cluster", "same", "cor", "sd", "n", "lang1", "lang2",
+                                                 "nclusters"))) %>%
+  filter(!is.na(cor))
+
+cluster_pair_means_ets <- cluster_ets %>%
+  filter(nclusters == 250) %>%
+  select(nclusters, cluster, same, cor, lang1, lang2) %>%
+  pivot_wider(names_from = "same", values_from = "cor") %>%
+  mutate(dif = local- global,
+         corpus = "TOEFL") %>%
+  group_by(corpus, nclusters, cluster) %>%
+  summarize(mean_dif = mean(dif, na.rm = T))
+
+cluster_wiki <- map_df(list.files(WIKI_CLUSTER_CORR_PATH, full.names = T),
+                      ~read_csv(., 
+                                col_names = c("nclusters",  "same", "cluster", "cor",  "n", "lang1", "lang2"))) %>%
+  filter(!is.na(cor))
+
+cluster_pair_means_wiki <- cluster_wiki %>%
+  select(nclusters, cluster, same, cor, lang1, lang2) %>%
+  pivot_wider(names_from = "same", values_from = "cor") %>%
+  mutate(dif = local-global,
+              corpus = "Wikipedia") %>%
+  group_by(corpus, nclusters, cluster) %>%
+  summarize(mean_dif = mean(dif, na.rm = T))
+
+
+all_data <- bind_rows(cluster_pair_means_wiki, cluster_pair_means_ets) %>%
+  full_join(mean_conc_by_cluster, by = c("corpus", "nclusters", "cluster")) 
+```
+
+```{r}
+p1 <- all_data %>%
+  ggplot(aes(x = mean, y = mean_dif)) +
+  xlab("Mean Cluster Concreteness") +
+  facet_wrap(~corpus) +
+  ylab("Local-Global Difference in\nCross-linguistic Word Distance Correlation") +
+  geom_point(alpha = .2) +
+  geom_smooth(method = "lm", color = "black") +
+  theme_classic()
+
+p1 
+full_width = 7.08661
+pdf("figs/local_global_concreteness_semantics_plot.pdf", width = full_width, height  = 3.7)
+p1
+dev.off()
+
+```
+
+note that higher variability here relative to other plots is due to different methods of aggregating.  ETS seems to have more variability across clusters; whereas wiki has more variability across language pairs.

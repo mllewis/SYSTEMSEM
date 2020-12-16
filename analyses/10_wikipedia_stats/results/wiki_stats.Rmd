@@ -1,0 +1,123 @@
+---
+title: Wikipedia stats
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    number_sections: no
+    code_folding: hide
+    toc: no
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(here)
+library(janitor)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+
+```{r}
+PAGEVIEWS_PATH <- here("analyses/10_wikipedia_stats/data/processed/page_views_by_language.csv")
+PRODUCITIVY_PATH <- here("analyses/10_wikipedia_stats/data/raw/wiki_productivity.csv")
+NARTICLES_PATH <- here("analyses/10_wikipedia_stats/data/raw/num_articles.tsv")
+LANG_NAMES <- here('analyses/04_predicting_semantic_sim/data/lang_distance_metrics/linguistic/data/iso_to_wals_for_ling_dists.csv')
+
+WIKI_LANGS <- c("ar", "bn", "bg", "zh", "nl", "en", "fr", "de", "el", "gu", "hi", "ig", "id", "it", "ja", "kn", "ko",
+                  "ml", "mr", "ne", "pa", "pl", "pt", "ro", "ru", "es", "tl", "ta", "te", "th", "tr", "ur", "vi", "yo",
+                  "fa")
+
+
+narticles <- read_tsv(NARTICLES_PATH) %>%
+  clean_names() %>%
+  select(language, wiki, articles, speakers, admins, active_users, 
+         percent_of_admins, depth, speakers_article) %>%
+  mutate(speakers = as.numeric(str_remove_all(speakers, ","))) %>%
+  filter(wiki %in% WIKI_LANGS) 
+
+productivity <- read_csv(PRODUCITIVY_PATH) %>%
+  select(2,3)
+
+page_views <- read_csv(PAGEVIEWS_PATH)
+```
+
+```{r}
+
+
+all_measures <- narticles %>%
+  full_join(productivity, by = "wiki") %>%
+  full_join(page_views, by = "wiki") %>%
+  filter(!is.na(iso)) %>%
+  select(-iso) %>%
+  select(-speakers_article, -percent_of_admins) %>%
+  mutate(prop_articles = log(articles)/log(speakers_l1))
+  
+
+```
+
+```{r}
+
+get_simple_correlation <- function(m1, m2, df){
+  cor_model <- cor.test(df[,m1] %>% unlist(use.names = F),
+           df[,m2] %>% unlist(use.names = F))
+
+  tibble(measure1 = m1,
+         measure2 = m2,
+         simple_cor = cor_model$estimate,
+         simple_p =  cor_model$p.value)
+}
+
+measures <- cross_df(data.frame(measure1 = names(all_measures)[3:13],
+                                measure2 = names(all_measures)[3:13])) %>%
+  mutate_all(as.character) %>%
+  filter(measure1 != measure2)
+
+# get cors
+all_corrs_table <- map2_df(measures$measure1, measures$measure2,
+                  get_simple_correlation, all_measures) %>%
+  mutate(sig = simple_p < .05,
+         simple_cor = round(simple_cor, 2),
+         cor_text = case_when(sig ~ paste0(simple_cor, "*"),
+                              TRUE ~ as.character(simple_cor)))
+
+```
+
+```{r}
+table <- all_corrs_table %>%
+  select(measure1, measure2, cor_text) %>%
+  spread(measure2, cor_text) %>%
+  mutate(
+         measure1 = fct_relevel(measure1, "speakers", "speakers_l1",  "articles",
+                                "active_users", "total_requests",  "admins", "depth", "prop_articles",  "productivity", "prop_requests")) %>%
+  select("measure1", "speakers", "speakers_l1",  "articles",
+                                "active_users", "total_requests",  "admins", "depth", "prop_articles",  "productivity", "prop_requests") %>%
+    arrange(measure1) 
+
+kable(table)
+```
+
+Data sources:
+
+1. [Wikipedia speakers per article table](https://meta.wikimedia.org/wiki/List_of_Wikipedias_by_speakers_per_article), 2015
+2. [Wikpedia productivity table](https://en.wikipedia.org/wiki/Wikipedia:Productivity_of_Wikipedia_Authors), 2005
+3. [Pageview data](https://wikitech.wikimedia.org/wiki/Analytics/Archive/Data/Pagecounts-raw), page views for 24 hour period in 2016 (August 1)
+4. [L1 speaker data](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2014.1574), Amano et al, 2014, derived from Ethnologue, 2009
+
+Variables: 
+
+* speakers - number of L1 and L2 speakers (2), from Ethnologue
+* speakers_l1 - total number of L1 speakers (4)
+* articles - number of articles (1)
+* active_users - registered users who have performed an action in the last 30 days (1)
+* total_requests - number of desktop page views by language for single day (3)
+* admins -  number of administrators (1)
+* depth - [measure of collaborative quality, indexing frequency that articles are updated](edia.org/wiki/Wikipedia_article_depth) (1)
+* prop_articles - log number of articles / log speakers l1  (1, 4)
+* productivity - number of articles in a language compared to the number of potential authors. To be a potential author, at least two requirements must be fulfilled: command of language, and access to internet (2)
+* prop_requests - log total requests / log speakers l1 (3,4)

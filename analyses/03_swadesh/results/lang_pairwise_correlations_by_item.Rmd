@@ -1,0 +1,258 @@
+---
+title: Language pairwise swadesh distance correlations
+subtitle: by item
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: yes
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(broom)
+library(here)
+library(feather)
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+## Descriptive stats
+Mean and variable of word-pairwise distances
+```{r}
+all_dists <- map_df(fs::dir_ls("/Volumes/wilbur_the_great/pairwise_swadesh_words/"), read_feather)
+
+all_dists %>%
+  drop_na() %>%
+  filter(word1 < word2)  %>%
+  summarize(mean = mean(cos_dist),
+            sd = sd(cos_dist)) %>%
+  kable()
+
+
+all_dists %>%
+  drop_na() %>%
+  group_by(word1, lang) %>%
+  summarize(mean = mean(cos_dist)) %>%
+  group_by(word1) %>%
+  summarize(mean1 = mean(mean),
+            sd = sd(mean)) %>%
+  ungroup() %>%
+    summarize(mean1 = mean(mean1),
+            sd = mean(sd)) 
+```
+
+## Physical distance{.tabset}
+```{r}
+PAIRWISE_WORD_DIST_CORRS <- here("analyses/03_swadesh/data/language_pairwise_swadesh_correlations_by_item.csv")
+PAIRWISE_LANG_DISTS <- here("analyses/04_predicting_semantic_sim/data/lang_distance_metrics/physical/data/physical_language_distance.csv")
+
+FIG_MAIN_PATH <- here("analyses/03_swadesh/results/swadesh_main_fig.pdf")
+FIG_ED_PATH <- here("analyses/03_swadesh/results/swadesh_ed_fig.pdf")
+
+```
+
+```{r}
+corr_df <- read_csv(PAIRWISE_WORD_DIST_CORRS)  
+pairwise_physical_dists <- read_csv(PAIRWISE_LANG_DISTS)  %>%
+    filter(lang1 != lang2)
+corr_geo <- full_join(corr_df, pairwise_physical_dists)  
+```
+
+```{r}
+corr_df %>%
+  drop_na() %>%
+  #group_by(word) %>%
+  #summarize(word_cor = mean(cor)) %>%
+  #ungroup() %>%
+  summarize(mean = mean(cor),
+            sd = sd(cor))
+
+```
+
+### Plots
+```{r}
+item_corr_values <- corr_geo %>%
+  filter(lang1  < lang2)  %>%
+  group_by(word) %>%
+  nest() %>%
+  mutate(corr_value = map_dbl(data, ~cor(.x$cor, .$physical_dist, use="complete")),
+         corr_text = paste0("r = ", round(corr_value, 2))) %>%
+  select(-data)
+
+faceted_plot <- corr_geo %>%
+  filter(lang1  < lang2) %>%
+  left_join(item_corr_values) %>%
+  mutate(item = fct_reorder(word, corr_value)) %>%
+  ggplot(aes(y = cor, x = physical_dist)) +
+  facet_wrap(~fct_reorder(word, corr_value)) +
+  geom_point(size = .1, alpha = .5) +
+  geom_smooth(aes(color = word), se = F, method = "lm") +
+  geom_text(data = item_corr_values, aes(x = 8000000, y = -.5,  label = corr_text), color = "red", size = 3) +
+  ylab("Pairwise Word Correlation across Languages \n(Pearson's r)") +
+  xlab("Distance (meters in millions)") +
+  scale_x_continuous(breaks = c(0, 3000000, 6000000, 9000000, 12000000),
+                     labels = c("0", "3", "6", "9", "12")) +
+  theme_classic() +
+  theme(legend.position = "none")
+faceted_plot
+```
+
+```{r, eval = F}
+pdf(FIG_ED_PATH, width = 6, height = 6)
+faceted_plot
+dev.off()
+```
+
+```{r}
+paper_plot <- corr_geo %>%
+  filter(lang1 < lang2) %>%
+  ggplot(aes(y = cor, x = physical_dist)) +
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  xlab("Distance (meters)") +
+  geom_line(aes(color = word), stat = "smooth", method = "lm",
+              size = .9,
+              alpha = 0.5) + # geom_line here is used so can se alpha
+  geom_smooth(method = "lm", size = 1.5, color = "black", alpha = .9) +
+ # xlim(0, 1.65 * 10000000) +
+  scale_color_discrete(name = "Swadesh word") +
+   theme_classic(base_size = 18)  +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1)) +
+  guides(color = guide_legend(override.aes = list(size = 2))) 
+#  ggrepel::geom_text_repel(data = label_data, aes(label = item, x = x_val, y = r,  color = item), segment.color = "grey", size = 6, xlim = c((1.3 * 10000000), (1.7 * 10000000)))
+paper_plot
+```
+
+```{r, eval = F}
+pdf(FIG_MAIN_PATH, height = 4.7, width = 8)
+paper_plot
+dev.off()
+```
+
+### Descriptive stats
+```{r}
+corr_geo %>%
+  filter(lang1 < lang2) %>%
+  summarize(mean = mean(cor, na.rm = T),
+            sd = sd(cor, na.rm = T)) %>%
+  kable()
+```
+
+### QAP p-values
+```{r}
+QAP_MODEL_PARAMETERS_SWADESH <- here("analyses/03_swadesh/data/item_qap_p_values_physical.csv")
+swadesh_qaps_physical <- read_csv(QAP_MODEL_PARAMETERS_SWADESH) 
+
+swadesh_qaps_physical %>%
+  arrange(-abs(estimate)) %>%
+  mutate(sig_p = qap_p < .01) %>%
+  kable()
+  
+swadesh_qaps_physical %>%
+  mutate(sig_p = qap_p < .01)  %>%
+  group_by(sig_p) %>%
+  summarize(n = n()) %>%
+  mutate(total = sum(n)) %>%
+  kable()
+  
+```
+
+## Eco distance{.tabset}
+```{r}
+LANG_NAME_PATH <- here("data/processed/lang_names/ets_to_google_langcodes_complete.csv")
+
+PAIRWISE_LANG_DISTS <- here("analyses/04_predicting_semantic_sim/data/lang_distance_metrics/ecological/data/eco_language_distance.csv")
+```
+
+```{r}
+lang_names <- read_csv(LANG_NAME_PATH) %>%
+  select(ETS_lang_name, google_lang_name) %>%
+  rename(lang1_ETS = ETS_lang_name,
+         lang1 = google_lang_name) %>%
+  mutate(lang2_ETS = lang1_ETS,
+         lang2 = lang1)
+
+pairwise_eco_dists <- read_csv(PAIRWISE_LANG_DISTS)  %>%
+  left_join(lang_names %>% select(contains("1"))) %>%
+  left_join(lang_names %>% select(contains("2"))) %>%
+  filter(lang1 != lang2)
+
+corr_eco <- full_join(corr_df, pairwise_eco_dists)   %>%
+  left_join(pairwise_physical_dists)
+
+lm(cor ~ eco_dist + physical_dist, data = corr_eco) %>%
+  summary()
+
+item_corr_values <- corr_eco %>%
+  filter(lang1  < lang2)  %>%
+  group_by(word) %>%
+  nest() %>%
+  mutate(corr_value = map(data, ~lm(cor ~ eco_dist + physical_dist, data = .) %>% tidy())) %>%
+  select(-data) %>%
+  unnest() %>%
+  filter(term != "(Intercept)") %>%
+  mutate(sig = p.value < .05)
+
+```
+
+### Plots
+
+
+```{r}
+paper_plot <- corr_eco %>%
+  filter(lang1 < lang2) %>%
+  ggplot(aes(y = cor, x = eco_dist)) +
+  ylab("Pairwise Word Correlation across Languages \n(Pearson's r)") +
+  xlab("Distance (meters)") +
+  geom_line(aes(color = word), stat = "smooth", method = "lm",
+              size = .9,
+              alpha = 0.5) + # geom_line here is used so can se alpha
+  geom_smooth(method = "lm", size = 1.5, color = "black", alpha = .9) +
+ # xlim(0, 1.65 * 10000000) +
+  scale_color_discrete(name = "Swadesh word") +
+   theme_classic(base_size = 20)  +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1)) +
+  guides(color = guide_legend(override.aes = list(size = 2))) 
+#  ggrepel::geom_text_repel(data = label_data, aes(label = item, x = x_val, y = r,  color = item), segment.color = "grey", size = 6, xlim = c((1.3 * 10000000), (1.7 * 10000000)))
+paper_plot
+```
+
+
+### Descriptive stats
+```{r}
+corr_eco %>%
+  filter(lang1 < lang2) %>%
+  summarize(mean = mean(cor, na.rm = T),
+            sd = sd(cor, na.rm = T)) %>%
+  kable()
+```
+
+### QAP p-values
+```{r}
+QAP_MODEL_PARAMETERS_SWADESH_ECO <- here("analyses/03_swadesh/data/item_qap_p_values_eco.csv")
+swadesh_qaps_eco <- read_csv(QAP_MODEL_PARAMETERS_SWADESH_ECO) 
+
+swadesh_qaps_eco %>%
+  arrange(-abs(estimate)) %>%
+  mutate(sig_p = qap_p < .01) %>%
+  kable()
+
+swadesh_qaps_eco %>%
+  mutate(sig_p = qap_p < .01)  %>%
+  group_by(sig_p) %>%
+  summarize(n = n()) %>%
+  mutate(total = sum(n)) %>%
+  kable()
+  
+```
+

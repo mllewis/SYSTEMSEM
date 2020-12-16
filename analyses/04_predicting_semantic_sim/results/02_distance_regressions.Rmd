@@ -1,0 +1,126 @@
+---
+title: Language distance QAP regressions
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    code_folding: hide
+    number_sections: no
+    toc: yes
+---
+  
+******
+
+```{r setup, include = F}
+
+# load packages
+library(rmarkdown)
+library(knitr)
+library(tidyverse)
+library(broom)
+library(here)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+```{r}
+MODEL_PARAMS <- here("analyses/04_predicting_semantic_sim/data/model_params.csv")
+model_params <- read_csv(MODEL_PARAMS)  
+```
+
+
+## Regression without culture
+
+```{r}
+reggression_plot_with_no_cult <- model_params %>%
+  filter(model_type  == "without culture") %>%
+  ggplot(aes(x = fct_reorder(term, -estimate), color = model, y = estimate, 
+                       ymin = ci_lower, ymax = ci_upper, group = model)) +
+  geom_pointrange(size = 2) +
+  scale_color_manual(values = c("grey", "red")) +
+  geom_line(data = model_params %>% filter(model == "full", model_type  == "without culture"), 
+            aes(x = fct_reorder(term, -estimate), y = estimate, group = model), color = "grey", size = 2) +
+  coord_flip() +
+  geom_hline(aes(yintercept = 0), linetype = 2) +
+  theme_classic(base_size = 20) +
+  theme_classic(base_size = 20) +
+  xlab("Predictor")+
+  ylab("Estimate") +
+  theme(legend.position = "none",
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1))
+
+reggression_plot_with_no_cult
+```
+
+```{r, eval = F}
+REGRESSION_WITH_NO_CULT_PATH <- here("analyses/04_predicting_semantic_sim/results/distance_regression_with_no_cult_fig.pdf")
+
+# plot
+pdf(REGRESSION_WITH_NO_CULT_PATH, height = 5)
+reggression_plot_with_no_cult
+dev.off()
+```
+
+## Regression with culture
+```{r}
+reggression_plot_with_cult <- model_params %>%
+  filter(model_type  == "with culture") %>%
+  ggplot(aes(x = fct_reorder(term, -estimate), color = model, y = estimate, 
+                       ymin = ci_lower, ymax = ci_upper, group = model)) +
+  geom_pointrange(size = 2) +
+  scale_color_manual(values = c("grey", "red")) +
+  geom_line(data = model_params %>% filter(model == "full", model_type  == "with culture"), 
+            aes(x = fct_reorder(term, -estimate), y = estimate, group = model), color = "grey", size = 2) +
+  coord_flip() +
+  geom_hline(aes(yintercept = 0), linetype = 2) +
+  theme_classic(base_size = 20) +
+  xlab("Predictor")+
+  ylab("Estimate") +
+  theme(legend.position = "none",
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1))
+reggression_plot_with_cult
+```
+
+```{r, eval = F}
+REGRESSION_WITH_CULT_PATH <- here("analyses/04_predicting_semantic_sim/results/distance_regression_with_cult_fig.pdf")
+
+# plot
+pdf(REGRESSION_WITH_CULT_PATH)
+reggression_plot_with_cult
+dev.off()
+```
+
+
+## Regression with individual cultural predictors
+
+```{r}
+# plot
+reggression_plot_cultural_predictors <- model_params %>%
+  filter(model_type  == "individual cultural predictors") %>%
+  ggplot(aes(x = fct_reorder(term, -estimate), color = model, y = estimate, 
+                       ymin = ci_lower, ymax = ci_upper, group = model)) +
+  geom_pointrange(size = 1) +
+  scale_color_manual(values = c("red")) +
+ #geom_hline(aes(yintercept = 0), linetype = 2) +
+  theme_classic(base_size = 20) +
+  xlab("Cultural Predictor")+
+  ylab("Estimate") +
+  theme(legend.position = "none",
+        axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+
+reggression_plot_cultural_predictors
+```
+
+```{r, eval = F}
+REGRESSION_CULTURAL_PREDICTORS <- here("analyses/04_predicting_semantic_sim/results/distance_regression_cultural_predictors_fig.pdf")
+
+# plot
+pdf(REGRESSION_CULTURAL_PREDICTORS,  width = 8, height = 6)
+reggression_plot_cultural_predictors
+dev.off()
+```

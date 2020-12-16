@@ -1,0 +1,83 @@
+---
+title: Concreteness decile analysis - Random
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: yes
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(corrr)
+library(ggridges)
+library(cowplot)
+library(broom)
+library(psych)
+library(here)
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+### Concrentess and similarity
+
+```{r}
+ETS_RANDOM_PATH <-  here("analyses/06_random_control/data/lang_pairwise_tile_correlations_random_ets_decile.csv")
+PLOT_PATH <- here("analyses/06_random_control/results/concreteness_plot_random.pdf")
+```
+
+```{r}
+conc_corr_random <- read_csv(ETS_RANDOM_PATH,
+                      col_names = c("tile1", "tile2", "corr", "lang1", "lang2"))  %>%
+  mutate(corpus = "random")
+```
+
+
+```{r, fig.width = 10}
+## Within deciles
+conc_corr_ms_same <- conc_corr_random %>%
+  group_by(tile1, tile2, corpus) %>%
+  multi_boot_standard(col = "corr") %>%
+  ungroup() %>%
+  filter(tile2 == tile1) 
+
+fig <- ggplot(conc_corr_ms_same, aes(x = tile2, y = mean,
+                         line_type = corpus, group = corpus, color = tile2)) +
+  geom_smooth(method = "lm", alpha = .2, color = "black") +
+  geom_pointrange(aes(ymin = ci_lower, max = ci_upper, shape = rev(corpus)), size = .7, alpha = .7)  +
+  scale_x_continuous(breaks = 1:10) +
+  viridis::scale_color_viridis(option = "plasma", begin = 1, end = 0, 
+                       #guide = guide_legend(nrow = 0)) +
+                       guide =FALSE) +
+
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+ # ggtitle("Within Concreteness Deciles") + 
+  #scale_y_continuous(position = "right", limits = c(.14, .52)) +
+  xlab("Concreteness Decile") +
+  theme_classic(base_size = 20)  +
+  guides(shape=guide_legend(title="Corpus")) +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.position = "none")
+fig
+```
+
+
+```{r eval = F}
+pdf(PLOT_PATH)
+fig
+dev.off()
+```
+
+```{r}
+cor.test(conc_corr_ms_same$tile1, conc_corr_ms_same$mean) %>%
+  tidy() %>%
+  kable()
+
+```

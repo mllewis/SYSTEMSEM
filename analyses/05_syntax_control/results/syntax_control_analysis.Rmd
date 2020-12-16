@@ -1,0 +1,62 @@
+---
+title: Syntax Control Analysis
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    code_folding: hide
+    number_sections: no
+    toc: yes
+---
+  
+******
+
+```{r setup, include = F}
+
+# load packages
+library(rmarkdown)
+library(knitr)
+library(tidyverse)
+library(tidyboot)
+library(here)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+```{r}
+LANG_PAIR_CORR_PATH <- here("analyses/05_syntax_control/data/lang_pairwise_correlations_by_syntactic_word_type.csv")
+PLOT_PATH <- here("analyses/05_syntax_control/results/syntax_control_hist.pdf")
+```
+
+```{r}
+
+corr_df <- read_csv(LANG_PAIR_CORR_PATH,
+                    col_names = c('lang1', "lang2", "test_group", "word_type", "cor")) %>%
+  filter(lang1 != lang2)
+
+dist_means <- corr_df %>%
+  group_by(word_type, test_group) %>%
+  tidyboot_mean(col = cor)
+
+histogram_plot <- ggplot(corr_df, aes(x = cor, fill = word_type)) +
+  geom_histogram(alpha = .7, binwidth = .02) +
+  #geom_errorbarh(data = dist_means, aes(x = mean, y = 1, xmin = ci_lower, xmax = ci_upper)) +
+  geom_vline(data = dist_means, aes(xintercept = mean), linetype = 2, size = .6) +
+  geom_rect(data = dist_means, aes(xmin = ci_lower, xmax = ci_upper, ymin = -Inf, ymax = Inf), 
+            fill = "black", alpha = 0.3, inherit.aes = FALSE) +
+
+  facet_grid(test_group ~ .) +
+  ylab("Count (Language Pairs)") +
+  xlab("Cross-linguistic\n Word Distance Correlation") +
+  theme_classic(base_size = 20) +
+  labs(fill = "Word Type")
+
+histogram_plot
+```
+
+```{r eval = F}
+pdf(PLOT_PATH, width = 11, height = 8)
+histogram_plot
+dev.off()
+```

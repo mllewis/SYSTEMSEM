@@ -1,0 +1,52 @@
+---
+title: Frequency control analysis (ETS)
+subtitle: 
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(here)
+library(psych)
+library(broom)
+
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+```{r}
+FREQ_SUMMARY <- here("analyses/07_frequency_control/data/freq_by_ets_decile.csv")
+PLOT_PATH <- here("analyses/07_frequency_control/results/conc_freq_control.pdf")
+
+tiles_by_frequency <- read_csv(FREQ_SUMMARY)
+
+fig <- ggplot(tiles_by_frequency, aes(x = conc_tile, y = mean)) +
+  geom_pointrange(aes(ymin = ci_lower, ymax = ci_upper), size =1) +
+  ylab("Log word frequency") +
+  xlab("Concreteness Decile") +
+  scale_x_continuous(breaks = 1:10) +
+  theme_classic(base_size = 18)
+
+fig
+```
+
+
+```{r eval = F}
+pdf(PLOT_PATH, width = 7, height = 5)
+fig
+dev.off()
+```

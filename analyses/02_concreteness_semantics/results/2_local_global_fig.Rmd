@@ -1,0 +1,406 @@
+---
+title: Semantics by clusters correlations  
+subtitle: 
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(langcog)
+library(here)
+library(psych)
+library(cowplot)
+library(glue)
+library(broom)
+library(compute.es)
+
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+
+```{r}
+ETS_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/ets/lang_pairwise_semantics_correlations_ets_by_cluster.csv")
+WIKI_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/wiki/lang_pairwise_semantics_correlations_wiki_by_cluster.csv")
+
+cluster_ets <-  read_csv(ETS_CLUSTER_CORR_PATH,
+                        col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  mutate(corpus = "TOEFL")
+
+cluster_wiki <- read_csv(WIKI_CLUSTER_CORR_PATH,
+                        col_names = c("cluster1", "cluster2", "cor", "lang1", "lang2")) %>%
+  distinct() %>%
+  mutate(corpus = "Wikipedia")
+```
+
+
+# Plot
+```{r}
+cluster_pair_means <- cluster_ets %>%
+  bind_rows(cluster_wiki) %>%
+  group_by(corpus, cluster1, cluster2) %>% # aggregate across languages
+  summarize(cor = mean(cor, na.rm = T)) 
+
+full_cluster_pair_means <- cluster_pair_means %>%
+  bind_rows(data.frame(corpus = cluster_pair_means$corpus,
+                       cluster2 = cluster_pair_means$cluster1,
+                       cluster1 = cluster_pair_means$cluster2,
+                       cor = cluster_pair_means$cor)) %>%
+  mutate(same = case_when(cluster1 == cluster2 ~ "Local", TRUE ~ "Global")) %>%
+  distinct()
+
+df <- full_cluster_pair_means %>%
+  group_by(corpus, cluster1, same) %>%
+  multi_boot_standard(col = "cor") %>%
+  ungroup()  %>%
+  mutate(same = fct_rev(same))
+
+df_segment <- df %>%
+  select(corpus, cluster1, same, mean) %>%
+  spread(same, mean)  %>%
+  mutate(dif = Local-Global) %>%
+  arrange(corpus, -dif) %>%
+  group_by(corpus) %>%
+  mutate(cluster_plotting = 1:n())
+
+#pdf("figs/local_global_plot.pdf", width = 10, height  = 4.4)
+scale_label <- "Semantic\nRelation"
+p1 <- ggplot() +
+  facet_grid(corpus ~ ., switch = "y") +
+ # theme(strip.placement = "outside") +
+  geom_segment(data = df_segment, aes(y = Global, yend = Local, 
+                                      x = cluster1, xend = cluster1), 
+              linetype = 1, size = .6) +
+  geom_linerange(data = filter(df, same == "Global"),
+                 aes(x = cluster1, ymin = ci_lower, ymax = ci_upper), color = "#377EB8", size = 1.5) +
+  geom_point(data = df, size = 5, aes(x = cluster1, y = mean, color = same, shape = same)) +
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  scale_x_continuous(breaks = 1:10, name = "Cluster") +
+  scale_shape_manual(scale_label, values = c(19, 15)) +
+  scale_fill_manual(scale_label, values = c( "#E41A1C", "#377EB8" )) +
+  scale_color_manual(scale_label, values = c("#E41A1C", "#377EB8" )) +
+  theme_classic(base_size = 20) +
+  theme(axis.line = element_line(size = 1.2),
+        axis.ticks = element_line(size = 1),
+        legend.position = "none",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10),
+        legend.background = element_rect(linetype = 1, size = 0.5, colour = 1),
+        strip.placement = "outside")
+#dev.off()
+```
+
+
+## Stats
+
+
+### Summary Stats
+```{r}
+cluster_corr <- cluster_ets %>%
+  bind_rows(cluster_wiki)  %>%
+  mutate(local_global = case_when(cluster1 == cluster2 ~ "local", TRUE ~ "global"),
+           lang_pair = glue("{lang1}_{lang2}")) %>%
+  group_by(corpus, lang_pair, local_global) %>%
+  summarize(mean_corr = mean(cor, na.rm = T)) %>% # aggregate across cluster pairs
+  ungroup()  %>%
+  as.data.frame()
+
+cluster_dif_wide_wiki <- cluster_corr %>%
+  filter(corpus == "Wikipedia") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) 
+
+cluster_dif_wide_ets <- cluster_corr %>%
+  filter(corpus == "TOEFL") %>%
+  spread(local_global, mean_corr) %>%
+  mutate(dif = local- global) 
+
+summary_stats <- cluster_dif_wide_wiki %>%
+  bind_rows(cluster_dif_wide_ets) %>%
+  group_by(corpus) %>%
+  summarize(mean_dif = mean(dif),
+            sd_dif = sd(dif)) %>%
+  mutate_if(is.numeric, round, 3)
+
+glue("TOEFL: $M$  = {summary_stats %>% filter(corpus == 'TOEFL') %>% pull(mean_dif)}, $SD$ =  {summary_stats %>% filter(corpus == 'TOEFL') %>% pull(sd_dif)}; Wikipedia: $M$  = {summary_stats %>% filter(corpus == 'Wikipedia') %>% pull(mean_dif)}, $SD$  =  {summary_stats %>% filter(corpus == 'Wikipedia') %>% pull(sd_dif)}")
+
+```
+
+### Local vs. global stats{.tabset}
+#### Wiki
+paired t-test
+```{r}
+paired_t_wiki <- t.test(cluster_dif_wide_wiki$local, cluster_dif_wide_wiki$global, 
+                        paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2)
+
+kable(paired_t_wiki)
+
+glue("Wiki: $t$({paired_t_wiki$parameter}) = {paired_t_wiki$statistic}; $p$ $<$ .0001")
+```
+
+```{r}
+wilcox_paired_wiki <- wilcox.test(cluster_dif_wide_wiki$local, cluster_dif_wide_wiki$global, paired = TRUE)
+wilcox_paired_wiki
+glue("$W$ = {wilcox_paired_wiki$statistic}, $p$ $<$ .0001")
+```
+
+Effect size
+```{r}
+es_data_wiki <- cluster_dif_wide_wiki %>%
+  mutate(id = 1:n()) %>%
+  select(id, local, global) %>%
+  pivot_longer(cols = 2:3) %>%
+  group_by(name) %>%
+  summarize(m = mean(value),
+         sd = sd(value),
+         n= n())
+  
+wiki_es <- mes(es_data_wiki %>% filter(name == "local") %>% pull(m),
+    es_data_wiki %>% filter(name == "global") %>% pull(m),
+    es_data_wiki %>% filter(name == "local") %>% pull(sd),
+    es_data_wiki %>% filter(name == "global") %>% pull(sd),
+    es_data_wiki %>% filter(name == "local") %>% pull(n),
+    es_data_wiki %>% filter(name == "global") %>% pull(n),
+    verbose = F)
+glue("Wiki: $d$ = {wiki_es$d} [{wiki_es$l.d}, {wiki_es$u.d}]")
+```
+
+
+Controling for language distance
+```{r}
+LANG_NAMES1 <- here("analyses/04_predicting_semantic_sim/data/lang_distance_metrics/linguistic/data/iso_to_wals_for_ling_dists.csv")
+LANG_NAMES2 <- here("analyses/02_concreteness_semantics/data/lang_name_to_wiki_iso.csv")
+
+lang_names1 <- read_csv(LANG_NAMES1)
+lang_names2 <- read_csv(LANG_NAMES2)
+
+all_names <- lang_names1 %>%
+  left_join(lang_names2, by = c("lang_name2" = "language_name")) %>%
+  mutate(wiki_language_code=replace(wiki_language_code, ETS_lang_name=="ara", "ar"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="chi", "zh"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="guj", "gu"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="kan", "kn"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="mal", "ml"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="mar", "mr"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="pan", "pa"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="tel", "te"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="yor", "yo"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="fas", "fa"),
+         wiki_language_code=replace(wiki_language_code, ETS_lang_name=="ibo", "ig")) %>%
+  select(ETS_lang_name, wiki_language_code)
+
+LANGUAGE_DISTANCES <- here("analyses/04_predicting_semantic_sim/data/lang_distance_metrics/linguistic/data/wals_language_distance")
+lang_dists <- read_csv(LANGUAGE_DISTANCES) 
+
+lang_dists_tidy <- lang_dists %>%
+  left_join(all_names, by = c("lang1_ETS" = "ETS_lang_name")) %>%
+  rename("wiki_language_code1" = "wiki_language_code") %>%
+  left_join(all_names, by = c("lang2_ETS" = "ETS_lang_name")) %>%
+  rename("wiki_language_code2" = "wiki_language_code") %>%
+  mutate(lang_pair = paste0(wiki_language_code1, "_", wiki_language_code2)) %>%
+  select(lang_pair, wals_lang_dist)
+
+diff_with_language_distance <- cluster_dif_wide_wiki %>%
+  left_join(lang_dists_tidy)
+
+cor.test(diff_with_language_distance$dif, 
+         diff_with_language_distance$wals_lang_dist)
+
+lm(dif ~ 1 + wals_lang_dist, data = diff_with_language_distance) %>% 
+  summary()
+```
+
+#### TOEFL
+paired t-test
+```{r}
+paired_t_toefl <- t.test(cluster_dif_wide_ets$local, 
+                         cluster_dif_wide_ets$global, 
+                         paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2)
+
+kable(paired_t_toefl)
+
+glue("TOEFL: $t$({paired_t_toefl$parameter}) = {paired_t_toefl$statistic}; $p$ $<$ .0001")
+```
+
+```{r}
+wilcox_paired_ets <- wilcox.test(cluster_dif_wide_ets$local, cluster_dif_wide_ets$global, paired = TRUE)
+wilcox_paired_ets
+glue("$W$ = {wilcox_paired_ets$statistic}, $p$ $<$ .0001")
+```
+
+Effect size
+```{r}
+es_data_ets <- cluster_dif_wide_ets %>%
+  mutate(id = 1:n()) %>%
+  select(id, local, global) %>%
+  pivot_longer(cols = 2:3) %>%
+  group_by(name) %>%
+  summarize(m = mean(value),
+         sd = sd(value),
+         n= n())
+  
+toefl_es <- mes(es_data_ets %>% filter(name == "local") %>% pull(m),
+    es_data_ets %>% filter(name == "global") %>% pull(m),
+    es_data_ets %>% filter(name == "local") %>% pull(sd),
+    es_data_ets %>% filter(name == "global") %>% pull(sd),
+    es_data_ets %>% filter(name == "local") %>% pull(n),
+    es_data_ets %>% filter(name == "global") %>% pull(n),
+    verbose = F)
+
+glue("TEOFL: $d$ = {toefl_es$d} [{toefl_es$l.d}, {toefl_es$u.d}]")
+```
+
+Controling for language distance
+```{r}
+lang_dists_tidy_ets <- lang_dists %>%
+  mutate(lang_pair = paste0(toupper(lang1_ETS), "_", toupper(lang2_ETS))) %>%
+  select(lang_pair, wals_lang_dist)
+
+diff_with_language_distance_ets <- cluster_dif_wide_ets %>%
+  left_join(lang_dists_tidy_ets)
+
+cor.test(diff_with_language_distance_ets$dif, 
+         diff_with_language_distance_ets$wals_lang_dist)
+
+lm(dif ~ 1 + wals_lang_dist, data = diff_with_language_distance_ets) %>% 
+  summary()
+```
+
+
+### Mega plot
+```{r}
+ETS_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/ets/mean_cluster_corrs/")
+
+cluster_ets <- map_df(list.files(ETS_CLUSTER_CORR_PATH, full.names = T), 
+                      ~read_csv(., col_names = c("cluster", "same", "cor", "sd", "n", "lang1", "lang2", "nclusters"))) %>%
+  filter(!is.na(cor))
+
+# aggregate within language pairs
+language_pair_means_ets <- cluster_ets %>%
+  group_by(nclusters, lang1, lang2, same) %>% 
+  summarize(cor = mean(cor, na.rm = T))  %>% 
+  mutate(corpus = "ets")
+```
+
+
+```{r}
+WIKI_CLUSTER_CORR_PATH <- here("analyses/02_concreteness_semantics/data/wiki/mean_cluster_corrs/")
+
+language_pair_means_wiki <- map_df(list.files(WIKI_CLUSTER_CORR_PATH, full.names = T), 
+                      ~read_csv(., col_names = c("nclusters", "same", "cor",  "lang1", "lang2")))  %>%
+  mutate(corpus = "wiki")
+```
+
+
+```{r}
+
+df_plotting <- df %>%
+  left_join(df_segment %>% select(cluster1, cluster_plotting))
+p1 <- ggplot() +
+  facet_grid(corpus ~ ., switch = "y") +
+ # theme(strip.placement = "outside") +
+  geom_segment(data = df_segment, aes(y = Global, yend = Local, 
+                                      x = cluster_plotting, xend = cluster_plotting), 
+              linetype = 1, size = .6, color = "grey") +
+  geom_linerange(data = filter(df_plotting, same == "Global"),
+                 aes(x = cluster_plotting, ymin = ci_lower, ymax = ci_upper), color = "#377EB8", size = 1) +
+  geom_point(data = df_plotting, size = 3, aes(x = cluster_plotting, y = mean, color = same, shape = same)) +
+  ylim(.15, .465) +
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  scale_x_continuous(breaks = 1:10, name = "Cluster") +
+  scale_shape_manual(scale_label, values = c(19, 15)) +
+  scale_fill_manual(scale_label, values = c( "#E41A1C", "#377EB8" )) +
+  scale_color_manual(scale_label, values = c("#E41A1C", "#377EB8" )) +
+  theme_classic(base_size = 12) +
+  theme(axis.line = element_line(size = 1),
+        axis.ticks = element_line(size = .8),
+        legend.position = "none",
+        strip.background = element_blank(),
+        strip.text.y = element_blank())
+#dev.off()
+
+
+```
+
+```{r, fig.width = 7.5, fig.height = 6}
+language_pair_means <- bind_rows(language_pair_means_ets, 
+                                 language_pair_means_wiki)
+
+ets_ribbon_data <- language_pair_means %>%
+  group_by(same, corpus, nclusters) %>%
+  multi_boot_standard(col = "cor", na.rm = T)  
+
+ets_ribbon_data_for_plotting <- ets_ribbon_data %>%
+  group_by(corpus, nclusters) %>%
+  nest()%>%
+  mutate(mean_max = map_dbl(data, ~filter(., same == "local") %>% pull(mean)),
+         mean_min = map_dbl(data, ~filter(., same == "global") %>% pull(mean))) %>%
+  unnest() %>%
+  ungroup() %>%
+  mutate(corpus = case_when(corpus == "wiki" ~ "Wikipedia",
+                            corpus == "ets"  ~ "TOEFL"),
+        same = fct_rev(same))
+
+
+p2 <- ggplot(ets_ribbon_data_for_plotting, aes(x = nclusters, y = mean, color = same)) +
+  geom_ribbon(aes(x = nclusters, ymin = mean_min, ymax = mean_max),  color = "lightgrey", fill = "lightgrey") +
+  geom_pointrange(aes(ymin = ci_lower, max = ci_upper, shape = same), size = .4) +
+  geom_line(size = 1) +
+  xlab("Number of Clusters (log)") +
+  ylab("Word distance correlation") +
+  scale_x_log10() +
+  ylim(.15, .465) +
+  scale_color_manual(scale_label, values = c("#E41A1C", "#377EB8")) +
+  scale_shape_manual(scale_label, values = c(19, 15)) +
+
+  facet_grid(corpus ~ .) +
+  ylab("Cross-linguistic\nWord Distance Correlation") +
+  theme_classic(base_size = 12) +
+  theme(axis.line = element_line(size = 1),
+        axis.ticks = element_line(size = .8),
+        axis.title.y = element_blank(), 
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10),
+        legend.background = element_rect(linetype = 1, size = 0.3, colour = 1))
+       # strip.background = element_blank(),
+       # strip.text.y = element_blank())
+
+legend <- get_legend(
+  # create some space to the left of the legend
+  p2 + theme(legend.box.margin = margin(0, 0, 0, 12))
+)
+
+
+prow <- plot_grid(
+  p1, 
+  p2 + theme(legend.position = "none"),
+  labels = c("a", "b"),
+  label_size = 14,
+  nrow = 1
+)
+
+full_width = 7.08661
+pdf("figs/local_global_plot2.pdf", width = full_width, height  = 4.8)
+cowplot::plot_grid(prow, legend, rel_widths = c(2, .4), labels = c("A", "B"))
+dev.off()
+
+
+
+```

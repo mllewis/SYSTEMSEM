@@ -1,0 +1,49 @@
+---
+title: ETS cluster v-measure
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: yes
+---
+
+```{r setup, include = F}
+# load packages
+
+library(tidyverse)
+library(data.table)
+library(here)
+library(langcog)
+library(knitr)
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+```{r}
+VMEASURE_DATA <-  here("analyses/11_native_cluster_control/data/ets_cluster_vmeasure.csv")
+```
+
+```{r, vmeasure}
+vmeasure_data <- read_csv(VMEASURE_DATA)
+
+
+mean_vmeasure <- vmeasure_data %>%
+  group_by(n_clusters) %>%
+  multi_boot_standard(col = "vmeasure") %>%
+  rename(vmeasure = mean) %>%
+  mutate(lang = "average")
+
+vmeasure_data %>%
+ filter(lang == "ENG") %>%
+  bind_rows(mean_vmeasure) %>%
+  ggplot(aes(x = n_clusters, y = vmeasure, linetype = lang))+
+  geom_pointrange(aes(ymin = ci_lower, ymax = ci_upper)) +
+  geom_line() +
+  ylab("v-measure") +
+  ylim(0, 1) +
+  xlab("Number of clusters") +
+  theme_classic()
+```
