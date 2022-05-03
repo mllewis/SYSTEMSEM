@@ -1,0 +1,92 @@
+ get pairwise correlations between words across languages for each language pair, using native language clusters
+# calculate for both clusters solutions in a language pair, and take the average
+
+library(tidyverse)
+library(feather)
+library(data.table)
+library(parallel)
+library(dtplyr)
+library(here)
+
+####################### PARAMETERS ######################
+LANGS <- c('ARA', 'BEN', 'BUL', 'CHI', 'DUT', 'ENG', 'FAS', 'FRE', 'GER', 'GRE', 'GUJ',
+           'HIN', 'IBO', 'IND', 'ITA', 'JPN','KAN', 'KOR', 'MAL', 'MAR', 'NEP', 'PAN', 'POL',
+           'POR', 'RUM', 'RUS', 'SPA', 'TAM', 'TEL', 'TGL', 'THA', 'TUR', 'URD', 'VIE', 'YOR')
+
+PAIRWISE_DIST_PREFIX <- here("analyses/02_concreteness_semantics/data/ets/pairwise_distances/")
+NATIVE_CLUSTER_ASSIGNMENT_PATH <- here("analyses/11_native)cluster_control/data/native_lang_clusters/")
+OUTPATH <- here("analyses/11_native_cluster_control/data/mean_cluster_corrs_native/lang_pairwise_semantics_correlations_ets_by_nclusters_native")
+N_COMP_CLUSTERS <- 3
+
+get_mean_corrs_by_clustering_lang <- function(cluster_lang, n_clusts, cluster_path, dists){
+
+  full_cluster_path<- paste0(cluster_path, "clusters_ets_", cluster_lang, ".csv")
+  native_lang_clusters <- read_csv(full_cluster_path,
+                                   col_names = c("word", "cluster", "n_clusters", "lang"))
+
+  cluster_assignments <- native_lang_clusters %>%
+    filter(n_clusters == n_clusts) %>%
+    mutate(word = tolower(word), # deals with TRUE/FALSE excel issue
+           cluster1 = cluster,
+           cluster2 = cluster,
+           w1 = word,
+           w2 = word) %>%
+    select(-word, -cluster, -lang)
+
+  corr_values <- dists %>%
+    lazy_dt() %>%
+    filter(w1 != w2) %>% # remove distances between same word
+    left_join(cluster_assignments %>% select(w1, cluster1), by = "w1") %>% # merge in cluster assignments
+    left_join(cluster_assignments %>% select(w2, cluster2), by = "w2") %>%
+    group_by(cluster1, cluster2) %>% # get all cluster pair correlations (symmetrical)
+    summarize(cor = cor(cos_dist.x, cos_dist.y), # note that each word pair is represented twice here - but this is fine since were not doing signficance testing
+              n = n())
+
+  mean_corrs <- corr_values %>%
+    mutate(same = case_when(cluster1 == cluster2 ~ "local", TRUE ~ "global")) %>%
+    group_by(cluster1, same) %>% # get cluster pair correlations
+    summarize(mean_cor = mean(cor, na.rm = TRUE),
+              sd_corr = sd(cor, na.rm = TRUE),
+              n_sum = sum(n)) %>%
+    mutate(n_clust = n_clusts,
+           cluster_lang = cluster_lang) %>%
+    filter(!is.na(cluster1)) %>% # this removes cases where the word wasn't present in the clustering solution
+    as_tibble()
+
+  mean_corrs
+
+}
+
+get_pairwise_lang_cluster_pairwise_correlations <- function(lang1,
+                                                            lang2,
+                                                            nclusts_total,
+                                                            cluster_assignment_path,
+                                                            pairwise_dist_prefix,
+                                                            outfile) {
+
+  # pairwise cosine distances between words in a language (symmetrical)
+  pairwise_dists1 <-  read_feather(paste0(pairwise_dist_prefix,
+                                         lang1 , "_common_word_dists.feather")) %>%
+    data.table()
+
+  pairwise_dists2 <- read_feather(paste0(pairwise_dist_prefix,
+                                           lang2 , "_common_word_dists.feather")) %>%
+    data.table()
+
+  # merge together two language distances (inner join)
+  merged_pairwise_distances <- merge(pairwise_dists1, pairwise_dists2,
+                                     by = c("w1", "w2"))
+
+  mean_corrs_by_cluster_lang <- map_df(c(lang1, lang2),
+                                  get_mean_corrs_by_clustering_lang,
+                                  nclusts_total,
+                                  cluster_assignment_path,
+                                  merged_pairwise_distances) %>%
+    group_by(cluster1, same, n_clust) %>%
+
+
+# this file got corrupted.....
+# but this is most of the code. Averages across clustering solution for each language in pair
+# Cluster loops over each n clusters for each lanuguage pair as in analyses/02_concreteness_semantics/scripts/ets/n_clusters2/5_get_semantic_correlations_by_cluster.R
+
+

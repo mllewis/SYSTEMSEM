@@ -1,0 +1,208 @@
+---
+title: Concreteness analysis re-analysis
+author: Molly Lewis 
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    number_sections: no
+    code_folding: hide
+    toc: no
+---
+
+```{r setup, include = F}
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(here)
+library(janitor)
+library(langcog)
+library(lme4)
+library(broom)
+library(compute.es)
+library(glue)
+library(broom.mixed)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+```
+
+# concreteness analyses
+```{r}
+CORRS_BY_WORD <- here("analyses/thompson_analyses/data/corrs_by_word.csv")
+THOMPSON_ALIGN_BY_WORD <- here("analyses/thompson_analyses/data/thompson_words_with_alignments.csv")
+BRYSBAERT_PATH <- here("analyses/02_concreteness_semantics/data/brysbaert_corpus.csv")
+
+corrs_by_word <- read_csv(CORRS_BY_WORD)
+
+thompson_alignment_by_word_raw <- read_csv(THOMPSON_ALIGN_BY_WORD)
+
+thompson_alignment_by_word <- thompson_alignment_by_word_raw %>%
+  group_by(english_word_form) %>%
+  summarize(alignment = mean(alignment)) %>%
+  left_join(thompson_alignment_by_word_raw %>% group_by(english_word_form) %>% slice(1) %>% select(english_word_form, semantic_domain))
+
+brysbaert_norms <- read_csv(BRYSBAERT_PATH) %>%
+  clean_names() %>%
+  select(word, conc_m) 
+
+all_alignments <- corrs_by_word %>%
+  left_join(thompson_alignment_by_word,
+            by = c("word" = "english_word_form")) %>%
+  left_join(brysbaert_norms)
+```
+
+## Thompson alignment vs. our method
+```{r}
+ggplot(all_alignments, aes(x = corr, y = alignment)) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  theme_classic()
+
+cor.test(all_alignments$corr, all_alignments$alignment)
+
+#resid(lm(alignment ~ corr, all_alignments)) %>%
+#  as.data.frame() %>%
+#  rename("residual" = ".") %>%
+#  bind_cols(all_alignments$word) %>%
+#  rename(word = "...2") %>%
+#  arrange(-residual)
+```
+
+## Thompson alignment vs. concreteness
+
+```{r}
+
+ggplot(all_alignments, aes(x = conc_m, y = alignment)) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  theme_classic()
+
+cor.test(all_alignments$conc_m, all_alignments$alignment)
+```
+
+## Our method  vs. concreteness
+```{r}
+ggplot(all_alignments, aes(x = conc_m, y = corr)) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  theme_classic()
+
+ggplot(all_alignments, aes(x = conc_m, y = corr)) +
+  geom_point() +
+  facet_wrap(~semantic_domain, scale = "free_y")+
+  geom_smooth(method = "lm") + 
+  theme_classic()
+```
+
+Thoughts:
+
+* there some uncertainty about what exactly their words were, but this is minor
+* For their sample of words, our measure is correlated with theirs (~.3)
+* across all words, neither measure is correlated with concreteness
+* things don't look much better when you look by domain (but note there aren't many words)
+* interestingly, their measure is much higher than ours for semantic domains that are "internally coherent" (e.g. quantity, and kinship) - perhaps this is due to their alignment measure
+* Perhaps we find a relationship between alignment and concreteness, while they don't, because of the difference in sampling strategy for words - they sample by domain, while we sample randomly across all of semantic space. And, because their sample of words has less variability in terms of concreteness (skewed toward concreteness).
+
+
+# local-global analysis
+```{r}
+CORRS_BY_DOMAIN <- here("analyses/thompson_analyses/data/corrs_local_global.csv")
+
+corrs_by_domain <- read_csv(CORRS_BY_DOMAIN) %>%
+  rename(lang1 = l1,
+         lang2 = l2)
+
+overall_corrs <- corrs_by_domain %>%
+  group_by(local_global) %>%
+  multi_boot_standard(col = "corr")
+
+ggplot(corrs_by_domain, aes(fill = local_global, x = corr)) +
+  geom_density() +
+  theme_classic()
+
+ggplot(overall_corrs, aes(x = local_global, 
+                          fill = local_global, y = mean)) + 
+  geom_bar(stat = "identity") +
+  geom_linerange(aes(ymin = ci_lower, ymax = ci_upper)) +
+  theme_classic()
+```
+
+## Stats
+
+```{r}
+conc_in_out_wide <- corrs_by_domain %>%
+  select(-ci_lower, -ci_upper) %>%
+  spread(local_global, corr) %>%
+  mutate(dif = local- global) %>%
+  select(lang1, lang2, local, global, dif) 
+```
+
+
+#### regression
+```{r}
+lm(dif ~ 1, conc_in_out_wide) %>%
+  summary() 
+  #tidy() %>%
+  #kable()
+```
+
+#### paired t-test
+```{r}
+paired_t_ets <- t.test(conc_in_out_wide$local, 
+                       conc_in_out_wide$global, 
+                       paired = T) %>%
+  tidy() %>%
+  mutate_at(vars(estimate, statistic), round, 2)
+
+kable(paired_t_ets)
+
+glue("TOEFL: t({paired_t_ets$parameter}) = {paired_t_ets$statistic}; p < .0001")
+```
+
+
+```{r}
+wilcox_paired_ets <- wilcox.test(conc_in_out_wide$local, conc_in_out_wide$global, paired = TRUE)
+wilcox_paired_ets
+glue("$W$ = {wilcox_paired_ets$statistic}, $p$ $<$ .0001")
+```
+
+#### Effect size
+```{r}
+es_data_ets <- conc_in_out_wide %>%
+  mutate(id = 1:n()) %>%
+  select(id, local, global) %>%
+  pivot_longer(cols = 2:3) %>%
+  group_by(name) %>%
+  summarize(m = mean(value),
+         sd = sd(value),
+         n= n())
+  
+ets_es <- mes(es_data_ets %>% filter(name == "local") %>% pull(m),
+    es_data_ets %>% filter(name == "global") %>% pull(m),
+    es_data_ets %>% filter(name == "local") %>% pull(sd),
+    es_data_ets %>% filter(name == "global") %>% pull(sd),
+    es_data_ets %>% filter(name == "local") %>% pull(n),
+    es_data_ets %>% filter(name == "global") %>% pull(n),
+    verbose = F)
+glue("TOEFL: $d$ = {ets_es$d} [{ets_es$l.d}, {ets_es$u.d}]")
+```
+
+This effect size is bigger than TOEFL with our words (cf. $d$ = 2.84),
+
+
+```{r, eval = F}
+conc_in_out_wide_full <- conc_in_out_wide %>%
+  select(-local, -global) %>%
+  bind_rows(conc_in_out_wide %>%  
+  select(-local, -global) %>% rename(lang1 = lang2, 
+                                      lang2 = lang1)) 
+  
+ggplot(conc_in_out_wide_full, aes(x = dif, fill = lang1)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept = 0), linetype = 2) + 
+  facet_wrap(~lang1)
+
+```
+

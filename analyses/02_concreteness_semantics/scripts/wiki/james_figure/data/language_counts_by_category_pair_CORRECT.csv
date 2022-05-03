@@ -1,0 +1,1333 @@
+category_label1,category_label2,lang_formated,line_positions,category_label_long1,category_label_long2,far_langs,close_langs,prop_close_langs
+animal,army,"ar bg bn de en es
+ fr gu it pt ro ru
+ te tr",1.5,cat-dog-animal,army-troops-battalion,14,0,0
+animal,belief,en,1.5,cat-dog-animal,statement-prejudice-claim,1,0,0
+animal,body,"BN DE EL EN ES GU
+ MR PL RO TL",1.5,cat-dog-animal,eye-leg-mouth,0,10,1
+animal,career,"bn de en hi it RO
+ TE TL tr",1.5,cat-dog-animal,popularity-success-talent,6,3,0.3333333333333333
+animal,civic,"BN de en gu hi it
+ kn pt ta te tr",1.5,cat-dog-animal,social-politics-culture,10,1,0.09090909090909091
+animal,democracy,"bg bn en it tl tr
+",1.5,cat-dog-animal,parliamentary-delegate-election,6,0,0
+animal,disaster,"en es PT ro TA te
+",1.5,cat-dog-animal,calamity-disaster-famine,4,2,0.3333333333333333
+animal,earth,"EL EN es FR IT RO
+ RU",1.5,cat-dog-animal,earth-sun-ocean,1,6,0.8571428571428571
+animal,food,"BN DE EL EN FR GU
+ HI IT KN MR NE PA
+ PL PT RO RU TA TE
+ TL TR",1.5,cat-dog-animal,onion-rice-milk,0,20,1
+animal,geography,"ar en es fr HI it
+ pt ro tr",1.5,cat-dog-animal,territory-city-zone,8,1,0.1111111111111111
+animal,health,"ar BG DE EL EN es
+ FR GU KN MR pt RO
+ ru TA TE TL",1.5,cat-dog-animal,therapy-flu-vaccine,4,12,0.75
+animal,human_development,"BG el EN ES FR GU
+ HI IT KN ML ne PL
+ PT RO TA TE TL",1.5,cat-dog-animal,mother-husband-child,2,15,0.8823529411764706
+animal,justice,"bg bn de en fr gu
+ it kn ml NE pa ro
+ ta te tr",1.5,cat-dog-animal,accusation-criminal-guilty,14,1,0.06666666666666667
+animal,king,"bg de el en es fr
+ GU hi it ne PL pt
+ ro ru te tl tr",1.5,cat-dog-animal,emperor-king-imperial,15,2,0.11764705882352941
+animal,letters,en fr gu ru ta,1.5,cat-dog-animal,message-letter-address,5,0,0
+animal,literary,"ar en es pt ru tr
+",1.5,cat-dog-animal,book-story-literature,6,0,0
+animal,machines,en ml,1.5,cat-dog-animal,system-tool-disk,2,0,0
+animal,material,"BG BN EL EN fr HI
+ IT ML PL RO RU TA
+ TE TR",1.5,cat-dog-animal,cotton-hemp-grain,1,13,0.9285714285714286
+animal,media,"bg en es it mr ru
+ ta",1.5,cat-dog-animal,cable-channel-signal,7,0,0
+animal,music,"ar bn de en gu hi
+ MR pt te tr",1.5,cat-dog-animal,song-album-guitar,9,1,0.1
+animal,performance,bg en fr TL,1.5,cat-dog-animal,festival-theater-exhibition,3,1,0.25
+animal,plants,"EN FR HI ML NE PL
+ RO TL TR",1.5,cat-dog-animal,plant-fruit-flower,0,9,1
+animal,poltical_movements,ar en it pt,1.5,cat-dog-animal,invasion-occupation-revolution,4,0,0
+animal,profession,"bg de el en es fr
+ it pa pl pt ro ru
+ ta te tl",1.5,cat-dog-animal,writer-poet-painter,15,0,0
+animal,race,en pa,1.5,cat-dog-animal,final-race-medal,2,0,0
+animal,religion,"BN DE EN FR GU HI
+ KN ML MR PA PT RO
+ RU TL TR",1.5,cat-dog-animal,sin-devil-angel,0,15,1
+animal,small_units,"bg en es fr it ml
+ pl pt ro ta tr",1.5,cat-dog-animal,molecule-atom-protein,11,0,0
+animal,structures,"bg el en hi PL RU
+",1.5,cat-dog-animal,wall-arch-gate,4,2,0.3333333333333333
+animal,time,"AR bg BN DE en es
+ KN TE",1.5,cat-dog-animal,first-month-time,3,5,0.625
+animal,water,"BN en fr KN pl te
+",1.5,cat-dog-animal,lake-basin-canal,4,2,0.3333333333333333
+army,animal,"ar bg bn de en es
+ fr gu it pt ro ru
+ te tr",2.5,army-troops-battalion,cat-dog-animal,14,0,0
+army,belief,en,2.5,army-troops-battalion,statement-prejudice-claim,1,0,0
+army,body,"bn DE en es GU ro
+",2.5,army-troops-battalion,eye-leg-mouth,4,2,0.3333333333333333
+army,career,"bn DE EN it ro TE
+ tr",2.5,army-troops-battalion,popularity-success-talent,4,3,0.42857142857142855
+army,civic,"BN de en gu it pt
+ te tr",2.5,army-troops-battalion,social-politics-culture,7,1,0.125
+army,democracy,"BG BN EN fa IT tr
+",2.5,army-troops-battalion,parliamentary-delegate-election,2,4,0.6666666666666666
+army,disaster,"en ES fa ID PT RO
+ TE",2.5,army-troops-battalion,calamity-disaster-famine,2,5,0.7142857142857143
+army,earth,"en es fr it RO ru
+",2.5,army-troops-battalion,earth-sun-ocean,5,1,0.16666666666666666
+army,food,"bn de en fr gu id
+ it ko pt ro ru te
+ tr",2.5,army-troops-battalion,onion-rice-milk,13,0,0
+army,geography,"AR EN ES FR ID IT
+ nl PT RO TR",2.5,army-troops-battalion,territory-city-zone,1,9,0.9
+army,health,"ar bg de en es fr
+ GU id ko nl pt ro
+ ru te",2.5,army-troops-battalion,therapy-flu-vaccine,13,1,0.07142857142857142
+army,human_development,"bg en es fa fr gu
+ ID it PT ro te",2.5,army-troops-battalion,mother-husband-child,9,2,0.18181818181818182
+army,justice,"BG bn DE en FR GU
+ it KO NL ro te tr
+",2.5,army-troops-battalion,accusation-criminal-guilty,6,6,0.5
+army,king,"BG DE EN ES FA FR
+ GU IT NL pt RO RU
+ te TR",2.5,army-troops-battalion,emperor-king-imperial,2,12,0.8571428571428571
+army,letters,en FR gu id RU,2.5,army-troops-battalion,message-letter-address,3,2,0.4
+army,literary,"ar en es pt ru tr
+",2.5,army-troops-battalion,book-story-literature,6,0,0
+army,machines,en nl,2.5,army-troops-battalion,system-tool-disk,2,0,0
+army,material,"bg bn en fa fr it
+ nl ro ru te tr",2.5,army-troops-battalion,cotton-hemp-grain,11,0,0
+army,media,bg en es it ru,2.5,army-troops-battalion,cable-channel-signal,5,0,0
+army,music,"ar bn de en fa gu
+ id ko pt te tr",2.5,army-troops-battalion,song-album-guitar,11,0,0
+army,performance,"bg en fr id ko nl
+",2.5,army-troops-battalion,festival-theater-exhibition,6,0,0
+army,plants,en fr ro tr,2.5,army-troops-battalion,plant-fruit-flower,4,0,0
+army,poltical_movements,EN IT PT,2.5,army-troops-battalion,invasion-occupation-revolution,0,3,1
+army,profession,"BG de en es fr id
+ it ko nl pt ro RU
+ te",2.5,army-troops-battalion,writer-poet-painter,11,2,0.15384615384615385
+army,race,en,2.5,army-troops-battalion,final-race-medal,1,0,0
+army,religion,"bn DE en fa fr GU
+ id nl pt ro RU tr
+",2.5,army-troops-battalion,sin-devil-angel,9,3,0.25
+army,small_units,"bg en es fr id it
+ nl pt ro tr",2.5,army-troops-battalion,molecule-atom-protein,10,0,0
+army,structures,bg en id ko ru,2.5,army-troops-battalion,wall-arch-gate,5,0,0
+army,time,"AR BG BN DE EN ES
+ FA ID NL TE",2.5,army-troops-battalion,first-month-time,0,10,1
+army,water,bn en FR ko TE,2.5,army-troops-battalion,lake-basin-canal,3,2,0.4
+belief,animal,en,3.5,statement-prejudice-claim,cat-dog-animal,1,0,0
+belief,army,en,3.5,statement-prejudice-claim,army-troops-battalion,1,0,0
+belief,body,en,3.5,statement-prejudice-claim,eye-leg-mouth,1,0,0
+belief,career,EN,3.5,statement-prejudice-claim,popularity-success-talent,0,1,1
+belief,civic,EN,3.5,statement-prejudice-claim,social-politics-culture,0,1,1
+belief,democracy,en,3.5,statement-prejudice-claim,parliamentary-delegate-election,1,0,0
+belief,disaster,en,3.5,statement-prejudice-claim,calamity-disaster-famine,1,0,0
+belief,earth,en,3.5,statement-prejudice-claim,earth-sun-ocean,1,0,0
+belief,food,en ur,3.5,statement-prejudice-claim,onion-rice-milk,2,0,0
+belief,geography,en,3.5,statement-prejudice-claim,territory-city-zone,1,0,0
+belief,health,en,3.5,statement-prejudice-claim,therapy-flu-vaccine,1,0,0
+belief,human_development,en ur,3.5,statement-prejudice-claim,mother-husband-child,2,0,0
+belief,justice,EN,3.5,statement-prejudice-claim,accusation-criminal-guilty,0,1,1
+belief,king,en UR,3.5,statement-prejudice-claim,emperor-king-imperial,1,1,0.5
+belief,letters,EN,3.5,statement-prejudice-claim,message-letter-address,0,1,1
+belief,literary,en,3.5,statement-prejudice-claim,book-story-literature,1,0,0
+belief,machines,EN,3.5,statement-prejudice-claim,system-tool-disk,0,1,1
+belief,material,en,3.5,statement-prejudice-claim,cotton-hemp-grain,1,0,0
+belief,media,en,3.5,statement-prejudice-claim,cable-channel-signal,1,0,0
+belief,music,en,3.5,statement-prejudice-claim,song-album-guitar,1,0,0
+belief,performance,en,3.5,statement-prejudice-claim,festival-theater-exhibition,1,0,0
+belief,plants,en,3.5,statement-prejudice-claim,plant-fruit-flower,1,0,0
+belief,poltical_movements,EN,3.5,statement-prejudice-claim,invasion-occupation-revolution,0,1,1
+belief,profession,en,3.5,statement-prejudice-claim,writer-poet-painter,1,0,0
+belief,race,en,3.5,statement-prejudice-claim,final-race-medal,1,0,0
+belief,religion,en UR,3.5,statement-prejudice-claim,sin-devil-angel,1,1,0.5
+belief,small_units,en,3.5,statement-prejudice-claim,molecule-atom-protein,1,0,0
+belief,structures,en,3.5,statement-prejudice-claim,wall-arch-gate,1,0,0
+belief,time,EN,3.5,statement-prejudice-claim,first-month-time,0,1,1
+belief,water,en,3.5,statement-prejudice-claim,lake-basin-canal,1,0,0
+body,animal,"BN DE EL EN ES GU
+ MR PL RO TL",4.5,eye-leg-mouth,cat-dog-animal,0,10,1
+body,army,"bn de en es GU ro
+",4.5,eye-leg-mouth,army-troops-battalion,5,1,0.16666666666666666
+body,belief,en,4.5,eye-leg-mouth,statement-prejudice-claim,1,0,0
+body,career,bn de EN RO TL,4.5,eye-leg-mouth,popularity-success-talent,2,3,0.6
+body,civic,bn de en gu,4.5,eye-leg-mouth,social-politics-culture,4,0,0
+body,democracy,bn en tl,4.5,eye-leg-mouth,parliamentary-delegate-election,3,0,0
+body,disaster,en es ro,4.5,eye-leg-mouth,calamity-disaster-famine,3,0,0
+body,earth,EL en es RO,4.5,eye-leg-mouth,earth-sun-ocean,2,2,0.5
+body,food,"BN de EL en GU MR
+ pl RO TL",4.5,eye-leg-mouth,onion-rice-milk,3,6,0.6666666666666666
+body,geography,en es ro,4.5,eye-leg-mouth,territory-city-zone,3,0,0
+body,health,"DE EL EN es GU MR
+ ro TL",4.5,eye-leg-mouth,therapy-flu-vaccine,2,6,0.75
+body,human_development,"el EN es gu pl ro
+ tl",4.5,eye-leg-mouth,mother-husband-child,6,1,0.14285714285714285
+body,justice,bn de en gu ro,4.5,eye-leg-mouth,accusation-criminal-guilty,5,0,0
+body,king,"de el en es gu pl
+ ro tl",4.5,eye-leg-mouth,emperor-king-imperial,8,0,0
+body,letters,en gu,4.5,eye-leg-mouth,message-letter-address,2,0,0
+body,literary,en es,4.5,eye-leg-mouth,book-story-literature,2,0,0
+body,machines,en,4.5,eye-leg-mouth,system-tool-disk,1,0,0
+body,material,BN EL EN pl RO,4.5,eye-leg-mouth,cotton-hemp-grain,1,4,0.8
+body,media,en es MR,4.5,eye-leg-mouth,cable-channel-signal,2,1,0.3333333333333333
+body,music,bn de en gu mr,4.5,eye-leg-mouth,song-album-guitar,5,0,0
+body,performance,en TL,4.5,eye-leg-mouth,festival-theater-exhibition,1,1,0.5
+body,plants,en PL RO TL,4.5,eye-leg-mouth,plant-fruit-flower,1,3,0.75
+body,poltical_movements,en,4.5,eye-leg-mouth,invasion-occupation-revolution,1,0,0
+body,profession,"de el en es pl ro
+ tl",4.5,eye-leg-mouth,writer-poet-painter,7,0,0
+body,race,en,4.5,eye-leg-mouth,final-race-medal,1,0,0
+body,religion,"BN DE EN GU MR RO
+ tl",4.5,eye-leg-mouth,sin-devil-angel,1,6,0.8571428571428571
+body,small_units,en es PL ro,4.5,eye-leg-mouth,molecule-atom-protein,3,1,0.25
+body,structures,el EN PL,4.5,eye-leg-mouth,wall-arch-gate,1,2,0.6666666666666666
+body,time,BN DE EN ES,4.5,eye-leg-mouth,first-month-time,0,4,1
+body,water,bn en pl,4.5,eye-leg-mouth,lake-basin-canal,3,0,0
+career,animal,"bn de en hi it ro
+ te tl tr",5.5,popularity-success-talent,cat-dog-animal,9,0,0
+career,army,"bn de en it ro te
+ tr",5.5,popularity-success-talent,army-troops-battalion,7,0,0
+career,belief,EN,5.5,popularity-success-talent,statement-prejudice-claim,0,1,1
+career,body,bn DE EN ro tl,5.5,popularity-success-talent,eye-leg-mouth,3,2,0.4
+career,civic,"BN DE EN HI IT TE
+ TR",5.5,popularity-success-talent,social-politics-culture,0,7,1
+career,democracy,BN en it TL tr,5.5,popularity-success-talent,parliamentary-delegate-election,3,2,0.4
+career,disaster,en ro te,5.5,popularity-success-talent,calamity-disaster-famine,3,0,0
+career,earth,en it ro,5.5,popularity-success-talent,earth-sun-ocean,3,0,0
+career,food,"bn de en hi it ro
+ te tl tr",5.5,popularity-success-talent,onion-rice-milk,9,0,0
+career,geography,en hi it ro tr,5.5,popularity-success-talent,territory-city-zone,5,0,0
+career,health,de en ro te tl,5.5,popularity-success-talent,therapy-flu-vaccine,5,0,0
+career,human_development,"en HI it ro te TL
+",5.5,popularity-success-talent,mother-husband-child,4,2,0.3333333333333333
+career,justice,"BN DE en it RO te
+ tr",5.5,popularity-success-talent,accusation-criminal-guilty,4,3,0.42857142857142855
+career,king,"de en HI it ro te
+ tl tr",5.5,popularity-success-talent,emperor-king-imperial,7,1,0.125
+career,letters,en,5.5,popularity-success-talent,message-letter-address,1,0,0
+career,literary,EN tr,5.5,popularity-success-talent,book-story-literature,1,1,0.5
+career,machines,en,5.5,popularity-success-talent,system-tool-disk,1,0,0
+career,material,"bn en hi it ro te
+ tr",5.5,popularity-success-talent,cotton-hemp-grain,7,0,0
+career,media,en it,5.5,popularity-success-talent,cable-channel-signal,2,0,0
+career,music,"bn de en hi te tr
+",5.5,popularity-success-talent,song-album-guitar,6,0,0
+career,performance,EN TL,5.5,popularity-success-talent,festival-theater-exhibition,0,2,1
+career,plants,en hi ro tl tr,5.5,popularity-success-talent,plant-fruit-flower,5,0,0
+career,poltical_movements,EN IT,5.5,popularity-success-talent,invasion-occupation-revolution,0,2,1
+career,profession,"de en it ro TE tl
+",5.5,popularity-success-talent,writer-poet-painter,5,1,0.16666666666666666
+career,race,en,5.5,popularity-success-talent,final-race-medal,1,0,0
+career,religion,"BN DE EN HI RO TL
+ tr",5.5,popularity-success-talent,sin-devil-angel,1,6,0.8571428571428571
+career,small_units,en it ro tr,5.5,popularity-success-talent,molecule-atom-protein,4,0,0
+career,structures,en hi,5.5,popularity-success-talent,wall-arch-gate,2,0,0
+career,time,BN DE EN,5.5,popularity-success-talent,first-month-time,0,3,1
+career,water,bn en te,5.5,popularity-success-talent,lake-basin-canal,3,0,0
+civic,animal,"bn de en gu hi it
+ kn pt ta te tr",6.5,social-politics-culture,cat-dog-animal,11,0,0
+civic,army,"bn de en gu it pt
+ te tr",6.5,social-politics-culture,army-troops-battalion,8,0,0
+civic,belief,EN,6.5,social-politics-culture,statement-prejudice-claim,0,1,1
+civic,body,bn de en gu,6.5,social-politics-culture,eye-leg-mouth,4,0,0
+civic,career,"BN DE EN HI IT TE
+ TR",6.5,social-politics-culture,popularity-success-talent,0,7,1
+civic,democracy,BN EN IT tr,6.5,social-politics-culture,parliamentary-delegate-election,1,3,0.75
+civic,disaster,en PT TA te,6.5,social-politics-culture,calamity-disaster-famine,2,2,0.5
+civic,earth,en it,6.5,social-politics-culture,earth-sun-ocean,2,0,0
+civic,food,"bn de en gu hi it
+ kn pt ta te tr",6.5,social-politics-culture,onion-rice-milk,11,0,0
+civic,geography,EN HI it pt TR,6.5,social-politics-culture,territory-city-zone,2,3,0.6
+civic,health,"de en GU kn pt ta
+ te",6.5,social-politics-culture,therapy-flu-vaccine,6,1,0.14285714285714285
+civic,human_development,"en gu HI it kn PT
+ ta te",6.5,social-politics-culture,mother-husband-child,6,2,0.25
+civic,justice,"bn DE en GU IT KN
+ TA TE TR",6.5,social-politics-culture,accusation-criminal-guilty,2,7,0.7777777777777778
+civic,king,"de en gu hi it pt
+ te TR",6.5,social-politics-culture,emperor-king-imperial,7,1,0.125
+civic,letters,en gu ta,6.5,social-politics-culture,message-letter-address,3,0,0
+civic,literary,EN pt TR,6.5,social-politics-culture,book-story-literature,1,2,0.6666666666666666
+civic,machines,en,6.5,social-politics-culture,system-tool-disk,1,0,0
+civic,material,"bn en hi it ta te
+ tr",6.5,social-politics-culture,cotton-hemp-grain,7,0,0
+civic,media,en it ta,6.5,social-politics-culture,cable-channel-signal,3,0,0
+civic,music,"bn de en gu hi pt
+ te tr",6.5,social-politics-culture,song-album-guitar,8,0,0
+civic,performance,en,6.5,social-politics-culture,festival-theater-exhibition,1,0,0
+civic,plants,en hi tr,6.5,social-politics-culture,plant-fruit-flower,3,0,0
+civic,poltical_movements,EN IT PT,6.5,social-politics-culture,invasion-occupation-revolution,0,3,1
+civic,profession,"DE EN it pt ta TE
+",6.5,social-politics-culture,writer-poet-painter,3,3,0.5
+civic,race,en,6.5,social-politics-culture,final-race-medal,1,0,0
+civic,religion,"BN de en GU HI KN
+ pt TR",6.5,social-politics-culture,sin-devil-angel,3,5,0.625
+civic,small_units,en it pt ta tr,6.5,social-politics-culture,molecule-atom-protein,5,0,0
+civic,structures,en hi,6.5,social-politics-culture,wall-arch-gate,2,0,0
+civic,time,BN DE EN KN TE,6.5,social-politics-culture,first-month-time,0,5,1
+civic,water,bn en kn te,6.5,social-politics-culture,lake-basin-canal,4,0,0
+democracy,animal,"bg bn en it tl tr
+",7.5,parliamentary-delegate-election,cat-dog-animal,6,0,0
+democracy,army,"bg BN EN fa it tr
+",7.5,parliamentary-delegate-election,army-troops-battalion,4,2,0.3333333333333333
+democracy,belief,EN,7.5,parliamentary-delegate-election,statement-prejudice-claim,0,1,1
+democracy,body,bn en tl,7.5,parliamentary-delegate-election,eye-leg-mouth,3,0,0
+democracy,career,BN en IT TL TR,7.5,parliamentary-delegate-election,popularity-success-talent,1,4,0.8
+democracy,civic,BN EN IT TR,7.5,parliamentary-delegate-election,social-politics-culture,0,4,1
+democracy,disaster,en fa,7.5,parliamentary-delegate-election,calamity-disaster-famine,2,0,0
+democracy,earth,en it,7.5,parliamentary-delegate-election,earth-sun-ocean,2,0,0
+democracy,food,bn en it tl tr,7.5,parliamentary-delegate-election,onion-rice-milk,5,0,0
+democracy,geography,EN it TR,7.5,parliamentary-delegate-election,territory-city-zone,1,2,0.6666666666666666
+democracy,health,bg en TL,7.5,parliamentary-delegate-election,therapy-flu-vaccine,2,1,0.3333333333333333
+democracy,human_development,bg en fa it tl,7.5,parliamentary-delegate-election,mother-husband-child,5,0,0
+democracy,justice,BG BN en IT TR,7.5,parliamentary-delegate-election,accusation-criminal-guilty,1,4,0.8
+democracy,king,"BG en fa it TL tr
+",7.5,parliamentary-delegate-election,emperor-king-imperial,4,2,0.3333333333333333
+democracy,letters,en,7.5,parliamentary-delegate-election,message-letter-address,1,0,0
+democracy,literary,en tr,7.5,parliamentary-delegate-election,book-story-literature,2,0,0
+democracy,machines,en,7.5,parliamentary-delegate-election,system-tool-disk,1,0,0
+democracy,material,"bg bn en fa it tr
+",7.5,parliamentary-delegate-election,cotton-hemp-grain,6,0,0
+democracy,media,bg en it,7.5,parliamentary-delegate-election,cable-channel-signal,3,0,0
+democracy,music,bn en fa tr,7.5,parliamentary-delegate-election,song-album-guitar,4,0,0
+democracy,performance,bg en TL,7.5,parliamentary-delegate-election,festival-theater-exhibition,2,1,0.3333333333333333
+democracy,plants,en tl tr,7.5,parliamentary-delegate-election,plant-fruit-flower,3,0,0
+democracy,poltical_movements,EN IT,7.5,parliamentary-delegate-election,invasion-occupation-revolution,0,2,1
+democracy,profession,BG EN it tl,7.5,parliamentary-delegate-election,writer-poet-painter,2,2,0.5
+democracy,race,en,7.5,parliamentary-delegate-election,final-race-medal,1,0,0
+democracy,religion,bn en fa TL tr,7.5,parliamentary-delegate-election,sin-devil-angel,4,1,0.2
+democracy,small_units,bg en it tr,7.5,parliamentary-delegate-election,molecule-atom-protein,4,0,0
+democracy,structures,bg en,7.5,parliamentary-delegate-election,wall-arch-gate,2,0,0
+democracy,time,bg BN EN FA,7.5,parliamentary-delegate-election,first-month-time,1,3,0.75
+democracy,water,bn en,7.5,parliamentary-delegate-election,lake-basin-canal,2,0,0
+disaster,animal,"en es pt ro ta te
+",8.5,calamity-disaster-famine,cat-dog-animal,6,0,0
+disaster,army,"en ES fa id pt ro
+ te",8.5,calamity-disaster-famine,army-troops-battalion,6,1,0.14285714285714285
+disaster,belief,en,8.5,calamity-disaster-famine,statement-prejudice-claim,1,0,0
+disaster,body,en es ro,8.5,calamity-disaster-famine,eye-leg-mouth,3,0,0
+disaster,career,EN RO TE,8.5,calamity-disaster-famine,popularity-success-talent,0,3,1
+disaster,civic,en PT TA te,8.5,calamity-disaster-famine,social-politics-culture,2,2,0.5
+disaster,democracy,en fa,8.5,calamity-disaster-famine,parliamentary-delegate-election,2,0,0
+disaster,earth,EN ES ro,8.5,calamity-disaster-famine,earth-sun-ocean,1,2,0.6666666666666666
+disaster,food,"en id pt ro ta te
+ zh",8.5,calamity-disaster-famine,onion-rice-milk,7,0,0
+disaster,geography,en es id pt ro,8.5,calamity-disaster-famine,territory-city-zone,5,0,0
+disaster,health,"EN ES ID PT RO TA
+ TE zh",8.5,calamity-disaster-famine,therapy-flu-vaccine,1,7,0.875
+disaster,human_development,"en ES fa ID ro ta
+ te",8.5,calamity-disaster-famine,mother-husband-child,5,2,0.2857142857142857
+disaster,justice,en RO TA te ZH,8.5,calamity-disaster-famine,accusation-criminal-guilty,2,3,0.6
+disaster,king,"en es fa pt ro te
+ zh",8.5,calamity-disaster-famine,emperor-king-imperial,7,0,0
+disaster,letters,en id ta,8.5,calamity-disaster-famine,message-letter-address,3,0,0
+disaster,literary,en es pt,8.5,calamity-disaster-famine,book-story-literature,3,0,0
+disaster,machines,en,8.5,calamity-disaster-famine,system-tool-disk,1,0,0
+disaster,material,en fa ro ta te,8.5,calamity-disaster-famine,cotton-hemp-grain,5,0,0
+disaster,media,en es ta,8.5,calamity-disaster-famine,cable-channel-signal,3,0,0
+disaster,music,en fa id pt te,8.5,calamity-disaster-famine,song-album-guitar,5,0,0
+disaster,performance,en id,8.5,calamity-disaster-famine,festival-theater-exhibition,2,0,0
+disaster,plants,en ro,8.5,calamity-disaster-famine,plant-fruit-flower,2,0,0
+disaster,poltical_movements,EN PT,8.5,calamity-disaster-famine,invasion-occupation-revolution,0,2,1
+disaster,profession,"en es id pt ro ta
+ te zh",8.5,calamity-disaster-famine,writer-poet-painter,8,0,0
+disaster,race,en,8.5,calamity-disaster-famine,final-race-medal,1,0,0
+disaster,religion,EN FA id PT RO,8.5,calamity-disaster-famine,sin-devil-angel,1,4,0.8
+disaster,small_units,"en es id pt ro ta
+ zh",8.5,calamity-disaster-famine,molecule-atom-protein,7,0,0
+disaster,structures,en id,8.5,calamity-disaster-famine,wall-arch-gate,2,0,0
+disaster,time,EN ES FA ID TE,8.5,calamity-disaster-famine,first-month-time,0,5,1
+disaster,water,en te,8.5,calamity-disaster-famine,lake-basin-canal,2,0,0
+earth,animal,"EL EN es FR IT RO
+ RU",9.5,earth-sun-ocean,cat-dog-animal,1,6,0.8571428571428571
+earth,army,"en es fr it ro ru
+",9.5,earth-sun-ocean,army-troops-battalion,6,0,0
+earth,belief,en,9.5,earth-sun-ocean,statement-prejudice-claim,1,0,0
+earth,body,EL EN ES RO,9.5,earth-sun-ocean,eye-leg-mouth,0,4,1
+earth,career,EN it RO,9.5,earth-sun-ocean,popularity-success-talent,1,2,0.6666666666666666
+earth,civic,en it,9.5,earth-sun-ocean,social-politics-culture,2,0,0
+earth,democracy,en it,9.5,earth-sun-ocean,parliamentary-delegate-election,2,0,0
+earth,disaster,EN ES ro,9.5,earth-sun-ocean,calamity-disaster-famine,1,2,0.6666666666666666
+earth,food,"el en fr IT RO RU
+",9.5,earth-sun-ocean,onion-rice-milk,3,3,0.5
+earth,geography,en es FR IT ro,9.5,earth-sun-ocean,territory-city-zone,3,2,0.4
+earth,health,"el en es fr ro ru
+",9.5,earth-sun-ocean,therapy-flu-vaccine,6,0,0
+earth,human_development,"el en es fr it ro
+",9.5,earth-sun-ocean,mother-husband-child,6,0,0
+earth,justice,en fr it ro,9.5,earth-sun-ocean,accusation-criminal-guilty,4,0,0
+earth,king,"el en ES fr it ro
+ ru",9.5,earth-sun-ocean,emperor-king-imperial,6,1,0.14285714285714285
+earth,letters,en fr ru,9.5,earth-sun-ocean,message-letter-address,3,0,0
+earth,literary,en es ru,9.5,earth-sun-ocean,book-story-literature,3,0,0
+earth,machines,en,9.5,earth-sun-ocean,system-tool-disk,1,0,0
+earth,material,"el en fr IT RO RU
+",9.5,earth-sun-ocean,cotton-hemp-grain,3,3,0.5
+earth,media,en es it ru,9.5,earth-sun-ocean,cable-channel-signal,4,0,0
+earth,music,en,9.5,earth-sun-ocean,song-album-guitar,1,0,0
+earth,performance,en fr,9.5,earth-sun-ocean,festival-theater-exhibition,2,0,0
+earth,plants,en FR RO,9.5,earth-sun-ocean,plant-fruit-flower,1,2,0.6666666666666666
+earth,poltical_movements,en it,9.5,earth-sun-ocean,invasion-occupation-revolution,2,0,0
+earth,profession,"el en es fr it ro
+ ru",9.5,earth-sun-ocean,writer-poet-painter,7,0,0
+earth,race,en,9.5,earth-sun-ocean,final-race-medal,1,0,0
+earth,religion,EN FR ro RU,9.5,earth-sun-ocean,sin-devil-angel,1,3,0.75
+earth,small_units,en es fr it ro,9.5,earth-sun-ocean,molecule-atom-protein,5,0,0
+earth,structures,el en ru,9.5,earth-sun-ocean,wall-arch-gate,3,0,0
+earth,time,EN ES,9.5,earth-sun-ocean,first-month-time,0,2,1
+earth,water,en FR,9.5,earth-sun-ocean,lake-basin-canal,1,1,0.5
+food,animal,"BN DE EL EN FR GU
+ HI IT KN MR NE PA
+ PL PT RO RU TA TE
+ TL TR",10.5,onion-rice-milk,cat-dog-animal,0,20,1
+food,army,"bn de en fr gu id
+ it ko pt ro ru te
+ tr",10.5,onion-rice-milk,army-troops-battalion,13,0,0
+food,belief,en ur,10.5,onion-rice-milk,statement-prejudice-claim,2,0,0
+food,body,"BN DE EL EN GU MR
+ PL RO TL",10.5,onion-rice-milk,eye-leg-mouth,0,9,1
+food,career,"bn de EN hi it ro
+ TE TL tr",10.5,onion-rice-milk,popularity-success-talent,6,3,0.3333333333333333
+food,civic,"bn de en gu hi it
+ kn pt ta te tr",10.5,onion-rice-milk,social-politics-culture,11,0,0
+food,democracy,bn en it tl tr,10.5,onion-rice-milk,parliamentary-delegate-election,5,0,0
+food,disaster,"en id pt ro TA te
+ zh",10.5,onion-rice-milk,calamity-disaster-famine,6,1,0.14285714285714285
+food,earth,"el en fr IT RO RU
+",10.5,onion-rice-milk,earth-sun-ocean,3,3,0.5
+food,geography,"en fr HI id it PT
+ ro tr",10.5,onion-rice-milk,territory-city-zone,6,2,0.25
+food,health,"DE EL EN FR GU id
+ KN KO MR PT RO RU
+ TA TE TL ZH",10.5,onion-rice-milk,therapy-flu-vaccine,1,15,0.9375
+food,human_development,"el en fr gu hi id
+ it kn ne PL pt ro
+ ta te tl ur",10.5,onion-rice-milk,mother-husband-child,15,1,0.0625
+food,justice,"bn de en fr gu it
+ kn ko NE pa ro ta
+ te tr zh",10.5,onion-rice-milk,accusation-criminal-guilty,14,1,0.06666666666666667
+food,king,"de el en fr gu hi
+ it ne pl pt ro ru
+ te tl tr ur zh",10.5,onion-rice-milk,emperor-king-imperial,17,0,0
+food,letters,"en fr gu id ru ta
+",10.5,onion-rice-milk,message-letter-address,6,0,0
+food,literary,en pt ru tr,10.5,onion-rice-milk,book-story-literature,4,0,0
+food,machines,en,10.5,onion-rice-milk,system-tool-disk,1,0,0
+food,material,EN FR,10.5,onion-rice-milk,cotton-hemp-grain,0,2,1
+food,media,en it MR ru TA,10.5,onion-rice-milk,cable-channel-signal,3,2,0.4
+food,music,"bn de en gu hi id
+ ko mr pt te tr",10.5,onion-rice-milk,song-album-guitar,11,0,0
+food,performance,en fr id ko TL,10.5,onion-rice-milk,festival-theater-exhibition,4,1,0.2
+food,plants,"EN FR HI NE PL TL
+",10.5,onion-rice-milk,plant-fruit-flower,0,6,1
+food,poltical_movements,en it pt,10.5,onion-rice-milk,invasion-occupation-revolution,3,0,0
+food,profession,"de el en fr id it
+ ko pa pl pt ro ru
+ ta te tl zh",10.5,onion-rice-milk,writer-poet-painter,16,0,0
+food,race,en pa,10.5,onion-rice-milk,final-race-medal,2,0,0
+food,religion,"BN DE EN fr GU HI
+ id kn MR PA PT RO
+ RU TL tr UR",10.5,onion-rice-milk,sin-devil-angel,4,12,0.75
+food,small_units,"en FR ID IT PL pt
+ ro ta tr ZH",10.5,onion-rice-milk,molecule-atom-protein,5,5,0.5
+food,structures,"el en hi id KO pl
+ ru",10.5,onion-rice-milk,wall-arch-gate,6,1,0.14285714285714285
+food,time,"BN de EN ID KN TE
+",10.5,onion-rice-milk,first-month-time,1,5,0.8333333333333334
+food,water,"BN en fr KN KO pl
+ TE",10.5,onion-rice-milk,lake-basin-canal,3,4,0.5714285714285714
+geography,animal,"AR en es fr hi it
+ pt ro tr",11.5,territory-city-zone,cat-dog-animal,8,1,0.1111111111111111
+geography,army,"AR en ES FR id IT
+ NL PT ro TR",11.5,territory-city-zone,army-troops-battalion,3,7,0.7
+geography,belief,en,11.5,territory-city-zone,statement-prejudice-claim,1,0,0
+geography,body,en es ro,11.5,territory-city-zone,eye-leg-mouth,3,0,0
+geography,career,EN hi it ro TR,11.5,territory-city-zone,popularity-success-talent,3,2,0.4
+geography,civic,EN HI IT pt TR,11.5,territory-city-zone,social-politics-culture,1,4,0.8
+geography,democracy,EN it TR,11.5,territory-city-zone,parliamentary-delegate-election,1,2,0.6666666666666666
+geography,disaster,en es id PT RO,11.5,territory-city-zone,calamity-disaster-famine,3,2,0.4
+geography,earth,en es FR IT RO,11.5,territory-city-zone,earth-sun-ocean,2,3,0.6
+geography,food,"en fr hi id it pt
+ ro tr",11.5,territory-city-zone,onion-rice-milk,8,0,0
+geography,health,"ar en es fr id nl
+ pt ro",11.5,territory-city-zone,therapy-flu-vaccine,8,0,0
+geography,human_development,"en es fr HI id it
+ PT ro",11.5,territory-city-zone,mother-husband-child,6,2,0.25
+geography,justice,"en fr it nl ro tr
+",11.5,territory-city-zone,accusation-criminal-guilty,6,0,0
+geography,king,"en ES fr HI it nl
+ pt ro tr",11.5,territory-city-zone,emperor-king-imperial,7,2,0.2222222222222222
+geography,letters,en fr id,11.5,territory-city-zone,message-letter-address,3,0,0
+geography,literary,ar en es pt tr,11.5,territory-city-zone,book-story-literature,5,0,0
+geography,machines,en nl,11.5,territory-city-zone,system-tool-disk,2,0,0
+geography,material,"en FR hi it nl ro
+ tr",11.5,territory-city-zone,cotton-hemp-grain,6,1,0.14285714285714285
+geography,media,en es it,11.5,territory-city-zone,cable-channel-signal,3,0,0
+geography,music,"ar en hi id pt tr
+",11.5,territory-city-zone,song-album-guitar,6,0,0
+geography,performance,EN FR id NL,11.5,territory-city-zone,festival-theater-exhibition,1,3,0.75
+geography,plants,en fr hi ro tr,11.5,territory-city-zone,plant-fruit-flower,5,0,0
+geography,poltical_movements,AR EN IT NL pt,11.5,territory-city-zone,invasion-occupation-revolution,1,4,0.8
+geography,profession,"en es fr id it nl
+ pt ro",11.5,territory-city-zone,writer-poet-painter,8,0,0
+geography,race,EN,11.5,territory-city-zone,final-race-medal,0,1,1
+geography,religion,"en fr hi id nl pt
+ ro tr",11.5,territory-city-zone,sin-devil-angel,8,0,0
+geography,small_units,"en es fr id it nl
+ pt ro tr",11.5,territory-city-zone,molecule-atom-protein,9,0,0
+geography,structures,en HI ID,11.5,territory-city-zone,wall-arch-gate,1,2,0.6666666666666666
+geography,time,AR EN ES ID NL,11.5,territory-city-zone,first-month-time,0,5,1
+geography,water,EN,11.5,territory-city-zone,lake-basin-canal,0,1,1
+health,animal,"ar BG DE EL EN es
+ FR gu KN MR pt RO
+ ru TA te TL",12.5,therapy-flu-vaccine,cat-dog-animal,6,10,0.625
+health,army,"ar bg de en es fr
+ gu id ko nl pt ro
+ ru te",12.5,therapy-flu-vaccine,army-troops-battalion,14,0,0
+health,belief,EN,12.5,therapy-flu-vaccine,statement-prejudice-claim,0,1,1
+health,body,"DE EL EN ES GU MR
+ RO TL",12.5,therapy-flu-vaccine,eye-leg-mouth,0,8,1
+health,career,de EN ro te TL,12.5,therapy-flu-vaccine,popularity-success-talent,3,2,0.4
+health,civic,"de en GU kn pt ta
+ te",12.5,therapy-flu-vaccine,social-politics-culture,6,1,0.14285714285714285
+health,democracy,bg en TL,12.5,therapy-flu-vaccine,parliamentary-delegate-election,2,1,0.3333333333333333
+health,disaster,"EN ES ID PT RO TA
+ TE ZH",12.5,therapy-flu-vaccine,calamity-disaster-famine,0,8,1
+health,earth,"el en es fr ro ru
+",12.5,therapy-flu-vaccine,earth-sun-ocean,6,0,0
+health,food,"DE EL EN FR GU ID
+ KN KO MR PT RO RU
+ TA TE TL ZH",12.5,therapy-flu-vaccine,onion-rice-milk,0,16,1
+health,geography,"ar en es fr id nl
+ pt ro",12.5,therapy-flu-vaccine,territory-city-zone,8,0,0
+health,human_development,"bg el en es fr gu
+ id KN PT ro ta te
+ tl",12.5,therapy-flu-vaccine,mother-husband-child,11,2,0.15384615384615385
+health,justice,"BG de en fr GU kn
+ ko nl ro ta te ZH
+",12.5,therapy-flu-vaccine,accusation-criminal-guilty,9,3,0.25
+health,king,"bg de el en es fr
+ gu nl pt ro ru te
+ tl zh",12.5,therapy-flu-vaccine,emperor-king-imperial,14,0,0
+health,letters,"en FR gu id ru ta
+",12.5,therapy-flu-vaccine,message-letter-address,5,1,0.16666666666666666
+health,literary,ar en es pt ru,12.5,therapy-flu-vaccine,book-story-literature,5,0,0
+health,machines,en NL,12.5,therapy-flu-vaccine,system-tool-disk,1,1,0.5
+health,material,"BG EL en fr nl RO
+ RU TA TE",12.5,therapy-flu-vaccine,cotton-hemp-grain,3,6,0.6666666666666666
+health,media,"bg en es MR RU ta
+",12.5,therapy-flu-vaccine,cable-channel-signal,4,2,0.3333333333333333
+health,music,"ar de en gu id ko
+ mr pt te",12.5,therapy-flu-vaccine,song-album-guitar,9,0,0
+health,performance,"bg en fr id ko nl
+ tl",12.5,therapy-flu-vaccine,festival-theater-exhibition,7,0,0
+health,plants,en fr RO tl,12.5,therapy-flu-vaccine,plant-fruit-flower,3,1,0.25
+health,poltical_movements,ar en nl pt,12.5,therapy-flu-vaccine,invasion-occupation-revolution,4,0,0
+health,profession,"bg de el en es fr
+ id ko nl pt ro ru
+ ta te tl zh",12.5,therapy-flu-vaccine,writer-poet-painter,16,0,0
+health,race,en,12.5,therapy-flu-vaccine,final-race-medal,1,0,0
+health,religion,"de en fr GU id kn
+ MR nl pt ro ru tl
+",12.5,therapy-flu-vaccine,sin-devil-angel,10,2,0.16666666666666666
+health,small_units,"BG EN ES FR ID NL
+ PT RO TA ZH",12.5,therapy-flu-vaccine,molecule-atom-protein,0,10,1
+health,structures,"bg el en id ko ru
+",12.5,therapy-flu-vaccine,wall-arch-gate,6,0,0
+health,time,"AR bg de en ES ID
+ KN NL te",12.5,therapy-flu-vaccine,first-month-time,4,5,0.5555555555555556
+health,water,en fr kn ko te,12.5,therapy-flu-vaccine,lake-basin-canal,5,0,0
+human_development,animal,"BG EL EN ES FR gu
+ hi IT KN ML NE PL
+ pt RO TA te TL",13.5,mother-husband-child,cat-dog-animal,4,13,0.7647058823529411
+human_development,army,"bg en es fa fr gu
+ id it pt ro te",13.5,mother-husband-child,army-troops-battalion,11,0,0
+human_development,belief,en UR,13.5,mother-husband-child,statement-prejudice-claim,1,1,0.5
+human_development,body,"EL EN es gu pl RO
+ tl",13.5,mother-husband-child,eye-leg-mouth,4,3,0.42857142857142855
+human_development,career,"EN HI it RO TE TL
+",13.5,mother-husband-child,popularity-success-talent,1,5,0.8333333333333334
+human_development,civic,"EN gu HI IT kn PT
+ TA TE",13.5,mother-husband-child,social-politics-culture,2,6,0.75
+human_development,democracy,bg en fa it TL,13.5,mother-husband-child,parliamentary-delegate-election,4,1,0.2
+human_development,disaster,"en es fa ID ro TA
+ te",13.5,mother-husband-child,calamity-disaster-famine,5,2,0.2857142857142857
+human_development,earth,"el en es fr it ro
+",13.5,mother-husband-child,earth-sun-ocean,6,0,0
+human_development,food,"el en fr gu hi id
+ it kn NE pl pt ro
+ ta te tl UR",13.5,mother-husband-child,onion-rice-milk,14,2,0.125
+human_development,geography,"en es fr HI ID it
+ pt ro",13.5,mother-husband-child,territory-city-zone,6,2,0.25
+human_development,health,"bg el en es fr GU
+ id KN PT ro TA TE
+ TL",13.5,mother-husband-child,therapy-flu-vaccine,7,6,0.46153846153846156
+human_development,justice,"BG EN fr GU it KN
+ ML NE RO ta TE",13.5,mother-husband-child,accusation-criminal-guilty,3,8,0.7272727272727273
+human_development,king,"BG EL EN ES fa FR
+ gu hi it ne PL pt
+ ro te TL UR",13.5,mother-husband-child,emperor-king-imperial,8,8,0.5
+human_development,letters,en fr gu id ta,13.5,mother-husband-child,message-letter-address,5,0,0
+human_development,literary,EN ES pt,13.5,mother-husband-child,book-story-literature,1,2,0.6666666666666666
+human_development,machines,en ml,13.5,mother-husband-child,system-tool-disk,2,0,0
+human_development,material,"bg el en fa fr hi
+ it ml pl ro ta te
+",13.5,mother-husband-child,cotton-hemp-grain,12,0,0
+human_development,media,bg en es it ta,13.5,mother-husband-child,cable-channel-signal,5,0,0
+human_development,music,"en FA gu hi id pt
+ te",13.5,mother-husband-child,song-album-guitar,6,1,0.14285714285714285
+human_development,performance,bg en fr id TL,13.5,mother-husband-child,festival-theater-exhibition,4,1,0.2
+human_development,plants,"en fr hi ml ne pl
+ ro tl",13.5,mother-husband-child,plant-fruit-flower,8,0,0
+human_development,poltical_movements,en it PT,13.5,mother-husband-child,invasion-occupation-revolution,2,1,0.3333333333333333
+human_development,profession,"BG EL EN ES FR id
+ it PL pt ro ta TE
+ tl",13.5,mother-husband-child,writer-poet-painter,6,7,0.5384615384615384
+human_development,race,en,13.5,mother-husband-child,final-race-medal,1,0,0
+human_development,religion,"EN FA FR GU HI id
+ KN ML PT RO TL UR
+",13.5,mother-husband-child,sin-devil-angel,1,11,0.9166666666666666
+human_development,small_units,"bg en es fr id it
+ ml pl pt ro ta",13.5,mother-husband-child,molecule-atom-protein,11,0,0
+human_development,structures,"bg el en hi id pl
+",13.5,mother-husband-child,wall-arch-gate,6,0,0
+human_development,time,"bg EN ES FA ID KN
+ TE",13.5,mother-husband-child,first-month-time,1,6,0.8571428571428571
+human_development,water,en fr kn pl te,13.5,mother-husband-child,lake-basin-canal,5,0,0
+justice,animal,"bg bn de en fr gu
+ it kn ml NE pa ro
+ ta te tr",14.5,accusation-criminal-guilty,cat-dog-animal,14,1,0.06666666666666667
+justice,army,"bg bn DE en FR GU
+ it ko NL ro te tr
+",14.5,accusation-criminal-guilty,army-troops-battalion,8,4,0.3333333333333333
+justice,belief,EN,14.5,accusation-criminal-guilty,statement-prejudice-claim,0,1,1
+justice,body,bn de en gu ro,14.5,accusation-criminal-guilty,eye-leg-mouth,5,0,0
+justice,career,"BN DE EN it RO TE
+ TR",14.5,accusation-criminal-guilty,popularity-success-talent,1,6,0.8571428571428571
+justice,civic,"BN DE EN GU IT KN
+ TA TE TR",14.5,accusation-criminal-guilty,social-politics-culture,0,9,1
+justice,democracy,bg BN en IT tr,14.5,accusation-criminal-guilty,parliamentary-delegate-election,3,2,0.4
+justice,disaster,en ro TA TE zh,14.5,accusation-criminal-guilty,calamity-disaster-famine,3,2,0.4
+justice,earth,en fr it ro,14.5,accusation-criminal-guilty,earth-sun-ocean,4,0,0
+justice,food,"bn de en fr gu it
+ kn ko ne pa ro ta
+ te tr zh",14.5,accusation-criminal-guilty,onion-rice-milk,15,0,0
+justice,geography,"en fr it nl ro tr
+",14.5,accusation-criminal-guilty,territory-city-zone,6,0,0
+justice,health,"BG de en fr GU kn
+ ko nl ro ta te zh
+",14.5,accusation-criminal-guilty,therapy-flu-vaccine,10,2,0.16666666666666666
+justice,human_development,"BG EN FR gu it kn
+ ml ne ro ta te",14.5,accusation-criminal-guilty,mother-husband-child,8,3,0.2727272727272727
+justice,king,"BG DE en FR gu it
+ ne nl ro te tr zh
+",14.5,accusation-criminal-guilty,emperor-king-imperial,9,3,0.25
+justice,letters,EN FR gu ta,14.5,accusation-criminal-guilty,message-letter-address,2,2,0.5
+justice,literary,EN tr,14.5,accusation-criminal-guilty,book-story-literature,1,1,0.5
+justice,machines,en ml nl,14.5,accusation-criminal-guilty,system-tool-disk,3,0,0
+justice,material,"bg bn en fr it ml
+ nl ro ta te tr",14.5,accusation-criminal-guilty,cotton-hemp-grain,11,0,0
+justice,media,bg en it ta,14.5,accusation-criminal-guilty,cable-channel-signal,4,0,0
+justice,music,"bn de en gu ko te
+ tr",14.5,accusation-criminal-guilty,song-album-guitar,7,0,0
+justice,performance,bg en fr ko nl,14.5,accusation-criminal-guilty,festival-theater-exhibition,5,0,0
+justice,plants,"en fr ml ne ro tr
+",14.5,accusation-criminal-guilty,plant-fruit-flower,6,0,0
+justice,poltical_movements,EN IT NL,14.5,accusation-criminal-guilty,invasion-occupation-revolution,0,3,1
+justice,profession,"BG de EN fr it ko
+ nl pa ro ta TE zh
+",14.5,accusation-criminal-guilty,writer-poet-painter,9,3,0.25
+justice,race,en pa,14.5,accusation-criminal-guilty,final-race-medal,2,0,0
+justice,religion,"BN DE EN fr GU kn
+ ML NL PA RO tr",14.5,accusation-criminal-guilty,sin-devil-angel,3,8,0.7272727272727273
+justice,small_units,"bg en fr it ml nl
+ ro ta tr zh",14.5,accusation-criminal-guilty,molecule-atom-protein,10,0,0
+justice,structures,bg en ko,14.5,accusation-criminal-guilty,wall-arch-gate,3,0,0
+justice,time,"bg BN DE EN KN NL
+ TE",14.5,accusation-criminal-guilty,first-month-time,1,6,0.8571428571428571
+justice,water,"bn en fr kn ko te
+",14.5,accusation-criminal-guilty,lake-basin-canal,6,0,0
+king,animal,"bg de el en es fr
+ gu hi it ne PL pt
+ ro ru te tl tr",15.5,emperor-king-imperial,cat-dog-animal,16,1,0.058823529411764705
+king,army,"BG DE EN ES FA FR
+ GU IT NL PT ro RU
+ te TR",15.5,emperor-king-imperial,army-troops-battalion,2,12,0.8571428571428571
+king,belief,en UR,15.5,emperor-king-imperial,statement-prejudice-claim,1,1,0.5
+king,body,"de el en es GU pl
+ ro tl",15.5,emperor-king-imperial,eye-leg-mouth,7,1,0.125
+king,career,"DE en HI it ro TE
+ TL tr",15.5,emperor-king-imperial,popularity-success-talent,4,4,0.5
+king,civic,"de EN GU HI IT pt
+ TE TR",15.5,emperor-king-imperial,social-politics-culture,2,6,0.75
+king,democracy,"BG EN fa IT TL tr
+",15.5,emperor-king-imperial,parliamentary-delegate-election,2,4,0.6666666666666666
+king,disaster,"en es fa PT RO te
+ ZH",15.5,emperor-king-imperial,calamity-disaster-famine,4,3,0.42857142857142855
+king,earth,"el en es fr it ro
+ ru",15.5,emperor-king-imperial,earth-sun-ocean,7,0,0
+king,food,"de el en fr gu hi
+ it ne pl pt ro ru
+ te tl tr ur zh",15.5,emperor-king-imperial,onion-rice-milk,17,0,0
+king,geography,"EN ES fr HI it NL
+ PT RO TR",15.5,emperor-king-imperial,territory-city-zone,2,7,0.7777777777777778
+king,health,"bg de el en es fr
+ gu nl pt ro ru te
+ tl zh",15.5,emperor-king-imperial,therapy-flu-vaccine,14,0,0
+king,human_development,"BG EL EN ES FA fr
+ gu HI it ne PL PT
+ RO te TL ur",15.5,emperor-king-imperial,mother-husband-child,6,10,0.625
+king,justice,"BG DE en fr GU it
+ NE nl ro te tr ZH
+",15.5,emperor-king-imperial,accusation-criminal-guilty,7,5,0.4166666666666667
+king,letters,en FR gu ru,15.5,emperor-king-imperial,message-letter-address,3,1,0.25
+king,literary,en es pt ru tr,15.5,emperor-king-imperial,book-story-literature,5,0,0
+king,machines,en nl,15.5,emperor-king-imperial,system-tool-disk,2,0,0
+king,material,"bg el en fa fr hi
+ it nl pl ro ru te
+ tr",15.5,emperor-king-imperial,cotton-hemp-grain,13,0,0
+king,media,bg en es it ru,15.5,emperor-king-imperial,cable-channel-signal,5,0,0
+king,music,"de en fa gu hi pt
+ te tr",15.5,emperor-king-imperial,song-album-guitar,8,0,0
+king,performance,bg en fr nl TL,15.5,emperor-king-imperial,festival-theater-exhibition,4,1,0.2
+king,plants,"en fr hi ne pl ro
+ tl tr",15.5,emperor-king-imperial,plant-fruit-flower,8,0,0
+king,poltical_movements,EN IT NL PT,15.5,emperor-king-imperial,invasion-occupation-revolution,0,4,1
+king,profession,"BG de EL EN ES fr
+ it nl pl pt ro RU
+ TE tl zh",15.5,emperor-king-imperial,writer-poet-painter,9,6,0.4
+king,race,en,15.5,emperor-king-imperial,final-race-medal,1,0,0
+king,religion,"DE EN FA fr GU HI
+ nl pt RO RU TL TR
+ UR",15.5,emperor-king-imperial,sin-devil-angel,3,10,0.7692307692307693
+king,small_units,"bg en es fr it nl
+ pl pt ro tr zh",15.5,emperor-king-imperial,molecule-atom-protein,11,0,0
+king,structures,"bg el EN hi pl ru
+",15.5,emperor-king-imperial,wall-arch-gate,5,1,0.16666666666666666
+king,time,"bg DE EN ES FA NL
+ TE",15.5,emperor-king-imperial,first-month-time,1,6,0.8571428571428571
+king,water,en fr PL TE,15.5,emperor-king-imperial,lake-basin-canal,2,2,0.5
+letters,animal,en fr gu ru ta,16.5,message-letter-address,cat-dog-animal,5,0,0
+letters,army,en fr gu id RU,16.5,message-letter-address,army-troops-battalion,4,1,0.2
+letters,belief,EN,16.5,message-letter-address,statement-prejudice-claim,0,1,1
+letters,body,en GU,16.5,message-letter-address,eye-leg-mouth,1,1,0.5
+letters,career,EN,16.5,message-letter-address,popularity-success-talent,0,1,1
+letters,civic,en gu ta,16.5,message-letter-address,social-politics-culture,3,0,0
+letters,democracy,en,16.5,message-letter-address,parliamentary-delegate-election,1,0,0
+letters,disaster,en ID TA,16.5,message-letter-address,calamity-disaster-famine,1,2,0.6666666666666666
+letters,earth,en fr ru,16.5,message-letter-address,earth-sun-ocean,3,0,0
+letters,food,"en fr gu id ru ta
+",16.5,message-letter-address,onion-rice-milk,6,0,0
+letters,geography,en fr id,16.5,message-letter-address,territory-city-zone,3,0,0
+letters,health,"en fr gu id ru ta
+",16.5,message-letter-address,therapy-flu-vaccine,6,0,0
+letters,human_development,en fr gu id ta,16.5,message-letter-address,mother-husband-child,5,0,0
+letters,justice,EN FR GU TA,16.5,message-letter-address,accusation-criminal-guilty,0,4,1
+letters,king,en FR gu ru,16.5,message-letter-address,emperor-king-imperial,3,1,0.25
+letters,literary,EN ru,16.5,message-letter-address,book-story-literature,1,1,0.5
+letters,machines,EN,16.5,message-letter-address,system-tool-disk,0,1,1
+letters,material,en fr ru ta,16.5,message-letter-address,cotton-hemp-grain,4,0,0
+letters,media,en ru TA,16.5,message-letter-address,cable-channel-signal,2,1,0.3333333333333333
+letters,music,en gu id,16.5,message-letter-address,song-album-guitar,3,0,0
+letters,performance,en fr id,16.5,message-letter-address,festival-theater-exhibition,3,0,0
+letters,plants,en fr,16.5,message-letter-address,plant-fruit-flower,2,0,0
+letters,poltical_movements,en,16.5,message-letter-address,invasion-occupation-revolution,1,0,0
+letters,profession,en fr id ru ta,16.5,message-letter-address,writer-poet-painter,5,0,0
+letters,race,en,16.5,message-letter-address,final-race-medal,1,0,0
+letters,religion,en fr GU id RU,16.5,message-letter-address,sin-devil-angel,3,2,0.4
+letters,small_units,en fr id ta,16.5,message-letter-address,molecule-atom-protein,4,0,0
+letters,structures,en id ru,16.5,message-letter-address,wall-arch-gate,3,0,0
+letters,time,EN ID,16.5,message-letter-address,first-month-time,0,2,1
+letters,water,en fr,16.5,message-letter-address,lake-basin-canal,2,0,0
+literary,animal,"ar en es pt ru tr
+",17.5,book-story-literature,cat-dog-animal,6,0,0
+literary,army,"ar en es pt ru tr
+",17.5,book-story-literature,army-troops-battalion,6,0,0
+literary,belief,EN,17.5,book-story-literature,statement-prejudice-claim,0,1,1
+literary,body,en es,17.5,book-story-literature,eye-leg-mouth,2,0,0
+literary,career,EN tr,17.5,book-story-literature,popularity-success-talent,1,1,0.5
+literary,civic,EN PT TR,17.5,book-story-literature,social-politics-culture,0,3,1
+literary,democracy,en tr,17.5,book-story-literature,parliamentary-delegate-election,2,0,0
+literary,disaster,en es PT,17.5,book-story-literature,calamity-disaster-famine,2,1,0.3333333333333333
+literary,earth,en es RU,17.5,book-story-literature,earth-sun-ocean,2,1,0.3333333333333333
+literary,food,en pt ru tr,17.5,book-story-literature,onion-rice-milk,4,0,0
+literary,geography,ar en es pt tr,17.5,book-story-literature,territory-city-zone,5,0,0
+literary,health,ar en es pt ru,17.5,book-story-literature,therapy-flu-vaccine,5,0,0
+literary,human_development,en ES PT,17.5,book-story-literature,mother-husband-child,1,2,0.6666666666666666
+literary,justice,en tr,17.5,book-story-literature,accusation-criminal-guilty,2,0,0
+literary,king,en es pt ru tr,17.5,book-story-literature,emperor-king-imperial,5,0,0
+literary,letters,EN ru,17.5,book-story-literature,message-letter-address,1,1,0.5
+literary,machines,en,17.5,book-story-literature,system-tool-disk,1,0,0
+literary,material,en ru tr,17.5,book-story-literature,cotton-hemp-grain,3,0,0
+literary,media,en es ru,17.5,book-story-literature,cable-channel-signal,3,0,0
+literary,music,ar EN PT TR,17.5,book-story-literature,song-album-guitar,1,3,0.75
+literary,performance,EN,17.5,book-story-literature,festival-theater-exhibition,0,1,1
+literary,plants,en tr,17.5,book-story-literature,plant-fruit-flower,2,0,0
+literary,poltical_movements,ar en pt,17.5,book-story-literature,invasion-occupation-revolution,3,0,0
+literary,profession,EN ES PT ru,17.5,book-story-literature,writer-poet-painter,1,3,0.75
+literary,race,en,17.5,book-story-literature,final-race-medal,1,0,0
+literary,religion,EN PT RU tr,17.5,book-story-literature,sin-devil-angel,1,3,0.75
+literary,small_units,en es pt tr,17.5,book-story-literature,molecule-atom-protein,4,0,0
+literary,structures,en ru,17.5,book-story-literature,wall-arch-gate,2,0,0
+literary,time,AR EN ES,17.5,book-story-literature,first-month-time,0,3,1
+literary,water,en,17.5,book-story-literature,lake-basin-canal,1,0,0
+machines,animal,en ml,18.5,system-tool-disk,cat-dog-animal,2,0,0
+machines,army,en nl,18.5,system-tool-disk,army-troops-battalion,2,0,0
+machines,belief,EN,18.5,system-tool-disk,statement-prejudice-claim,0,1,1
+machines,body,en,18.5,system-tool-disk,eye-leg-mouth,1,0,0
+machines,career,EN,18.5,system-tool-disk,popularity-success-talent,0,1,1
+machines,civic,en,18.5,system-tool-disk,social-politics-culture,1,0,0
+machines,democracy,en,18.5,system-tool-disk,parliamentary-delegate-election,1,0,0
+machines,disaster,en,18.5,system-tool-disk,calamity-disaster-famine,1,0,0
+machines,earth,en,18.5,system-tool-disk,earth-sun-ocean,1,0,0
+machines,food,en,18.5,system-tool-disk,onion-rice-milk,1,0,0
+machines,geography,en nl,18.5,system-tool-disk,territory-city-zone,2,0,0
+machines,health,en nl,18.5,system-tool-disk,therapy-flu-vaccine,2,0,0
+machines,human_development,en ml,18.5,system-tool-disk,mother-husband-child,2,0,0
+machines,justice,en ml nl,18.5,system-tool-disk,accusation-criminal-guilty,3,0,0
+machines,king,en nl,18.5,system-tool-disk,emperor-king-imperial,2,0,0
+machines,letters,EN,18.5,system-tool-disk,message-letter-address,0,1,1
+machines,literary,en,18.5,system-tool-disk,book-story-literature,1,0,0
+machines,material,en ml nl,18.5,system-tool-disk,cotton-hemp-grain,3,0,0
+machines,media,en,18.5,system-tool-disk,cable-channel-signal,1,0,0
+machines,music,en,18.5,system-tool-disk,song-album-guitar,1,0,0
+machines,performance,en nl,18.5,system-tool-disk,festival-theater-exhibition,2,0,0
+machines,plants,en ml,18.5,system-tool-disk,plant-fruit-flower,2,0,0
+machines,poltical_movements,en nl,18.5,system-tool-disk,invasion-occupation-revolution,2,0,0
+machines,profession,en nl,18.5,system-tool-disk,writer-poet-painter,2,0,0
+machines,race,en,18.5,system-tool-disk,final-race-medal,1,0,0
+machines,religion,en ml nl,18.5,system-tool-disk,sin-devil-angel,3,0,0
+machines,small_units,EN ML nl,18.5,system-tool-disk,molecule-atom-protein,1,2,0.6666666666666666
+machines,structures,en,18.5,system-tool-disk,wall-arch-gate,1,0,0
+machines,time,en NL,18.5,system-tool-disk,first-month-time,1,1,0.5
+machines,water,en,18.5,system-tool-disk,lake-basin-canal,1,0,0
+material,animal,"BG BN EL EN fr HI
+ IT ML PL RO RU TA
+ TE TR",19.5,cotton-hemp-grain,cat-dog-animal,1,13,0.9285714285714286
+material,army,"bg bn en fa fr it
+ nl ro ru te tr",19.5,cotton-hemp-grain,army-troops-battalion,11,0,0
+material,belief,en,19.5,cotton-hemp-grain,statement-prejudice-claim,1,0,0
+material,body,BN EL EN PL RO,19.5,cotton-hemp-grain,eye-leg-mouth,0,5,1
+material,career,"bn en hi it ro TE
+ tr",19.5,cotton-hemp-grain,popularity-success-talent,6,1,0.14285714285714285
+material,civic,"bn en hi it ta te
+ tr",19.5,cotton-hemp-grain,social-politics-culture,7,0,0
+material,democracy,"bg bn en fa it tr
+",19.5,cotton-hemp-grain,parliamentary-delegate-election,6,0,0
+material,disaster,en fa ro TA te,19.5,cotton-hemp-grain,calamity-disaster-famine,4,1,0.2
+material,earth,"el en FR IT RO RU
+",19.5,cotton-hemp-grain,earth-sun-ocean,2,4,0.6666666666666666
+material,food,EN FR,19.5,cotton-hemp-grain,onion-rice-milk,0,2,1
+material,geography,"en FR HI it nl ro
+ tr",19.5,cotton-hemp-grain,territory-city-zone,5,2,0.2857142857142857
+material,health,"BG EL en fr nl RO
+ RU TA TE",19.5,cotton-hemp-grain,therapy-flu-vaccine,3,6,0.6666666666666666
+material,human_development,"bg el en fa fr hi
+ it ml PL ro ta te
+",19.5,cotton-hemp-grain,mother-husband-child,11,1,0.08333333333333333
+material,justice,"bg bn en fr it ml
+ nl ro ta te tr",19.5,cotton-hemp-grain,accusation-criminal-guilty,11,0,0
+material,king,"bg el en fa fr hi
+ it nl pl ro ru te
+ tr",19.5,cotton-hemp-grain,emperor-king-imperial,13,0,0
+material,letters,en fr ru ta,19.5,cotton-hemp-grain,message-letter-address,4,0,0
+material,literary,en ru tr,19.5,cotton-hemp-grain,book-story-literature,3,0,0
+material,machines,en ml NL,19.5,cotton-hemp-grain,system-tool-disk,2,1,0.3333333333333333
+material,media,bg en it ru TA,19.5,cotton-hemp-grain,cable-channel-signal,4,1,0.2
+material,music,"bn en fa hi te tr
+",19.5,cotton-hemp-grain,song-album-guitar,6,0,0
+material,performance,bg en fr nl,19.5,cotton-hemp-grain,festival-theater-exhibition,4,0,0
+material,plants,EN FR HI ML PL,19.5,cotton-hemp-grain,plant-fruit-flower,0,5,1
+material,poltical_movements,en it nl,19.5,cotton-hemp-grain,invasion-occupation-revolution,3,0,0
+material,profession,"bg el en fr it nl
+ pl ro ru ta te",19.5,cotton-hemp-grain,writer-poet-painter,11,0,0
+material,race,en,19.5,cotton-hemp-grain,final-race-medal,1,0,0
+material,religion,"BN EN fa fr HI ML
+ nl RO RU tr",19.5,cotton-hemp-grain,sin-devil-angel,4,6,0.6
+material,small_units,"BG en FR IT ml nl
+ PL ro ta tr",19.5,cotton-hemp-grain,molecule-atom-protein,6,4,0.4
+material,structures,"bg el EN hi pl ru
+",19.5,cotton-hemp-grain,wall-arch-gate,5,1,0.16666666666666666
+material,time,"bg BN EN fa NL TE
+",19.5,cotton-hemp-grain,first-month-time,2,4,0.6666666666666666
+material,water,BN en FR pl TE,19.5,cotton-hemp-grain,lake-basin-canal,2,3,0.6
+media,animal,"bg en es it mr ru
+ ta",20.5,cable-channel-signal,cat-dog-animal,7,0,0
+media,army,bg en es it ru,20.5,cable-channel-signal,army-troops-battalion,5,0,0
+media,belief,en,20.5,cable-channel-signal,statement-prejudice-claim,1,0,0
+media,body,en es MR,20.5,cable-channel-signal,eye-leg-mouth,2,1,0.3333333333333333
+media,career,EN it,20.5,cable-channel-signal,popularity-success-talent,1,1,0.5
+media,civic,en it ta,20.5,cable-channel-signal,social-politics-culture,3,0,0
+media,democracy,bg en it,20.5,cable-channel-signal,parliamentary-delegate-election,3,0,0
+media,disaster,en es ta,20.5,cable-channel-signal,calamity-disaster-famine,3,0,0
+media,earth,en es it ru,20.5,cable-channel-signal,earth-sun-ocean,4,0,0
+media,food,en it mr ru TA,20.5,cable-channel-signal,onion-rice-milk,4,1,0.2
+media,geography,EN es IT,20.5,cable-channel-signal,territory-city-zone,1,2,0.6666666666666666
+media,health,"bg en es MR ru ta
+",20.5,cable-channel-signal,therapy-flu-vaccine,5,1,0.16666666666666666
+media,human_development,bg en es it ta,20.5,cable-channel-signal,mother-husband-child,5,0,0
+media,justice,bg en it ta,20.5,cable-channel-signal,accusation-criminal-guilty,4,0,0
+media,king,bg en es it ru,20.5,cable-channel-signal,emperor-king-imperial,5,0,0
+media,letters,en ru ta,20.5,cable-channel-signal,message-letter-address,3,0,0
+media,literary,EN es ru,20.5,cable-channel-signal,book-story-literature,2,1,0.3333333333333333
+media,machines,EN,20.5,cable-channel-signal,system-tool-disk,0,1,1
+media,material,bg en it ru TA,20.5,cable-channel-signal,cotton-hemp-grain,4,1,0.2
+media,music,en MR,20.5,cable-channel-signal,song-album-guitar,1,1,0.5
+media,performance,bg en,20.5,cable-channel-signal,festival-theater-exhibition,2,0,0
+media,plants,en,20.5,cable-channel-signal,plant-fruit-flower,1,0,0
+media,poltical_movements,en it,20.5,cable-channel-signal,invasion-occupation-revolution,2,0,0
+media,profession,"bg en es it ru ta
+",20.5,cable-channel-signal,writer-poet-painter,6,0,0
+media,race,en,20.5,cable-channel-signal,final-race-medal,1,0,0
+media,religion,en mr RU,20.5,cable-channel-signal,sin-devil-angel,2,1,0.3333333333333333
+media,small_units,bg en es it ta,20.5,cable-channel-signal,molecule-atom-protein,5,0,0
+media,structures,bg en ru,20.5,cable-channel-signal,wall-arch-gate,3,0,0
+media,time,BG EN ES,20.5,cable-channel-signal,first-month-time,0,3,1
+media,water,en,20.5,cable-channel-signal,lake-basin-canal,1,0,0
+music,animal,"ar bn de en gu hi
+ mr pt te tr",21.5,song-album-guitar,cat-dog-animal,10,0,0
+music,army,"ar bn de en fa gu
+ id ko pt te tr",21.5,song-album-guitar,army-troops-battalion,11,0,0
+music,belief,en,21.5,song-album-guitar,statement-prejudice-claim,1,0,0
+music,body,bn de EN gu MR,21.5,song-album-guitar,eye-leg-mouth,3,2,0.4
+music,career,"BN DE EN hi TE TR
+",21.5,song-album-guitar,popularity-success-talent,1,5,0.8333333333333334
+music,civic,"bn de en gu hi pt
+ te tr",21.5,song-album-guitar,social-politics-culture,8,0,0
+music,democracy,bn en fa tr,21.5,song-album-guitar,parliamentary-delegate-election,4,0,0
+music,disaster,en fa id pt te,21.5,song-album-guitar,calamity-disaster-famine,5,0,0
+music,earth,en,21.5,song-album-guitar,earth-sun-ocean,1,0,0
+music,food,"bn de en gu hi id
+ ko mr pt te tr",21.5,song-album-guitar,onion-rice-milk,11,0,0
+music,geography,"ar en hi id pt tr
+",21.5,song-album-guitar,territory-city-zone,6,0,0
+music,health,"ar de en gu id ko
+ mr pt te",21.5,song-album-guitar,therapy-flu-vaccine,9,0,0
+music,human_development,"EN FA gu hi id pt
+ te",21.5,song-album-guitar,mother-husband-child,5,2,0.2857142857142857
+music,justice,"bn de en GU ko te
+ tr",21.5,song-album-guitar,accusation-criminal-guilty,6,1,0.14285714285714285
+music,king,"de en fa gu hi pt
+ te tr",21.5,song-album-guitar,emperor-king-imperial,8,0,0
+music,letters,en GU ID,21.5,song-album-guitar,message-letter-address,1,2,0.6666666666666666
+music,literary,AR EN PT TR,21.5,song-album-guitar,book-story-literature,0,4,1
+music,machines,EN,21.5,song-album-guitar,system-tool-disk,0,1,1
+music,material,"bn en fa hi te tr
+",21.5,song-album-guitar,cotton-hemp-grain,6,0,0
+music,media,en MR,21.5,song-album-guitar,cable-channel-signal,1,1,0.5
+music,performance,EN ID KO,21.5,song-album-guitar,festival-theater-exhibition,0,3,1
+music,plants,en hi tr,21.5,song-album-guitar,plant-fruit-flower,3,0,0
+music,poltical_movements,ar en pt,21.5,song-album-guitar,invasion-occupation-revolution,3,0,0
+music,profession,"de EN ID KO pt TE
+",21.5,song-album-guitar,writer-poet-painter,2,4,0.6666666666666666
+music,race,en,21.5,song-album-guitar,final-race-medal,1,0,0
+music,religion,"bn DE EN FA GU HI
+ id MR pt tr",21.5,song-album-guitar,sin-devil-angel,4,6,0.6
+music,small_units,en id pt tr,21.5,song-album-guitar,molecule-atom-protein,4,0,0
+music,structures,en hi id ko,21.5,song-album-guitar,wall-arch-gate,4,0,0
+music,time,"AR BN DE EN FA ID
+ TE",21.5,song-album-guitar,first-month-time,0,7,1
+music,water,bn en ko te,21.5,song-album-guitar,lake-basin-canal,4,0,0
+performance,animal,bg en fr tl,22.5,festival-theater-exhibition,cat-dog-animal,4,0,0
+performance,army,"bg en fr id ko nl
+",22.5,festival-theater-exhibition,army-troops-battalion,6,0,0
+performance,belief,en,22.5,festival-theater-exhibition,statement-prejudice-claim,1,0,0
+performance,body,EN TL,22.5,festival-theater-exhibition,eye-leg-mouth,0,2,1
+performance,career,EN TL,22.5,festival-theater-exhibition,popularity-success-talent,0,2,1
+performance,civic,EN,22.5,festival-theater-exhibition,social-politics-culture,0,1,1
+performance,democracy,bg en TL,22.5,festival-theater-exhibition,parliamentary-delegate-election,2,1,0.3333333333333333
+performance,disaster,en id,22.5,festival-theater-exhibition,calamity-disaster-famine,2,0,0
+performance,earth,en FR,22.5,festival-theater-exhibition,earth-sun-ocean,1,1,0.5
+performance,food,en fr id ko tl,22.5,festival-theater-exhibition,onion-rice-milk,5,0,0
+performance,geography,EN FR ID NL,22.5,festival-theater-exhibition,territory-city-zone,0,4,1
+performance,health,"bg en fr id ko nl
+ tl",22.5,festival-theater-exhibition,therapy-flu-vaccine,7,0,0
+performance,human_development,bg en FR id tl,22.5,festival-theater-exhibition,mother-husband-child,4,1,0.2
+performance,justice,BG en fr ko nl,22.5,festival-theater-exhibition,accusation-criminal-guilty,4,1,0.2
+performance,king,bg en fr nl TL,22.5,festival-theater-exhibition,emperor-king-imperial,4,1,0.2
+performance,letters,en fr ID,22.5,festival-theater-exhibition,message-letter-address,2,1,0.3333333333333333
+performance,literary,EN,22.5,festival-theater-exhibition,book-story-literature,0,1,1
+performance,machines,en NL,22.5,festival-theater-exhibition,system-tool-disk,1,1,0.5
+performance,material,bg en fr nl,22.5,festival-theater-exhibition,cotton-hemp-grain,4,0,0
+performance,media,bg en,22.5,festival-theater-exhibition,cable-channel-signal,2,0,0
+performance,music,EN id ko,22.5,festival-theater-exhibition,song-album-guitar,2,1,0.3333333333333333
+performance,plants,en fr tl,22.5,festival-theater-exhibition,plant-fruit-flower,3,0,0
+performance,poltical_movements,en nl,22.5,festival-theater-exhibition,invasion-occupation-revolution,2,0,0
+performance,profession,"BG EN fr ID KO NL
+ tl",22.5,festival-theater-exhibition,writer-poet-painter,2,5,0.7142857142857143
+performance,race,en,22.5,festival-theater-exhibition,final-race-medal,1,0,0
+performance,religion,en fr id nl TL,22.5,festival-theater-exhibition,sin-devil-angel,4,1,0.2
+performance,small_units,bg en fr id nl,22.5,festival-theater-exhibition,molecule-atom-protein,5,0,0
+performance,structures,BG EN ID ko,22.5,festival-theater-exhibition,wall-arch-gate,1,3,0.75
+performance,time,BG EN ID NL,22.5,festival-theater-exhibition,first-month-time,0,4,1
+performance,water,en FR ko,22.5,festival-theater-exhibition,lake-basin-canal,2,1,0.3333333333333333
+plants,animal,"EN FR HI ML NE PL
+ RO TL TR",23.5,plant-fruit-flower,cat-dog-animal,0,9,1
+plants,army,en fr ro tr,23.5,plant-fruit-flower,army-troops-battalion,4,0,0
+plants,belief,en,23.5,plant-fruit-flower,statement-prejudice-claim,1,0,0
+plants,body,EN PL RO TL,23.5,plant-fruit-flower,eye-leg-mouth,0,4,1
+plants,career,en hi ro TL tr,23.5,plant-fruit-flower,popularity-success-talent,4,1,0.2
+plants,civic,en hi tr,23.5,plant-fruit-flower,social-politics-culture,3,0,0
+plants,democracy,en tl tr,23.5,plant-fruit-flower,parliamentary-delegate-election,3,0,0
+plants,disaster,en ro,23.5,plant-fruit-flower,calamity-disaster-famine,2,0,0
+plants,earth,EN FR RO,23.5,plant-fruit-flower,earth-sun-ocean,0,3,1
+plants,food,"EN FR HI NE PL TL
+",23.5,plant-fruit-flower,onion-rice-milk,0,6,1
+plants,geography,en fr hi ro tr,23.5,plant-fruit-flower,territory-city-zone,5,0,0
+plants,health,en fr RO TL,23.5,plant-fruit-flower,therapy-flu-vaccine,2,2,0.5
+plants,human_development,"en fr hi ml ne pl
+ ro tl",23.5,plant-fruit-flower,mother-husband-child,8,0,0
+plants,justice,"en fr ml NE ro tr
+",23.5,plant-fruit-flower,accusation-criminal-guilty,5,1,0.16666666666666666
+plants,king,"en fr hi ne PL ro
+ TL tr",23.5,plant-fruit-flower,emperor-king-imperial,6,2,0.25
+plants,letters,en fr,23.5,plant-fruit-flower,message-letter-address,2,0,0
+plants,literary,en tr,23.5,plant-fruit-flower,book-story-literature,2,0,0
+plants,machines,en ml,23.5,plant-fruit-flower,system-tool-disk,2,0,0
+plants,material,EN FR HI ML PL,23.5,plant-fruit-flower,cotton-hemp-grain,0,5,1
+plants,media,en,23.5,plant-fruit-flower,cable-channel-signal,1,0,0
+plants,music,en hi tr,23.5,plant-fruit-flower,song-album-guitar,3,0,0
+plants,performance,en fr TL,23.5,plant-fruit-flower,festival-theater-exhibition,2,1,0.3333333333333333
+plants,poltical_movements,en,23.5,plant-fruit-flower,invasion-occupation-revolution,1,0,0
+plants,profession,en fr pl ro tl,23.5,plant-fruit-flower,writer-poet-painter,5,0,0
+plants,race,en,23.5,plant-fruit-flower,final-race-medal,1,0,0
+plants,religion,"EN fr hi ML RO TL
+ tr",23.5,plant-fruit-flower,sin-devil-angel,3,4,0.5714285714285714
+plants,small_units,"en fr ML PL ro tr
+",23.5,plant-fruit-flower,molecule-atom-protein,4,2,0.3333333333333333
+plants,structures,EN hi PL,23.5,plant-fruit-flower,wall-arch-gate,1,2,0.6666666666666666
+plants,time,en,23.5,plant-fruit-flower,first-month-time,1,0,0
+plants,water,en fr pl,23.5,plant-fruit-flower,lake-basin-canal,3,0,0
+poltical_movements,animal,ar en it pt,24.5,invasion-occupation-revolution,cat-dog-animal,4,0,0
+poltical_movements,army,EN IT PT,24.5,invasion-occupation-revolution,army-troops-battalion,0,3,1
+poltical_movements,belief,EN,24.5,invasion-occupation-revolution,statement-prejudice-claim,0,1,1
+poltical_movements,body,en,24.5,invasion-occupation-revolution,eye-leg-mouth,1,0,0
+poltical_movements,career,EN IT,24.5,invasion-occupation-revolution,popularity-success-talent,0,2,1
+poltical_movements,civic,EN IT PT,24.5,invasion-occupation-revolution,social-politics-culture,0,3,1
+poltical_movements,democracy,EN IT,24.5,invasion-occupation-revolution,parliamentary-delegate-election,0,2,1
+poltical_movements,disaster,EN PT,24.5,invasion-occupation-revolution,calamity-disaster-famine,0,2,1
+poltical_movements,earth,en it,24.5,invasion-occupation-revolution,earth-sun-ocean,2,0,0
+poltical_movements,food,en it pt,24.5,invasion-occupation-revolution,onion-rice-milk,3,0,0
+poltical_movements,geography,AR EN it nl pt,24.5,invasion-occupation-revolution,territory-city-zone,3,2,0.4
+poltical_movements,health,ar en nl pt,24.5,invasion-occupation-revolution,therapy-flu-vaccine,4,0,0
+poltical_movements,human_development,en it PT,24.5,invasion-occupation-revolution,mother-husband-child,2,1,0.3333333333333333
+poltical_movements,justice,en IT NL,24.5,invasion-occupation-revolution,accusation-criminal-guilty,1,2,0.6666666666666666
+poltical_movements,king,EN IT NL PT,24.5,invasion-occupation-revolution,emperor-king-imperial,0,4,1
+poltical_movements,letters,en,24.5,invasion-occupation-revolution,message-letter-address,1,0,0
+poltical_movements,literary,ar en pt,24.5,invasion-occupation-revolution,book-story-literature,3,0,0
+poltical_movements,machines,en nl,24.5,invasion-occupation-revolution,system-tool-disk,2,0,0
+poltical_movements,material,en it nl,24.5,invasion-occupation-revolution,cotton-hemp-grain,3,0,0
+poltical_movements,media,en it,24.5,invasion-occupation-revolution,cable-channel-signal,2,0,0
+poltical_movements,music,ar en pt,24.5,invasion-occupation-revolution,song-album-guitar,3,0,0
+poltical_movements,performance,en nl,24.5,invasion-occupation-revolution,festival-theater-exhibition,2,0,0
+poltical_movements,plants,en,24.5,invasion-occupation-revolution,plant-fruit-flower,1,0,0
+poltical_movements,profession,en it nl pt,24.5,invasion-occupation-revolution,writer-poet-painter,4,0,0
+poltical_movements,race,en,24.5,invasion-occupation-revolution,final-race-medal,1,0,0
+poltical_movements,religion,EN nl pt,24.5,invasion-occupation-revolution,sin-devil-angel,2,1,0.3333333333333333
+poltical_movements,small_units,en it nl pt,24.5,invasion-occupation-revolution,molecule-atom-protein,4,0,0
+poltical_movements,structures,en,24.5,invasion-occupation-revolution,wall-arch-gate,1,0,0
+poltical_movements,time,AR EN NL,24.5,invasion-occupation-revolution,first-month-time,0,3,1
+poltical_movements,water,en,24.5,invasion-occupation-revolution,lake-basin-canal,1,0,0
+profession,animal,"bg de el en es fr
+ it pa pl pt ro ru
+ ta te tl",25.5,writer-poet-painter,cat-dog-animal,15,0,0
+profession,army,"bg de en es fr id
+ it ko nl pt ro RU
+ te",25.5,writer-poet-painter,army-troops-battalion,12,1,0.07692307692307693
+profession,belief,en,25.5,writer-poet-painter,statement-prejudice-claim,1,0,0
+profession,body,"de el en es pl ro
+ tl",25.5,writer-poet-painter,eye-leg-mouth,7,0,0
+profession,career,"de EN IT RO TE TL
+",25.5,writer-poet-painter,popularity-success-talent,1,5,0.8333333333333334
+profession,civic,"DE EN IT PT TA TE
+",25.5,writer-poet-painter,social-politics-culture,0,6,1
+profession,democracy,BG EN IT TL,25.5,writer-poet-painter,parliamentary-delegate-election,0,4,1
+profession,disaster,"en es ID PT ro ta
+ te zh",25.5,writer-poet-painter,calamity-disaster-famine,6,2,0.25
+profession,earth,"el en es fr it ro
+ ru",25.5,writer-poet-painter,earth-sun-ocean,7,0,0
+profession,food,"de el en fr id it
+ ko pa pl pt ro ru
+ ta te tl zh",25.5,writer-poet-painter,onion-rice-milk,16,0,0
+profession,geography,"en es fr id it nl
+ pt RO",25.5,writer-poet-painter,territory-city-zone,7,1,0.125
+profession,health,"bg de el en es fr
+ id ko nl pt ro ru
+ ta te tl zh",25.5,writer-poet-painter,therapy-flu-vaccine,16,0,0
+profession,human_development,"bg EL EN ES FR ID
+ IT PL PT RO ta TE
+ tl",25.5,writer-poet-painter,mother-husband-child,3,10,0.7692307692307693
+profession,justice,"BG DE en fr IT ko
+ nl pa ro ta TE ZH
+",25.5,writer-poet-painter,accusation-criminal-guilty,7,5,0.4166666666666667
+profession,king,"BG de EL en ES fr
+ it nl PL pt ro RU
+ te tl zh",25.5,writer-poet-painter,emperor-king-imperial,10,5,0.3333333333333333
+profession,letters,en fr ID ru ta,25.5,writer-poet-painter,message-letter-address,4,1,0.2
+profession,literary,EN ES PT ru,25.5,writer-poet-painter,book-story-literature,1,3,0.75
+profession,machines,en NL,25.5,writer-poet-painter,system-tool-disk,1,1,0.5
+profession,material,"bg el en fr it nl
+ pl ro ru ta te",25.5,writer-poet-painter,cotton-hemp-grain,11,0,0
+profession,media,"bg en es it ru TA
+",25.5,writer-poet-painter,cable-channel-signal,5,1,0.16666666666666666
+profession,music,"de EN ID KO pt te
+",25.5,writer-poet-painter,song-album-guitar,3,3,0.5
+profession,performance,"BG EN FR ID KO NL
+ TL",25.5,writer-poet-painter,festival-theater-exhibition,0,7,1
+profession,plants,en fr pl ro tl,25.5,writer-poet-painter,plant-fruit-flower,5,0,0
+profession,poltical_movements,en it nl PT,25.5,writer-poet-painter,invasion-occupation-revolution,3,1,0.25
+profession,race,en pa,25.5,writer-poet-painter,final-race-medal,2,0,0
+profession,religion,"de EN fr id nl PA
+ pt RO RU tl",25.5,writer-poet-painter,sin-devil-angel,6,4,0.4
+profession,small_units,"bg en es fr id it
+ nl pl pt ro ta zh
+",25.5,writer-poet-painter,molecule-atom-protein,12,0,0
+profession,structures,"bg el en id ko pl
+ ru",25.5,writer-poet-painter,wall-arch-gate,7,0,0
+profession,time,"bg DE EN ES ID NL
+ TE",25.5,writer-poet-painter,first-month-time,1,6,0.8571428571428571
+profession,water,en fr ko pl te,25.5,writer-poet-painter,lake-basin-canal,5,0,0
+race,animal,en pa,26.5,final-race-medal,cat-dog-animal,2,0,0
+race,army,en,26.5,final-race-medal,army-troops-battalion,1,0,0
+race,belief,EN,26.5,final-race-medal,statement-prejudice-claim,0,1,1
+race,body,EN,26.5,final-race-medal,eye-leg-mouth,0,1,1
+race,career,EN,26.5,final-race-medal,popularity-success-talent,0,1,1
+race,civic,en,26.5,final-race-medal,social-politics-culture,1,0,0
+race,democracy,en,26.5,final-race-medal,parliamentary-delegate-election,1,0,0
+race,disaster,en,26.5,final-race-medal,calamity-disaster-famine,1,0,0
+race,earth,en,26.5,final-race-medal,earth-sun-ocean,1,0,0
+race,food,en pa,26.5,final-race-medal,onion-rice-milk,2,0,0
+race,geography,EN,26.5,final-race-medal,territory-city-zone,0,1,1
+race,health,en,26.5,final-race-medal,therapy-flu-vaccine,1,0,0
+race,human_development,EN,26.5,final-race-medal,mother-husband-child,0,1,1
+race,justice,en pa,26.5,final-race-medal,accusation-criminal-guilty,2,0,0
+race,king,en,26.5,final-race-medal,emperor-king-imperial,1,0,0
+race,letters,en,26.5,final-race-medal,message-letter-address,1,0,0
+race,literary,en,26.5,final-race-medal,book-story-literature,1,0,0
+race,machines,en,26.5,final-race-medal,system-tool-disk,1,0,0
+race,material,en,26.5,final-race-medal,cotton-hemp-grain,1,0,0
+race,media,en,26.5,final-race-medal,cable-channel-signal,1,0,0
+race,music,en,26.5,final-race-medal,song-album-guitar,1,0,0
+race,performance,EN,26.5,final-race-medal,festival-theater-exhibition,0,1,1
+race,plants,en,26.5,final-race-medal,plant-fruit-flower,1,0,0
+race,poltical_movements,en,26.5,final-race-medal,invasion-occupation-revolution,1,0,0
+race,profession,en pa,26.5,final-race-medal,writer-poet-painter,2,0,0
+race,religion,EN pa,26.5,final-race-medal,sin-devil-angel,1,1,0.5
+race,small_units,en,26.5,final-race-medal,molecule-atom-protein,1,0,0
+race,structures,en,26.5,final-race-medal,wall-arch-gate,1,0,0
+race,time,EN,26.5,final-race-medal,first-month-time,0,1,1
+race,water,en,26.5,final-race-medal,lake-basin-canal,1,0,0
+religion,animal,"BN DE EN FR gu HI
+ KN ml mr pa PT RO
+ RU TL TR",27.5,sin-devil-angel,cat-dog-animal,4,11,0.7333333333333333
+religion,army,"bn de en fa fr GU
+ id nl pt ro ru tr
+",27.5,sin-devil-angel,army-troops-battalion,11,1,0.08333333333333333
+religion,belief,en UR,27.5,sin-devil-angel,statement-prejudice-claim,1,1,0.5
+religion,body,"bn DE EN GU MR RO
+ TL",27.5,sin-devil-angel,eye-leg-mouth,1,6,0.8571428571428571
+religion,career,"bn DE EN HI RO TL
+ TR",27.5,sin-devil-angel,popularity-success-talent,1,6,0.8571428571428571
+religion,civic,"BN de en GU HI KN
+ pt TR",27.5,sin-devil-angel,social-politics-culture,3,5,0.625
+religion,democracy,bn en fa TL tr,27.5,sin-devil-angel,parliamentary-delegate-election,4,1,0.2
+religion,disaster,en fa ID PT RO,27.5,sin-devil-angel,calamity-disaster-famine,2,3,0.6
+religion,earth,EN FR ro RU,27.5,sin-devil-angel,earth-sun-ocean,1,3,0.75
+religion,food,"bn de en fr gu hi
+ id kn MR pa pt ro
+ ru tl tr UR",27.5,sin-devil-angel,onion-rice-milk,14,2,0.125
+religion,geography,"en fr hi id nl pt
+ ro tr",27.5,sin-devil-angel,territory-city-zone,8,0,0
+religion,health,"de en fr GU id KN
+ mr nl pt ro ru tl
+",27.5,sin-devil-angel,therapy-flu-vaccine,10,2,0.16666666666666666
+religion,human_development,"EN FA FR GU HI ID
+ KN ML PT RO TL UR
+",27.5,sin-devil-angel,mother-husband-child,0,12,1
+religion,justice,"BN DE EN fr GU KN
+ ML nl PA RO tr",27.5,sin-devil-angel,accusation-criminal-guilty,3,8,0.7272727272727273
+religion,king,"de en fa fr gu hi
+ nl pt ro RU TL TR
+ UR",27.5,sin-devil-angel,emperor-king-imperial,9,4,0.3076923076923077
+religion,letters,en fr gu id ru,27.5,sin-devil-angel,message-letter-address,5,0,0
+religion,literary,EN PT ru tr,27.5,sin-devil-angel,book-story-literature,2,2,0.5
+religion,machines,en ml nl,27.5,sin-devil-angel,system-tool-disk,3,0,0
+religion,material,"bn en fa fr hi ml
+ nl ro ru tr",27.5,sin-devil-angel,cotton-hemp-grain,10,0,0
+religion,media,en mr ru,27.5,sin-devil-angel,cable-channel-signal,3,0,0
+religion,music,"bn de en fa gu hi
+ id mr pt tr",27.5,sin-devil-angel,song-album-guitar,10,0,0
+religion,performance,en fr id nl TL,27.5,sin-devil-angel,festival-theater-exhibition,4,1,0.2
+religion,plants,"en FR hi ML ro tl
+ tr",27.5,sin-devil-angel,plant-fruit-flower,5,2,0.2857142857142857
+religion,poltical_movements,en nl pt,27.5,sin-devil-angel,invasion-occupation-revolution,3,0,0
+religion,profession,"de en fr id nl PA
+ pt ro RU tl",27.5,sin-devil-angel,writer-poet-painter,8,2,0.2
+religion,race,en pa,27.5,sin-devil-angel,final-race-medal,2,0,0
+religion,small_units,"en fr id ml nl pt
+ ro tr",27.5,sin-devil-angel,molecule-atom-protein,8,0,0
+religion,structures,en hi id ru,27.5,sin-devil-angel,wall-arch-gate,4,0,0
+religion,time,"BN DE EN FA id KN
+ NL",27.5,sin-devil-angel,first-month-time,1,6,0.8571428571428571
+religion,water,bn en fr kn,27.5,sin-devil-angel,lake-basin-canal,4,0,0
+small_units,animal,"bg en es fr it ml
+ pl pt ro ta tr",28.5,molecule-atom-protein,cat-dog-animal,11,0,0
+small_units,army,"bg en es fr id it
+ nl pt ro tr",28.5,molecule-atom-protein,army-troops-battalion,10,0,0
+small_units,belief,en,28.5,molecule-atom-protein,statement-prejudice-claim,1,0,0
+small_units,body,en es PL ro,28.5,molecule-atom-protein,eye-leg-mouth,3,1,0.25
+small_units,career,en it ro TR,28.5,molecule-atom-protein,popularity-success-talent,3,1,0.25
+small_units,civic,en it pt ta tr,28.5,molecule-atom-protein,social-politics-culture,5,0,0
+small_units,democracy,bg en it tr,28.5,molecule-atom-protein,parliamentary-delegate-election,4,0,0
+small_units,disaster,"en es id pt ro TA
+ zh",28.5,molecule-atom-protein,calamity-disaster-famine,6,1,0.14285714285714285
+small_units,earth,EN es fr it RO,28.5,molecule-atom-protein,earth-sun-ocean,3,2,0.4
+small_units,food,"en FR ID IT PL pt
+ RO TA tr zh",28.5,molecule-atom-protein,onion-rice-milk,4,6,0.6
+small_units,geography,"en es fr id it nl
+ pt ro tr",28.5,molecule-atom-protein,territory-city-zone,9,0,0
+small_units,health,"BG EN ES FR ID NL
+ PT RO TA zh",28.5,molecule-atom-protein,therapy-flu-vaccine,1,9,0.9
+small_units,human_development,"bg en es fr id it
+ ml pl pt ro ta",28.5,molecule-atom-protein,mother-husband-child,11,0,0
+small_units,justice,"bg en fr it ml nl
+ ro ta tr ZH",28.5,molecule-atom-protein,accusation-criminal-guilty,9,1,0.1
+small_units,king,"bg en es fr it nl
+ pl pt ro tr zh",28.5,molecule-atom-protein,emperor-king-imperial,11,0,0
+small_units,letters,en fr id ta,28.5,molecule-atom-protein,message-letter-address,4,0,0
+small_units,literary,en es pt tr,28.5,molecule-atom-protein,book-story-literature,4,0,0
+small_units,machines,EN ML NL,28.5,molecule-atom-protein,system-tool-disk,0,3,1
+small_units,material,"BG en FR IT ML nl
+ PL RO TA tr",28.5,molecule-atom-protein,cotton-hemp-grain,3,7,0.7
+small_units,media,bg en es it ta,28.5,molecule-atom-protein,cable-channel-signal,5,0,0
+small_units,music,en id pt tr,28.5,molecule-atom-protein,song-album-guitar,4,0,0
+small_units,performance,bg en fr id nl,28.5,molecule-atom-protein,festival-theater-exhibition,5,0,0
+small_units,plants,"en FR ML PL RO tr
+",28.5,molecule-atom-protein,plant-fruit-flower,2,4,0.6666666666666666
+small_units,poltical_movements,en it nl pt,28.5,molecule-atom-protein,invasion-occupation-revolution,4,0,0
+small_units,profession,"bg en es fr id it
+ nl pl pt ro ta zh
+",28.5,molecule-atom-protein,writer-poet-painter,12,0,0
+small_units,race,en,28.5,molecule-atom-protein,final-race-medal,1,0,0
+small_units,religion,"en fr id ml nl pt
+ ro tr",28.5,molecule-atom-protein,sin-devil-angel,8,0,0
+small_units,structures,bg en id PL,28.5,molecule-atom-protein,wall-arch-gate,3,1,0.25
+small_units,time,bg en es id NL,28.5,molecule-atom-protein,first-month-time,4,1,0.2
+small_units,water,en fr pl,28.5,molecule-atom-protein,lake-basin-canal,3,0,0
+structures,animal,"bg EL en hi PL RU
+",29.5,wall-arch-gate,cat-dog-animal,3,3,0.5
+structures,army,bg en id ko ru,29.5,wall-arch-gate,army-troops-battalion,5,0,0
+structures,belief,en,29.5,wall-arch-gate,statement-prejudice-claim,1,0,0
+structures,body,EL EN PL,29.5,wall-arch-gate,eye-leg-mouth,0,3,1
+structures,career,en hi,29.5,wall-arch-gate,popularity-success-talent,2,0,0
+structures,civic,en hi,29.5,wall-arch-gate,social-politics-culture,2,0,0
+structures,democracy,bg en,29.5,wall-arch-gate,parliamentary-delegate-election,2,0,0
+structures,disaster,en id,29.5,wall-arch-gate,calamity-disaster-famine,2,0,0
+structures,earth,EL en RU,29.5,wall-arch-gate,earth-sun-ocean,1,2,0.6666666666666666
+structures,food,"el en hi id ko pl
+ ru",29.5,wall-arch-gate,onion-rice-milk,7,0,0
+structures,geography,EN HI ID,29.5,wall-arch-gate,territory-city-zone,0,3,1
+structures,health,"bg el en id ko ru
+",29.5,wall-arch-gate,therapy-flu-vaccine,6,0,0
+structures,human_development,"bg el en hi id pl
+",29.5,wall-arch-gate,mother-husband-child,6,0,0
+structures,justice,bg en ko,29.5,wall-arch-gate,accusation-criminal-guilty,3,0,0
+structures,king,"BG el en hi pl ru
+",29.5,wall-arch-gate,emperor-king-imperial,5,1,0.16666666666666666
+structures,letters,en id ru,29.5,wall-arch-gate,message-letter-address,3,0,0
+structures,literary,en ru,29.5,wall-arch-gate,book-story-literature,2,0,0
+structures,machines,en,29.5,wall-arch-gate,system-tool-disk,1,0,0
+structures,material,"bg el EN hi pl ru
+",29.5,wall-arch-gate,cotton-hemp-grain,5,1,0.16666666666666666
+structures,media,bg en ru,29.5,wall-arch-gate,cable-channel-signal,3,0,0
+structures,music,en hi id ko,29.5,wall-arch-gate,song-album-guitar,4,0,0
+structures,performance,BG EN ID ko,29.5,wall-arch-gate,festival-theater-exhibition,1,3,0.75
+structures,plants,en hi pl,29.5,wall-arch-gate,plant-fruit-flower,3,0,0
+structures,poltical_movements,en,29.5,wall-arch-gate,invasion-occupation-revolution,1,0,0
+structures,profession,"bg el en id ko pl
+ ru",29.5,wall-arch-gate,writer-poet-painter,7,0,0
+structures,race,en,29.5,wall-arch-gate,final-race-medal,1,0,0
+structures,religion,en HI id ru,29.5,wall-arch-gate,sin-devil-angel,3,1,0.25
+structures,small_units,bg en id pl,29.5,wall-arch-gate,molecule-atom-protein,4,0,0
+structures,time,bg EN ID,29.5,wall-arch-gate,first-month-time,1,2,0.6666666666666666
+structures,water,en KO PL,29.5,wall-arch-gate,lake-basin-canal,1,2,0.6666666666666666
+time,animal,"ar bg bn de en es
+ kn te",30.5,first-month-time,cat-dog-animal,8,0,0
+time,army,"ar bg bn DE en es
+ fa id nl te",30.5,first-month-time,army-troops-battalion,9,1,0.1
+time,belief,EN,30.5,first-month-time,statement-prejudice-claim,0,1,1
+time,body,bn DE EN es,30.5,first-month-time,eye-leg-mouth,2,2,0.5
+time,career,BN DE EN,30.5,first-month-time,popularity-success-talent,0,3,1
+time,civic,bn de en KN TE,30.5,first-month-time,social-politics-culture,3,2,0.4
+time,democracy,BG BN en fa,30.5,first-month-time,parliamentary-delegate-election,2,2,0.5
+time,disaster,en es fa ID te,30.5,first-month-time,calamity-disaster-famine,4,1,0.2
+time,earth,en es,30.5,first-month-time,earth-sun-ocean,2,0,0
+time,food,"bn de en id KN te
+",30.5,first-month-time,onion-rice-milk,5,1,0.16666666666666666
+time,geography,ar EN es ID nl,30.5,first-month-time,territory-city-zone,3,2,0.4
+time,health,"ar bg de en es id
+ kn nl te",30.5,first-month-time,therapy-flu-vaccine,9,0,0
+time,human_development,"bg en es fa id kn
+ te",30.5,first-month-time,mother-husband-child,7,0,0
+time,justice,"bg bn de en KN nl
+ te",30.5,first-month-time,accusation-criminal-guilty,6,1,0.14285714285714285
+time,king,"bg de en es fa nl
+ te",30.5,first-month-time,emperor-king-imperial,7,0,0
+time,letters,en ID,30.5,first-month-time,message-letter-address,1,1,0.5
+time,literary,ar EN es,30.5,first-month-time,book-story-literature,2,1,0.3333333333333333
+time,machines,en NL,30.5,first-month-time,system-tool-disk,1,1,0.5
+time,material,"bg bn en fa nl te
+",30.5,first-month-time,cotton-hemp-grain,6,0,0
+time,media,bg en es,30.5,first-month-time,cable-channel-signal,3,0,0
+time,music,"ar bn de en fa id
+ te",30.5,first-month-time,song-album-guitar,7,0,0
+time,performance,BG en ID nl,30.5,first-month-time,festival-theater-exhibition,2,2,0.5
+time,plants,en,30.5,first-month-time,plant-fruit-flower,1,0,0
+time,poltical_movements,ar en nl,30.5,first-month-time,invasion-occupation-revolution,3,0,0
+time,profession,"bg de en es id nl
+ TE",30.5,first-month-time,writer-poet-painter,6,1,0.14285714285714285
+time,race,EN,30.5,first-month-time,final-race-medal,0,1,1
+time,religion,"BN de en fa id kn
+ nl",30.5,first-month-time,sin-devil-angel,6,1,0.14285714285714285
+time,small_units,bg en es id nl,30.5,first-month-time,molecule-atom-protein,5,0,0
+time,structures,bg en id,30.5,first-month-time,wall-arch-gate,3,0,0
+time,water,bn en kn te,30.5,first-month-time,lake-basin-canal,4,0,0
+water,animal,"bn en fr KN PL te
+",NA,lake-basin-canal,cat-dog-animal,4,2,0.3333333333333333
+water,army,bn en FR ko te,NA,lake-basin-canal,army-troops-battalion,4,1,0.2
+water,belief,en,NA,lake-basin-canal,statement-prejudice-claim,1,0,0
+water,body,bn en pl,NA,lake-basin-canal,eye-leg-mouth,3,0,0
+water,career,bn en TE,NA,lake-basin-canal,popularity-success-talent,2,1,0.3333333333333333
+water,civic,BN en KN te,NA,lake-basin-canal,social-politics-culture,2,2,0.5
+water,democracy,bn en,NA,lake-basin-canal,parliamentary-delegate-election,2,0,0
+water,disaster,EN TE,NA,lake-basin-canal,calamity-disaster-famine,0,2,1
+water,earth,EN FR,NA,lake-basin-canal,earth-sun-ocean,0,2,1
+water,food,"BN en fr KN ko pl
+ te",NA,lake-basin-canal,onion-rice-milk,5,2,0.2857142857142857
+water,geography,EN,NA,lake-basin-canal,territory-city-zone,0,1,1
+water,health,en fr kn ko te,NA,lake-basin-canal,therapy-flu-vaccine,5,0,0
+water,human_development,en fr kn pl te,NA,lake-basin-canal,mother-husband-child,5,0,0
+water,justice,"bn en fr kn ko te
+",NA,lake-basin-canal,accusation-criminal-guilty,6,0,0
+water,king,en fr PL te,NA,lake-basin-canal,emperor-king-imperial,3,1,0.25
+water,letters,en fr,NA,lake-basin-canal,message-letter-address,2,0,0
+water,literary,en,NA,lake-basin-canal,book-story-literature,1,0,0
+water,machines,en,NA,lake-basin-canal,system-tool-disk,1,0,0
+water,material,BN EN FR pl te,NA,lake-basin-canal,cotton-hemp-grain,2,3,0.6
+water,media,EN,NA,lake-basin-canal,cable-channel-signal,0,1,1
+water,music,bn en ko te,NA,lake-basin-canal,song-album-guitar,4,0,0
+water,performance,en FR ko,NA,lake-basin-canal,festival-theater-exhibition,2,1,0.3333333333333333
+water,plants,en fr pl,NA,lake-basin-canal,plant-fruit-flower,3,0,0
+water,poltical_movements,en,NA,lake-basin-canal,invasion-occupation-revolution,1,0,0
+water,profession,en fr ko pl te,NA,lake-basin-canal,writer-poet-painter,5,0,0
+water,race,en,NA,lake-basin-canal,final-race-medal,1,0,0
+water,religion,bn en fr kn,NA,lake-basin-canal,sin-devil-angel,4,0,0
+water,small_units,en fr pl,NA,lake-basin-canal,molecule-atom-protein,3,0,0
+water,structures,EN KO PL,NA,lake-basin-canal,wall-arch-gate,0,3,1
+water,time,BN EN KN TE,NA,lake-basin-canal,first-month-time,0,4,1

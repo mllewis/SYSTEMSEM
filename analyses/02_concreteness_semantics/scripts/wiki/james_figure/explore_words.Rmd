@@ -1,0 +1,59 @@
+---
+title: "get word clusters for schema fig"
+subtitle: 
+author: "Molly Lewis"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_float: no
+    code_folding: hide 
+    number_sections: no
+    toc: no
+---
+
+```{r setup, include = F}
+
+# load packages
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(here)
+library(janitor)
+library(broom)
+library(langcog)
+
+opts_chunk$set(echo = T, message = F, warning = F, 
+               error = F, tidy = F, cache = F)
+
+```
+
+
+```{r}
+WORD_CLUSTER_PATH <- here("analyses/02_concreteness_semantics/scripts/wiki/james_figure/data/target_word_cluster_assignments_by_lang.csv")
+
+
+word_clusters <- read_csv(WORD_CLUSTER_PATH,
+                          col_names = c("word", "cluster", "lang", "nclusters")) %>%
+  filter(lang == "en") %>%
+  select(-nclusters) %>%
+  arrange(-cluster)
+  DT::datatable(word_clusters)
+```
+
+
+* animal - 50
+* democracy - 41 
+* music - 39
+* food - 35
+* religion - 29
+* body - 24
+* war - 10
+* family - 12
+* calamity - 14
+* earth/planets - 3
+* literature - 6
+
+
+religion, war, music
+
+religion, family, war

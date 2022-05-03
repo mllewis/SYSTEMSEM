@@ -1,0 +1,1032 @@
+concept_id,english_word_form,alignment,semantic_domain
+Dezember::N,december,0.8600886811152529,Time
+November::N,november,0.8546093070727393,Time
+April::N,april,0.8486323981386632,Time
+zwölf::NUM,twelve,0.8483656450069341,Quantity
+dreißig::NUM,thirty,0.8459844655606997,Quantity
+Februar::N,february,0.844302633838564,Time
+September::N,september,0.8420724390276049,Time
+Juni::N,june,0.8371845896673336,Time
+Juli::N,july,0.8349597631870364,Time
+fünfzig::NUM,fifty,0.8335919739521572,Quantity
+elf::NUM,eleven,0.8329692044123644,Quantity
+zwanzig::NUM,twenty,0.8260869291422167,Quantity
+sechzig::NUM,sixty,0.814149844233611,Quantity
+Januar::N,january,0.8107592430945143,Time
+März::N,march,0.808995646329996,Time
+Donnerstag::N,thursday,0.8064880025667902,Time
+acht::NUM,eight,0.802521593874807,Quantity
+sechs::NUM,six,0.8010531625069784,Quantity
+siebzig::NUM,seventy,0.8003946275192443,Quantity
+fünf::NUM,five,0.7994982100042644,Quantity
+zehn::NUM,ten,0.7974666490119677,Quantity
+Freitag::N,friday,0.7934787405606709,Time
+Dienstag::N,tuesday,0.7910824913337028,Time
+vierzig::NUM,forty,0.7879748603425509,Quantity
+vier::NUM,four,0.7874247740451487,Quantity
+Oktober::N,october,0.7861333610072402,Time
+Sonntag::N,sunday,0.7835475561102011,Time
+August::N,august,0.7781600535921882,Time
+neunzig::NUM,ninety,0.7772505678861605,Quantity
+sieben::NUM,seven,0.7748552376191026,Quantity
+achtzig::NUM,eighty,0.7747079391554538,Quantity
+drei::NUM,three,0.7616777636995179,Quantity
+neun::NUM,nine,0.7565841725452249,Quantity
+Montag::N,monday,0.7465759019698305,Time
+Mai::N,may,0.7465349719935701,Time
+Mittwoch::N,wednesday,0.7350856244844755,Time
+Samstag::N,saturday,0.7165979062978101,Time
+hundert::NUM,a hundred,0.6809314424819765,Quantity
+zwei::NUM,two,0.6624045212140883,Quantity
+Süden::N,south,0.6331628302950647,Spatial relations
+Westen::N,west,0.6316547261629922,Spatial relations
+Norden::N,north,0.6302709354776929,Spatial relations
+Eltern::N,parents,0.6297905886914599,Kinship
+Sohn::N,son,0.629506015643253,Kinship
+dritter::A,third,0.6277615888075162,Quantity
+Bruder::N,brother,0.6186408994815391,Kinship
+Vater::N,father,0.6178095582737245,Kinship
+Schwester::N,sister,0.6176533218383181,Kinship
+Ehefrau::N,wife,0.6123474421994219,Kinship
+Großvater::N,grandfather,0.6054469674440446,Kinship
+zweiter::A,second,0.5966418432386029,Quantity
+Großmutter::N,grandmother,0.589966146234636,Kinship
+Tochter::N,daughter,0.5834894743743213,Kinship
+rot::A,red,0.5686293024107877,Sense perception
+Mutter::N,mother,0.5647136643434895,Kinship
+Winter::N,winter,0.5623989129811461,Time
+tausend::NUM,a thousand,0.5602870820258002,Quantity
+Osten::N,east,0.5571245295206945,Spatial relations
+gelb::A,yellow,0.5544832120632254,Sense perception
+grün::A,green,0.5542490973273008,Sense perception
+Krankheit::N,illness,0.5527980814115919,The body
+manchmal::ADV,sometimes,0.5454208524120088,Time
+Sommer::N,summer,0.5445950861102108,Time
+erster::A,first,0.5417495801349855,Quantity
+Onkel::N,uncle,0.5340483275321937,Kinship
+blau::A,blue,0.5323547350171212,Sense perception
+Kleidung::N,clothes,0.5271052968317604,Clothing and grooming
+Tante::N,aunt,0.5251136992495408,Kinship
+oft::ADV,often,0.5212853560750464,Time
+weiß::A,white,0.5200022317531814,Sense perception
+Frühling::N,spring,0.516531508083494,Time
+Herbst::N,autumn,0.5102937405587558,Time
+Tag::N,day,0.5066495698142044,Time
+Abend::N,evening,0.5017680543139774,Time
+nur::ADV,only,0.5011703264961405,Quantity
+Mädchen::N,girl,0.49813986949350697,Kinship
+Nacht::N,night,0.4948258432385829,Time
+Woche::N,week,0.49479328390471133,Time
+Lehrer::N,teacher,0.49245508119446973,Cognition
+Fleisch::N,meat,0.48801475953114837,Food and drink
+warm::A,warm,0.487401176420951,Sense perception
+Frau::N,woman,0.48714045597738453,Kinship
+kalt::A,cold,0.4857438337356446,Sense perception
+Arzt::N,doctor,0.4833825234547003,The body
+Silber::N,silver,0.4807627364881938,Basic actions and technology
+Fuchs::N,fox,0.47940068346059056,Animals
+Bucht::N,cove,0.47308937056151035,The physical world
+Küste::N,coast,0.4719821032228752,The physical world
+Ehemann::N,husband,0.46864933831552374,Kinship
+schwarz::A,black,0.4685784639924133,Sense perception
+Erzählung::N,story,0.46615532777906515,Speech and language
+Milch::N,milk,0.4627230057570886,Food and drink
+Morgen::N,morning,0.4609680802373785,Time
+Insel::N,island,0.4594236608620678,The physical world
+Gold::N,gold,0.45371038323663854,Basic actions and technology
+heute::ADV,today,0.45068584637849374,Time
+linker::A,left,0.44802852267889437,Spatial relations
+krank werden::V,fall ill,0.44717034719605125,Basic actions and technology
+berühmt::A,famous,0.44524593190876405,Social and political relations
+Schnee::N,snow,0.4441439916343049,The physical world
+niemals::ADV,never,0.44314816652107264,Time
+See::N,lake,0.44298387963394087,The physical world
+Hase::N,hare,0.4422116443038385,Animals
+Junge::N,boy,0.4420313276872597,Kinship
+Eule::N,owl,0.44121110620250137,Animals
+Zeitung::N,newspaper,0.4382368296167759,Modern world
+Regen::N,rain,0.4374314898110173,The physical world
+Hose::N,trousers,0.4370325773147789,Clothing and grooming
+krank::A,sick,0.43662119400981264,The body
+hier::ADV,here,0.43256761366725227,Miscellaneous function words
+Kind::N,child,0.43236904031064954,Kinship
+flüchten::V,escape,0.4302925709044784,Basic actions and technology
+wieder::ADV,again,0.4291561955721173,Time
+wohin::FADV,where,0.42853602613911423,Spatial relations
+wohin::FADV,where to,0.42853602613911423,Spatial relations
+wohin::FADV,where ... to,0.42853602613911423,Spatial relations
+Brot::N,bread,0.4275244706051433,Food and drink
+unterrichten::V,instruct,0.4274105388565063,Cognition
+Hemd::N,shirt,0.42709091867149507,Clothing and grooming
+Suppe::N,soup,0.4261705168584671,Food and drink
+wo::FADV,where,0.42568482627909815,Cognition
+geschlossen::A,closed,0.4254858837284858,Spatial relations
+Meer::N,sea,0.42525996077537154,The physical world
+grau::A,grey,0.42392173902148156,Sense perception
+rechter::A,right,0.4237473836945876,Spatial relations
+Stern::N,star,0.42325941159020575,The physical world
+Laden::N,shop,0.4232221164267055,Possession
+Speise::N,dish,0.4231989002773889,Food and drink
+nicht::ADV,not,0.42307699580988817,Miscellaneous function words
+Getreide::N,corn,0.4205386021628155,Agriculture and vegetation
+Sonne::N,sun,0.42052094649918403,The physical world
+Wolke::N,cloud,0.4196543833688292,The physical world
+danach::ADV,afterwards,0.41830117482080403,Time
+lehren::V,teach,0.4173614539297014,Cognition
+Wolf::N,wolf,0.4166802241102567,Animals
+Nahrung::N,food,0.41640484236788833,Food and drink
+feucht::A,damp,0.4159333983862329,Sense perception
+dort::ADV,there,0.414624660213196,Miscellaneous function words
+Fluss::N,river,0.413677122843987,The physical world
+Katze::N,cat,0.41290667087312927,Animals
+lang::A,long,0.4128504276266248,Spatial relations
+Berg::N,mountain,0.4123112487026231,The physical world
+Adler::N,eagle,0.41230283100217324,Animals
+zahlen::V,pay,0.41220436007410405,Possession
+später::ADV,later,0.41113300618396303,Time
+Bär::N,bear,0.4107809790173732,Animals
+Arbeiter::N,worker,0.4104297518581822,Modern world
+Länge::N,length,0.4089956576156548,Spatial relations
+bezahlen::V,pay for,0.40848120444022457,Possession
+Geschmack::N,flavor,0.40778890560751296,Food and drink
+Geschmack::N,flavour,0.40778890560751296,Food and drink
+wie::FADV,how,0.4063974844118353,Cognition
+verschieden::A,different,0.4059060257401239,Social and political relations
+lernen::V,learn,0.40530494778835247,Cognition
+Kälte::N,chill,0.4042637936700218,Sense perception
+Mittag::N,noon,0.4036524444265488,Time
+Tod::N,death,0.4016807454976776,The body
+Buch::N,book,0.4016123655750489,Speech and language
+kühl::A,cool,0.39866865854956945,The physical world
+Butter::N,butter,0.39864778488924196,Food and drink
+zusammen::ADV,together,0.398538349655298,Spatial relations
+noch::ADV,still,0.39822626692103535,Time
+offen::A,open,0.3981047624475761,Spatial relations
+Gipfel::N,summit,0.3974837468471206,The physical world
+Vogel::N,bird,0.3970650208068441,Animals
+sehr::ADV,very,0.3958847219717838,Miscellaneous function words
+Familie::N,family,0.39446776555615903,Kinship
+Essen::N,meal,0.39410867327324095,Food and drink
+Wald::N,forest,0.3936638397306178,The physical world
+Stadt::N,town,0.3930696687381875,Social and political relations
+Kampf::N,fight,0.39305581063072426,Basic actions and technology
+jetzt::ADV,now,0.39210795665391096,Time
+Eichhörnchen::N,squirrel,0.3910682946329403,Animals
+Kiefer[Baum]::N,pine,0.3910020110326972,Agriculture and vegetation
+verkaufen::V,sell,0.38942280934464185,Possession
+oder::CNJ,or,0.3885383064862196,Cognition
+Gehirn::N,brain,0.3876120138621353,The body
+Sumpf::N,swamp,0.3863537633367619,The physical world
+Gewehr::N,gun,0.3847070048296407,Basic actions and technology
+Geld::N,money,0.3838515619959719,Animals
+verbergen::V,conceal,0.3836448921506279,Spatial relations
+Entfernung::N,distance,0.3829832244514843,Spatial relations
+damals::ADV,at that time,0.3824336166335404,Time
+wählen::V,choose,0.3808336084903248,Emotions and values
+Licht::N,light,0.3802388044476886,The physical world
+verbrennen::V,burn,0.37876616008208597,The physical world
+Freund::N,friend,0.3779066097332457,Social and political relations
+Wind::N,wind,0.3767453289788855,The physical world
+so::ADV,so,0.3764006233019336,Miscellaneous function words
+reich::A,rich,0.37565294810821664,Possession
+Monat::N,month,0.37556118917398346,Time
+Brust::N,breast,0.37492203182680295,The body
+Brust::N,chest,0.37492203182680295,The body
+Kuh::N,cow,0.3744529577901359,Animals
+was::FPRN,what,0.3744287415585397,Cognition
+Hund::N,dog,0.37409510244983596,Animals
+Moor::N,moor,0.37394417941662184,The physical world
+zuerst::ADV,at first,0.37369844802429836,Time
+hinab::ADV,down,0.37335729018148245,Spatial relations
+warum::FADV,why,0.3731479920618887,Cognition
+schön::A,beautiful,0.3729319023581514,Emotions and values
+Schwan::N,swan,0.37229859311031765,Animals
+schon::ADV,already,0.37217329945989563,Time
+immer::ADV,always,0.3720635249848914,Time
+dies::PRN,this,0.37141309723605737,Miscellaneous function words
+groß::A,big,0.37106682553637865,Spatial relations
+Tanne::N,fir,0.36964630818077515,Agriculture and vegetation
+Gesundheit::N,health,0.3691939829466241,The body
+stark::A,strong,0.36898477998717405,The body
+sich anziehen::V,get dressed,0.36882995298493737,Clothing and grooming
+Arznei::N,medicine,0.3688164902741403,The body
+behindern::V,hinder,0.3686143658860727,The physical world
+trocken::A,dry,0.3684135570122256,Sense perception
+klein::A,little,0.36803993440165467,Spatial relations
+König::N,king,0.367111584812903,Social and political relations
+Schwein::N,pig,0.3661701582708571,Animals
+Preis::N,price,0.3652023593319663,Possession
+Märchen::N,fairy tale,0.36422167718245435,Modern world
+letzter::A,last,0.3634189448053849,Quantity
+Honig::N,honey,0.363269507756068,Food and drink
+Eis::N,ice,0.36264578837132666,The physical world
+auswählen::V,select,0.3614138488880572,Emotions and values
+dann::ADV,then,0.3597938725524944,Time
+wertvoll::A,precious,0.35963026523058644,Emotions and values
+wir::PRN,we,0.3593098592612402,Kinship
+eins::NUM,one,0.35856989784537846,Quantity
+Birke::N,birch,0.35838582324799073,Agriculture and vegetation
+zwischen::PRP,between,0.35833301957672653,Spatial relations
+Maus::N,mouse,0.3580525805247111,Animals
+das::PRN,that,0.35725274522291883,Miscellaneous function words
+Oberschenkel::N,thigh,0.357194914495018,The body
+Jahr::N,year,0.3569056409066856,Time
+gestern::ADV,yesterday,0.35656886675422717,Time
+Kiefer[Anatomie]::N,jaw,0.3561515700690227,The body
+zuhören::V,listen,0.35605369122174235,Sense perception
+Luft::N,air,0.3552735607486267,The physical world
+dorthin::ADV,thither,0.3547007892575792,Spatial relations
+dorthin::ADV,to there,0.3547007892575792,Spatial relations
+dorthin::ADV,there,0.3547007892575792,Spatial relations
+bekannt::A,familiar,0.35221088333022743,Emotions and values
+Schmerz::N,pain,0.35146168457276106,Emotions and values
+sprechen::V,speak,0.35115448743656413,Speech and language
+Gans::N,goose,0.35073521710606964,Animals
+anzünden::V,light,0.3504616689974145,The physical world
+süß::A,sweet,0.35040205322174633,Sense perception
+kurz::A,short,0.34959982187735456,Spatial relations
+kaufen::V,buy,0.34956738325379516,Possession
+breit::A,wide,0.3494280413454143,Spatial relations
+morgen::ADV,tomorrow,0.3471375025137935,Time
+sie::PRN,they,0.34635929755555106,Kinship
+hinauf::ADV,up,0.34605795872482775,Spatial relations
+Salz::N,salt,0.3458157417019491,Food and drink
+Höhe::N,height,0.3457316106769335,Spatial relations
+Baum::N,tree,0.34508472253276945,Agriculture and vegetation
+Knie::N,knee,0.3446675933778489,The body
+Fieber::N,fever,0.3444864438735865,The body
+ändern::V,alter,0.3444517023300896,Spatial relations
+reden::V,talk,0.34368468127626184,Basic actions and technology
+Krähe::N,crow,0.3435037286244863,Animals
+Zeh::N,toe,0.3433600218051285,The body
+Hecht::N,pike,0.34333928281342296,Animals
+Freude::N,joy,0.3431966620794293,Emotions and values
+Hügel::N,hill,0.3430864468596349,The physical world
+Mann::N,man,0.34285139052063474,Kinship
+Nase::N,nose,0.342376351512093,The body
+Lied::N,song,0.34215041319060296,Modern world
+Himmel::N,sky,0.3415734051421346,The physical world
+Ellenbogen::N,elbow,0.3414629817505651,The body
+von hier::ADV,hence,0.34111410188101393,Cognition
+Bulle::N,bull,0.34049901914703967,Animals
+Huhn::N,chicken,0.34042784244884505,Animals
+Eisen::N,iron,0.340364673685663,Basic actions and technology
+arm::A,poor,0.34036004054344166,Possession
+töten::V,kill,0.34024647117506457,The body
+Kuckuck::N,cuckoo,0.34017401942691106,Animals
+singen::V,sing,0.3395781592833347,Speech and language
+heiß::A,hot,0.3386030843328901,Sense perception
+gefrieren::V,freeze,0.33826108122985177,The physical world
+Fisch::N,fish,0.3382497506624782,Animals
+lustig::A,merry,0.33780884954597123,Emotions and values
+und::CNJ,and,0.3365350650936534,Cognition
+zerstören::V,destroy,0.336045588116366,Possession
+gut::A,good,0.3357109361795784,Emotions and values
+Sprache::N,language,0.33532368441122984,Speech and language
+fischen::V,fish,0.33419797027896886,Basic actions and technology
+Frost::N,frost,0.3338127961868626,Sense perception
+überall::ADV,everywhere,0.3325702251980496,Spatial relations
+fliehen::V,flee,0.33251481379929054,Motion
+hören::V,hear,0.3322247541400459,Sense perception
+Gedanke::N,thought,0.33213254399913067,Emotions and values
+Ente::N,duck,0.3318465629272084,Animals
+Ufer::N,shore,0.3316838185958975,The physical world
+finden::V,find,0.33164192916356966,Possession
+Boot::N,boat,0.33163761499408784,Motion
+Fehler::N,mistake,0.3309376410557622,Emotions and values
+Zwiebel::N,onion,0.3309130478005609,Agriculture and vegetation
+lesen::V,read,0.3290586243306406,Speech and language
+einmal::ADV,once,0.3282523337809053,Time
+Bauch::N,belly,0.3281814145546424,The body
+beginnen::V,begin,0.3280213146538071,Time
+bleiben::V,stay,0.3278765020151059,Spatial relations
+schwimmen::V,swim,0.3277813532856146,Motion
+Finger::N,finger,0.326147213228271,The body
+Hunger::N,hunger,0.32595614632458464,Food and drink
+Wort::N,word,0.3256641480568262,Speech and language
+Nebel::N,fog,0.32563589193265524,The physical world
+Schnurrbart::N,moustache,0.32549229068344065,The body
+Kranich::N,crane,0.3254722400014255,Animals
+schützen::V,protect,0.32538017439356526,Basic actions and technology
+schreiben::V,write,0.3252373379893464,Speech and language
+unten::ADV,below,0.32510527784644483,Spatial relations
+Ei::N,egg,0.3250434228977097,Food and drink
+Laut::N,sound,0.3245540377920203,Sense perception
+Fenster::N,window,0.32422170668730244,The house
+Schaf::N,sheep,0.3240478922141132,Animals
+backen::V,bake,0.323951577220248,Food and drink
+wegen::PRP,because of,0.32393010771942504,Basic actions and technology
+abnehmen::V,decrease,0.3238603972396871,Basic actions and technology
+zurückkommen::V,come back,0.32350007843250833,Motion
+Glück::N,happiness,0.32329713460493376,Emotions and values
+schwach::A,weak,0.3227509863177794,The body
+Sand::N,sand,0.322509510948064,The physical world
+weggehen::V,go away,0.3214120842710107,Motion
+sofort::ADV,instantly,0.32126134608680995,Time
+zunehmen::V,increase,0.3208655542573323,Basic actions and technology
+enden::V,end,0.3199020657035943,Time
+du::PRN,thou,0.3191785722396551,Kinship
+du::PRN,you,0.3191785722396551,Kinship
+Kinn::N,chin,0.31899633143059714,The body
+bemerken::V,notice,0.318953627794452,Basic actions and technology
+traurig::A,sad,0.3188755505305997,Emotions and values
+Grenze::N,border,0.3180409677000678,Social and political relations
+verstehen::V,understand,0.31796929447919986,Cognition
+Anzahl::N,count,0.3178970107181236,Modern world
+Stimme::N,voice,0.3174460477815739,Speech and language
+Feind::N,enemy,0.3167668381485288,Social and political relations
+Brücke::N,bridge,0.3166913316297538,Motion
+Lippe::N,lip,0.31645266815115236,The body
+bauen::V,build,0.31628071706398847,Basic actions and technology
+Tier::N,animal,0.3157642253753099,Animals
+vorher::ADV,before,0.3156787092855647,Time
+Öl::N,oil,0.31564075750303894,Food and drink
+Mond::N,moon,0.3153318448861504,The physical world
+beenden::V,finish,0.31528487279758854,Time
+Größe::N,size,0.3151805981091663,Spatial relations
+Wahrheit::N,truth,0.3148159639871545,Emotions and values
+Chef::N,boss,0.3146599850863615,Modern world
+Weg::N,way,0.31446350340446294,Motion
+Hitze::N,heat,0.3138048874026811,The physical world
+kochen::V,boil,0.3137267736093742,Food and drink
+Schwanz::N,tail,0.31354726054575527,The body
+Ameise::N,ant,0.3133040451601199,Animals
+Geschenk::N,gift,0.31329230215287657,Basic actions and technology
+Fett::N,fat,0.3132690984369664,The body
+Genick::N,nape,0.31301801182519434,The body
+essen::V,eat,0.31298872922576276,Food and drink
+Grund::N,reason,0.31226004693776843,Emotions and values
+oben::ADV,above,0.31186951630162657,Spatial relations
+Gott::N,god,0.31131192852973577,Social and political relations
+Kirche::N,church,0.3111370447412253,Social and political relations
+Sinn::N,meaning,0.3106026051816331,Emotions and values
+Brei::N,mush,0.31014833097576794,The physical world
+färben::V,dye,0.30993152562340137,Clothing and grooming
+sauer::A,sour,0.3093892038343985,Sense perception
+tauen::V,thaw,0.3093581750581353,Basic actions and technology
+sich unterhalten::V,chat,0.30922027073455305,Basic actions and technology
+hierhin::ADV,hither,0.3091722530920819,Spatial relations
+hierhin::ADV,to here,0.3091722530920819,Spatial relations
+hierhin::ADV,here,0.3091722530920819,Spatial relations
+lange::ADV,long,0.3088015671811418,Time
+erzählen::V,tell,0.3086156485186395,Speech and language
+Kohle::N,coal,0.30855928011294503,The physical world
+ihr::PRN,you,0.3083039677871325,Kinship
+herstellen::V,produce,0.3079636831998748,Modern world
+Grab::N,grave,0.30794053165490154,The body
+Mütze::N,cap,0.30700657597208664,Clothing and grooming
+schmal::A,narrow,0.3065348075686393,Spatial relations
+Rauch::N,smoke,0.3064500610680499,The physical world
+Arbeit::N,work,0.3063346677262179,Basic actions and technology
+springen::V,jump,0.3059604324186503,Motion
+einladen::V,invite,0.305556947900748,Social and political relations
+schlecht::A,bad,0.3053597007918836,Emotions and values
+umkommen::V,perish,0.3044509116932471,Basic actions and technology
+sich waschen::V,wash,0.3032403579014891,Basic actions and technology
+lecker::A,delicious,0.30303377609309795,Food and drink
+Lüge::N,lie,0.30298915690665135,Emotions and values
+Zahn::N,tooth,0.3029361518733256,The body
+schmelzen::V,melt,0.3028037321251408,The physical world
+Rede::N,speech,0.3027688612909202,Speech and language
+Tür::N,door,0.30252234052305654,The house
+sterben::V,die,0.3024987728900945,The body
+bitter::A,bitter,0.30230850706804935,Sense perception
+durch::PRP,through,0.30224570889374164,Miscellaneous function words
+besuchen::V,visit,0.3020329588555971,Social and political relations
+fühlen::V,feel,0.30202123500545175,Basic actions and technology
+Weide::N,pasture,0.3018798213971257,Animals
+Feuer::N,fire,0.3017437705628377,The physical world
+Krieg::N,war,0.3016996428011437,Social and political relations
+Tee::N,tea,0.30114400223086124,Modern world
+Leber::N,liver,0.30054252889303407,The body
+denken::V,think,0.3004109855977319,Cognition
+Mund::N,mouth,0.30014366737242343,The body
+braten::V,fry,0.3001412418807717,Food and drink
+Blut::N,blood,0.29974222012792634,The body
+schießen::V,shoot,0.2996356424552476,Basic actions and technology
+vernehmen::V,hear,0.2993469942837635,Sense perception
+Wolle::N,wool,0.2992618166124861,Clothing and grooming
+Knochen::N,bone,0.29921529983388023,The body
+Bart::N,beard,0.2991077542933722,The body
+Lehm::N,clay,0.29903877266428475,Basic actions and technology
+Blume::N,flower,0.298924453060324,Agriculture and vegetation
+wer::FPRN,who,0.29882457923377187,Cognition
+Nachricht::N,message,0.2986320079600727,Basic actions and technology
+Haus::N,house,0.2981526185744044,The house
+Wiese::N,meadow,0.2979303900014816,The physical world
+Abhang::N,slope,0.2972702468500006,The physical world
+billig::A,cheap,0.2968955859522035,Possession
+Spinne::N,spider,0.2968777079526317,Animals
+Reichtum::N,wealth,0.2964576484801971,Modern world
+wechseln::V,change,0.2956910491899518,Spatial relations
+Schulter::N,shoulder,0.2950830778526337,The body
+sagen::V,say,0.29507466890190304,Speech and language
+Geruch::N,odor,0.2950638346973224,Sense perception
+Geruch::N,odour,0.2950638346973224,Sense perception
+retten::V,rescue,0.2943037442451153,Possession
+verstecken::V,hide,0.29426036676186557,Spatial relations
+dunkel::A,dark,0.29381290954083417,Sense perception
+bald::ADV,soon,0.29375508834274144,Time
+trocknen::V,dry,0.2934207929141191,Basic actions and technology
+zurück::ADV,back,0.2933850660647378,Spatial relations
+Hals::N,neck,0.29290924651739936,The body
+Gespräch::N,talk,0.2927208346054498,Basic actions and technology
+tanzen::V,dance,0.2925011801529046,Motion
+Spiel::N,game,0.29219092056383494,Social and political relations
+er::PRN,he,0.29155400444927637,Kinship
+Fliege::N,fly,0.29142621994109436,Animals
+Donner::N,thunder,0.29087279886751377,The physical world
+hübsch::A,pretty,0.2904910658552848,Sense perception
+begreifen::V,grasp,0.29013770132469996,Cognition
+Herz::N,heart,0.28986309092511237,The body
+ankommen::V,arrive,0.28972957452049797,Motion
+Straße::N,road,0.28958460697066407,Motion
+sich erholen::V,relax,0.2894016023436229,The body
+Ware::N,ware,0.28939405009534946,Modern world
+kräftig::A,powerful,0.2890850804730098,Emotions and values
+Ski::N,ski,0.2888898324686825,Modern world
+Höhle::N,cave,0.2885505623679889,The physical world
+atmen::V,breathe,0.28839110910675153,The body
+glauben::V,believe,0.28834854228379503,Cognition
+Dorf::N,village,0.2877320918435089,Social and political relations
+Hilfe::N,help,0.28734937454450904,Social and political relations
+Anhöhe::N,elevation,0.2873022440239427,The physical world
+reparieren::V,mend,0.2869141465084082,Basic actions and technology
+ich::PRN,i,0.28641198041468074,Kinship
+wieviel::FNUM,how much,0.28578020275828137,Cognition
+husten::V,cough,0.2844344444058037,The body
+Kehle::N,throat,0.2842214287811398,The body
+Ohr::N,ear,0.2842122118525934,The body
+bekommen::V,get,0.2842098235245247,Possession
+verlassen::V,leave,0.2834878542429155,Motion
+vorwärts::ADV,forward,0.28336463928138844,Spatial relations
+Pfad::N,path,0.2831731206905495,Motion
+zerbrechen::V,break,0.2827374555942711,Basic actions and technology
+anfangen::V,start,0.28269762967257916,Time
+spülen::V,rinse,0.28250128696973525,Basic actions and technology
+Glas::N,glass,0.2823965822723717,Basic actions and technology
+Wasser::N,water,0.2823524774227941,The physical world
+dumm::A,stupid,0.2822322948610133,Cognition
+verschwinden::V,disappear,0.28211568307819085,Motion
+Staat::N,state,0.28210385228763546,Modern world
+suchen::V,look for,0.28202159520466263,Possession
+suchen::V,seek,0.28202159520466263,Possession
+klettern::V,climb,0.28176347611006797,Motion
+Abstand::N,gap,0.2815946637651029,Spatial relations
+Bein::N,leg,0.28112538361353534,The body
+Haar::N,hair,0.2810317326099186,The body
+erkennen::V,recognize,0.2810090188239343,Basic actions and technology
+einst::ADV,once,0.2809595706056602,Time
+Schmetterling::N,butterfly,0.2809217733083703,Animals
+sehen::V,see,0.2807897877857092,Sense perception
+Pferd::N,horse,0.2800876647589516,Animals
+erwarten::V,wait for,0.2798479263681858,Motion
+Barsch::N,perch,0.2788016848214768,Animals
+geschickt::A,skilful,0.27846038244905735,Basic actions and technology
+geschickt::A,skillful,0.27846038244905735,Basic actions and technology
+Bach::N,brook,0.27702188020968466,The physical world
+plötzlich::ADV,suddenly,0.2767331383690277,Time
+brennen::V,burn,0.2764982206382523,The physical world
+stehlen::V,steal,0.2762372859139986,Basic actions and technology
+Rücken::N,spine,0.2759761644366419,The body
+Rücken::N,back,0.2759761644366419,The body
+Unglück::N,misfortune,0.27591732169508987,Emotions and values
+Pilz::N,mushroom,0.27523381168816685,Agriculture and vegetation
+bunt::A,colourful,0.2751747376439569,Sense perception
+bunt::A,colorful,0.2751747376439569,Sense perception
+dünn::A,thin,0.2748195105421485,Spatial relations
+Gelächter::N,laughter,0.2747384772491107,Emotions and values
+Kummer::N,grief,0.27414951985000247,Emotions and values
+jung::A,young,0.2737002714033016,Time
+sinken::V,drop,0.2735388342507269,Motion
+Sünde::N,sin,0.2734141056743393,Emotions and values
+Leben::N,life,0.27338231265288065,The body
+wissen::V,know,0.2729289809389229,Cognition
+Kamerad::N,companion,0.2729280612334833,Social and political relations
+spitz::A,pointed,0.27289854741639075,Spatial relations
+Buchstabe::N,character,0.27271397762170024,Speech and language
+aufwachen::V,wake up,0.2720640980426363,The body
+Staub::N,dust,0.2719006663438921,The physical world
+trinken::V,drink,0.27188058893383404,Food and drink
+ein wenig::ADV,a little,0.2716585981552123,Basic actions and technology
+betrügen::V,cheat,0.27156126881204384,Cognition
+fassen::V,catch,0.27133815587778276,Basic actions and technology
+baden::V,bath,0.27100580010924324,The body
+Gewicht::N,weight,0.2709371364195117,Sense perception
+Weide[Baum]::N,willow,0.27045614090786224,Agriculture and vegetation
+Gegend::N,area,0.26933287383920457,The physical world
+Schaden::N,damage,0.2685423555633177,Modern world
+Volk::N,nation,0.2678403625950224,Social and political relations
+täuschen::V,deceive,0.2677237472392445,Emotions and values
+Elch::N,elk,0.267465745318566,Animals
+Hand::N,hand,0.2673761033000478,The body
+alles::PRN,everything,0.2673645001458915,Quantity
+arbeiten::V,work,0.2672231456167732,Basic actions and technology
+Fuß::N,foot,0.26719316277802063,The body
+tauchen::V,dive,0.2667757743376937,Motion
+Schlange[Tier]::N,snake,0.26599988484701603,Animals
+Dach::N,roof,0.26589788982468293,The house
+Mücke::N,midge,0.26547835190443064,Animals
+frieren::V,be cold,0.26493604802061377,The body
+fern::A,far,0.2648165797506601,Spatial relations
+klug::A,clever,0.2647531672812377,Emotions and values
+Stein::N,stone,0.2637411361608901,The physical world
+rückwärts::ADV,backward,0.2632788218142963,Spatial relations
+öffnen::V,open,0.26324459424856567,Spatial relations
+neben::PRP,next to,0.26305541508806085,Spatial relations
+übersetzen::V,translate,0.2627071121801763,Basic actions and technology
+Hahn::N,cock,0.2625449719209191,Animals
+Verstand::N,mind,0.26242306288819756,Cognition
+Kraft::N,force,0.2620518178181551,The body
+Tor::N,gate,0.2618500825076935,The house
+hart::A,hard,0.26090268839955205,Sense perception
+dick[Gegenstand]::A,thick,0.26088497551424544,Spatial relations
+Wetter::N,weather,0.26017946298219696,The physical world
+Arm::N,arm,0.2601368733219584,The body
+reinigen::V,clean,0.2600974134806521,Motion
+erhalten::V,receive,0.2599077029369172,Possession
+Wunsch::N,wish,0.2596129780816497,Emotions and values
+Mensch::N,human,0.25934082865411917,Kinship
+fragen::V,ask,0.2592610631544706,Speech and language
+Menge::N,amount,0.2590430004983142,Basic actions and technology
+Leder::N,leather,0.2589742392211544,Clothing and grooming
+Stoff::N,cloth,0.25871358850955745,Clothing and grooming
+Magen::N,stomach,0.2586676548832768,The body
+neu::A,new,0.2585998521220956,Time
+Geist::N,spirit,0.25829915676395104,Emotions and values
+Meister::N,master,0.2577431448906607,Social and political relations
+Tuch::N,scarf,0.2571847399862551,Clothing and grooming
+hochheben::V,lift,0.2571052840967749,Motion
+vorbereiten::V,prepare,0.2567765161410742,Basic actions and technology
+steigen::V,rise,0.2564963101662634,The physical world
+Schuh::N,shoe,0.2556212399989262,Clothing and grooming
+Kragen::N,collar,0.25557222734893065,Clothing and grooming
+Brief::N,letter,0.2553286111970102,Modern world
+schlank::A,slim,0.255031506570181,Spatial relations
+böse::A,evil,0.25461625212200745,Emotions and values
+funkeln::V,sparkle,0.25402215825648594,Basic actions and technology
+wohnen::V,dwell,0.253685919837259,The house
+Ruhe::N,calm,0.25348745080858326,Sense perception
+Traum::N,dream,0.25285362039181924,The body
+Apfel::N,apple,0.25243814111769836,Agriculture and vegetation
+waschen::V,wash,0.25243547345589884,Basic actions and technology
+zudecken::V,cover,0.2522996559098331,Spatial relations
+erscheinen::V,appear,0.25218441219565757,Basic actions and technology
+Schlaf::N,sleep,0.25215950845880286,Basic actions and technology
+schließen::V,close,0.25212386968245815,Spatial relations
+Nest::N,nest,0.2520954170910444,Animals
+Fell::N,fur,0.25195630515162526,Clothing and grooming
+einschlafen::V,fall asleep,0.2506713067044769,The body
+Strömung::N,current,0.25066980348306434,The physical world
+Ton::N,tone,0.2491471578474747,Sense perception
+Neuigkeit::N,news,0.24902424687397332,Basic actions and technology
+beschädigen::V,damage,0.24865418569790354,Possession
+sich drehen::V,revolve,0.24843318118848703,Motion
+Macht::N,power,0.24778002563349466,Social and political relations
+Farbe::N,paint,0.24774726158002064,Basic actions and technology
+aufbewahren::V,keep,0.2476767068018849,Possession
+schreien::V,shout,0.24737223447824866,Speech and language
+weich::A,soft,0.24659290994943442,Sense perception
+bedecken::V,cover,0.2465691746377174,Spatial relations
+spazierengehen::V,go for a walk,0.24622307601816967,Basic actions and technology
+verfaulen::V,decay,0.24616504106856518,Food and drink
+Stirn::N,forehead,0.24603075090146884,The body
+Regenbogen::N,rainbow,0.24597260598239867,The physical world
+Ader::N,vein,0.2456607196747236,The body
+bewahren::V,preserve,0.24526378460885112,Possession
+vergessen::V,forget,0.2448421319386062,Cognition
+verteidigen::V,defend,0.2444359975700887,Basic actions and technology
+Zeit::N,time,0.2444111712649692,Time
+Nagel[Anatomie]::N,nail,0.24439701333217972,The body
+Fingernagel::N,fingernail,0.2436989891119044,The body
+schicken::V,send,0.24367518971379357,Motion
+frisch::A,fresh,0.2431539650428986,The physical world
+Festland::N,land,0.24304818861758384,The physical world
+auf einmal::ADV,at once,0.24296300503703902,Time
+anschauen::V,look at,0.24272846485891533,Sense perception
+Erde::N,earth,0.24254512591313163,The physical world
+sieden::V,boil,0.2420014035503976,Food and drink
+Herde::N,flock,0.24196476169202558,Animals
+Gewalt::N,violence,0.24130621996775933,Emotions and values
+lachen::V,laugh,0.24115131819545807,Emotions and values
+riechen::V,smell,0.2409415583062537,Sense perception
+Holz::N,wood,0.2408149332268405,The physical world
+rufen::V,call,0.240755976252847,Speech and language
+schwer::A,heavy,0.24061542032311414,Sense perception
+schmücken::V,decorate,0.24049253345748942,Clothing and grooming
+Schluss::N,conclusion,0.2402008441559683,Time
+reif::A,ripe,0.23937178026006678,Food and drink
+Kralle::N,claw,0.23913815363352153,Animals
+abfahren::V,depart,0.23913706915047628,Motion
+Korn::N,grain,0.23885910439167754,Quantity
+sammeln::V,gather,0.2388216851557851,Spatial relations
+Haut::N,skin,0.23844971826381894,The body
+zubereiten::V,cook,0.23785317365989192,Food and drink
+versuchen::V,try,0.23757841250621292,Cognition
+leben::V,be alive,0.2375657167042821,The body
+Heim::N,home,0.2372871406369694,The house
+Spiegel::N,mirror,0.23712694133861842,Clothing and grooming
+sich versammeln::V,assemble,0.23710509751404302,Social and political relations
+malen::V,paint,0.23635002018094362,Basic actions and technology
+Asche::N,ashes,0.23598694621193908,The physical world
+anderer::A,other,0.23593679126319447,Miscellaneous function words
+Stütze::N,bracket,0.2357927970855095,Spatial relations
+Brunnen::N,well,0.2355649629481714,The physical world
+machen::V,make,0.23510791231699532,Basic actions and technology
+werden::V,become,0.2350659907265767,Miscellaneous function words
+Schlitten::N,sleigh,0.2349935541401032,Motion
+roh::A,raw,0.2348848995617994,Food and drink
+zerreißen::V,tear,0.23410725120524928,Basic actions and technology
+Atem::N,breath,0.23369798609289213,The body
+abschneiden::V,cut off,0.2329907730917148,Basic actions and technology
+teilen::V,divide,0.23282852541218377,Spatial relations
+fahren::V,drive,0.2327022782542464,Motion
+Körper::N,body,0.23259202613149282,The body
+Rätsel::N,puzzle,0.23239204943388045,Speech and language
+geben::V,give,0.23232900665347625,Possession
+lieben::V,love,0.23193479062196978,Emotions and values
+stellen::V,put,0.2319077950457617,Spatial relations
+faulen::V,rot,0.23170598521604893,Food and drink
+rechnen::V,calculate,0.2315222115289138,Modern world
+hungrig::A,hungry,0.23123802455918455,Food and drink
+rauchen::V,smoke,0.23105003966019313,Basic actions and technology
+fliegen::V,fly,0.23096586838799818,Motion
+Heu::N,hay,0.23073650305777427,Agriculture and vegetation
+stören::V,disturb,0.23072232549867538,Emotions and values
+Bett::N,bed,0.23068704136631463,The house
+schmutzig::A,dirty,0.23053645812001072,Sense perception
+rund::A,round,0.23041113798827603,Spatial relations
+Auge::N,eye,0.23014450145111198,The body
+genesen::V,recover,0.2296792232953311,The body
+flach::A,flat,0.22945791297336957,Spatial relations
+fangen::V,catch,0.2291064743714593,Motion
+biegen::V,bend,0.22901950006217595,Basic actions and technology
+allein::ADV,alone,0.2289869184432662,Quantity
+verbinden::V,connect,0.22893224241929144,Motion
+Flügel::N,wing,0.2288843946217809,The body
+rennen::V,run,0.22866622705935696,Motion
+pfeifen::V,whistle,0.22849858965603478,Speech and language
+wachsen::V,grow,0.2283285447323819,Spatial relations
+schlimm::A,nasty,0.22809373967346722,Miscellaneous function words
+Geschirr::N,dishes,0.22806675755888808,Food and drink
+brechen::V,break,0.22765849175665254,Basic actions and technology
+nennen::V,name,0.22716586079451312,Speech and language
+Handfläche::N,palm,0.2269832433867904,The body
+zeigen::V,show,0.22691181478609987,Sense perception
+Fußboden::N,floor,0.22688339697049967,The house
+bitten::V,request,0.22681272739650746,Speech and language
+Kreuz::N,cross,0.2267023395678733,Spatial relations
+jagen::V,hunt,0.22657916007635204,Basic actions and technology
+gelingen::V,succeed,0.2263441225981767,Cognition
+Wunde::N,wound,0.2263362671021969,The body
+füttern::V,feed,0.22616303625836318,Food and drink
+Funke::N,spark,0.22613683194028103,The physical world
+Teil::N,part,0.22593030921750462,Quantity
+verbessern::V,improve,0.22544339317764195,Basic actions and technology
+aufheben::V,pick up,0.225291160544944,Spatial relations
+schenken::V,give,0.2252500301748864,Social and political relations
+ärgern::V,annoy,0.2252351947675821,Emotions and values
+schlafen::V,sleep,0.22521345792204614,The body
+vereinigen::V,unite,0.2249345839226363,Spatial relations
+reifen::V,ripen,0.22487708134171264,Food and drink
+Alter::N,age,0.22399191457253476,Time
+hell::A,bright,0.2237838567891104,Sense perception
+ansehen::V,watch,0.22339682176540787,Basic actions and technology
+fleißig::A,diligent,0.22330531883129442,Emotions and values
+wahr::A,true,0.22327582415271946,Emotions and values
+Stärke::N,strength,0.2227114625154733,The body
+klingen::V,sound,0.22241145603542198,Basic actions and technology
+Ärmel::N,sleeve,0.22234040694122048,Clothing and grooming
+donnern::V,thunder,0.22201540409302462,The physical world
+wecken::V,wake,0.22184813534690745,The body
+mitteilen::V,convey,0.2218005710110631,Basic actions and technology
+Name::N,name,0.2209114358856121,Speech and language
+eintreten::V,enter,0.22070089904345921,Motion
+zeichnen::V,draw,0.22055213508531926,Basic actions and technology
+Stuhl::N,chair,0.2205030441231911,The house
+Land::N,country,0.22039899255200024,Social and political relations
+sitzen::V,sit,0.22035123783546226,Spatial relations
+Saat::N,seed,0.21992058509066378,Agriculture and vegetation
+binden::V,tie,0.2198979247746085,Basic actions and technology
+glänzen::V,shine,0.21921417948807273,The physical world
+fürchten::V,be afraid of,0.21918087117403046,Emotions and values
+heben::V,raise,0.21902239706464724,Motion
+sich setzen::V,sit down,0.21877535304784043,Motion
+Rinde::N,bark,0.21829964948854633,Agriculture and vegetation
+schütteln::V,shake,0.21825526195365455,Motion
+treten::V,kick,0.21808959414628537,Motion
+blind::A,blind,0.2176740020049187,The body
+Boden::N,ground,0.2172638839140461,The physical world
+Boden::N,soil,0.2172638839140461,The physical world
+glatt::A,smooth,0.2166080042143399,Sense perception
+Ferse::N,heel,0.21575000873725747,The body
+nass::A,wet,0.21523980517526672,Sense perception
+Handtuch::N,towel,0.21519676763827597,Clothing and grooming
+verlieren::V,lose,0.2150871923029043,Basic actions and technology
+Ofen::N,stove,0.21505276308529353,The house
+laufen::V,walk,0.21436871337544805,Motion
+geizig::A,stingy,0.21429477989414616,Possession
+Kreis::N,circle,0.21410551203649741,Spatial relations
+Schatten::N,shadow,0.2135814694254493,The physical world
+Kopf::N,head,0.21351279878581678,The body
+Gesicht::N,face,0.213276074728034,The body
+lieb::A,dear,0.2129644669944994,Emotions and values
+Topf::N,pot,0.21257551984051226,Food and drink
+hinter::PRP,behind,0.21222727554939438,Spatial relations
+scharf::A,sharp,0.2120634188713853,Sense perception
+Hälfte::N,half,0.21178762208825855,Quantity
+Sehne::N,sinew,0.21161940037913587,The body
+Zunge::N,tongue,0.21091062898622,The body
+warten::V,wait,0.21085371124423163,Motion
+faul::A,lazy,0.2103943620806777,The body
+sich erinnern an::V,remember,0.2102665882654018,Cognition
+zittern::V,tremble,0.2096849757513277,The body
+alt::A,old,0.20956014538542833,Time
+versprechen::V,promise,0.20915402404846511,Speech and language
+Kiste::N,box,0.2090258428510337,Modern world
+abreißen::V,tear off,0.20879409882030622,Basic actions and technology
+Wange::N,cheek,0.2087841661617497,The body
+kommen::V,come,0.2085859208728101,Motion
+hauen::V,hit,0.20847359246307112,Basic actions and technology
+Schale::N,husk,0.20806053339106267,Food and drink
+Ort::N,place,0.20751458742999992,Spatial relations
+Leiter::N,ladder,0.20699388746105257,The house
+Blatt::N,leaf,0.20676786516026213,Agriculture and vegetation
+kaum::ADV,hardly,0.206597994456068,Basic actions and technology
+scheinen::V,seem,0.2045412183063225,Cognition
+vergebens::ADV,in vain,0.20435262544685703,Miscellaneous function words
+beugen::V,bow,0.20423218240982277,Basic actions and technology
+Nutzen::N,profit,0.20387381771200755,Modern world
+Beere::N,berry,0.20379969165517473,Food and drink
+wollen::V,want,0.2035497581170165,Emotions and values
+rütteln::V,jolt,0.20343429520489292,Motion
+zu sehen sein::V,show,0.2032486331036156,Sense perception
+versinken::V,sink,0.20315075538734154,Basic actions and technology
+zurücklassen::V,leave,0.2031217429581603,Motion
+probieren::V,taste,0.20250752872587313,Sense perception
+Pfeil::N,arrow,0.20203775144949807,Basic actions and technology
+schwingen::V,swing,0.20099880499522232,Basic actions and technology
+schlucken::V,swallow,0.2009077868686891,Food and drink
+Horn::N,horn,0.20083590341497654,The body
+werfen::V,throw,0.20061856201366052,Motion
+Raureif::N,hoarfrost,0.20043467359395337,Sense perception
+Tasche::N,bag,0.1999431130011253,Basic actions and technology
+weinen::V,weep,0.199578023339278,Emotions and values
+packen::V,grab,0.19946501740922828,Possession
+geboren werden::V,be born,0.19944000512035268,The body
+Kessel::N,kettle,0.19926778425590871,Food and drink
+bewachen::V,guard,0.19910946364389287,Basic actions and technology
+anbinden::V,tie up,0.1989277922993258,Basic actions and technology
+stoßen::V,shove,0.1988793170302828,Motion
+nah::A,near,0.1986963718533296,Spatial relations
+Klaue::N,claw,0.19867523336301002,Animals
+wünschen::V,wish,0.19793319067130488,Emotions and values
+Wurzel::N,root,0.1977145605046488,Agriculture and vegetation
+teuer::A,dear,0.19735307315081715,Possession
+schlagen::V,beat,0.1971741297734647,Basic actions and technology
+Gast::N,guest,0.19673473604801464,Social and political relations
+lecken::V,lick,0.1966883000590573,The body
+Angelegenheit::N,matter,0.19668407156149625,Quantity
+leiten::V,lead,0.1961352229410014,Motion
+Löffel::N,spoon,0.19601568463159225,Food and drink
+spielen::V,play,0.1958016878942593,Emotions and values
+Tasse::N,cup,0.19549448832541297,Food and drink
+ehemalig::A,former,0.19539324878393316,Time
+treffen::V,meet,0.19462118319916694,Social and political relations
+fließen::V,flow,0.19448759164943485,Motion
+hineingehen::V,go in,0.19413725706342938,Motion
+melken::V,milk,0.19410110627590801,Food and drink
+Stiefel::N,boot,0.19384863745500058,Clothing and grooming
+Zaun::N,fence,0.1937282104866807,Agriculture and vegetation
+strömen::V,stream,0.19363540061015005,Spatial relations
+Gras::N,grass,0.1935908233517124,Agriculture and vegetation
+tun::V,do,0.1935485649369502,Basic actions and technology
+anhalten::V,stop,0.1933938245899507,Basic actions and technology
+gießen::V,water,0.19337822277939729,Agriculture and vegetation
+sanft::A,gentle,0.19290204651256349,Emotions and values
+Stamm::N,trunk,0.19263722030468192,Agriculture and vegetation
+Messer::N,knife,0.19235859906214692,Food and drink
+Nabel::N,navel,0.19235420671267556,The body
+Quelle::N,source,0.19232497817589164,The physical world
+Schuld::N,fault,0.19212072768035673,Emotions and values
+dicht::A,dense,0.19177082873238963,Spatial relations
+taub::A,deaf,0.1914196776360665,The body
+Stock::N,stick,0.19135700808095002,The physical world
+Haken::N,hook,0.19130987651637277,Spatial relations
+läuten::V,chime,0.19070972274091763,Modern world
+belästigen::V,bother,0.1905569017676894,Emotions and values
+berühren::V,touch,0.18988198942522852,Sense perception
+besitzen::V,own,0.18949438409146585,Possession
+setzen::V,place,0.18881755382283594,Motion
+sich bewegen::V,move,0.18818413097015452,Basic actions and technology
+ausziehen::V,take off,0.1874410081906087,Basic actions and technology
+Ruf::N,call,0.18692193310109106,Basic actions and technology
+sich fürchten::V,be afraid,0.18610873072380596,Emotions and values
+schmerzen::V,ache,0.1860800858463915,The body
+fest::A,firm,0.18544139936081078,Basic actions and technology
+beißen::V,bite,0.18529182948240736,The body
+Sack::N,sack,0.18510942979718756,Basic actions and technology
+sich erheben::V,stand up,0.18488101427261003,Motion
+ergreifen::V,seize,0.1843030557156003,Possession
+hacken::V,chop,0.18386848242282214,Basic actions and technology
+nehmen::V,take,0.18347700403199255,Possession
+aufhören::V,stop,0.1831299317353265,Basic actions and technology
+Grube::N,pit,0.18304065155915414,The physical world
+hinzufügen::V,add,0.18288477155714003,Basic actions and technology
+streichen::V,spread,0.18282460341463574,Basic actions and technology
+schimpfen::V,grumble,0.18277687229046344,Emotions and values
+Schnur::N,string,0.18277587221602942,Basic actions and technology
+führen::V,guide,0.1827529630226967,Motion
+abwischen::V,wipe,0.18238944172232224,Basic actions and technology
+sauber::A,clean,0.18217926709317286,Sense perception
+bringen::V,bring,0.18213935298875814,Motion
+Decke::N,blanket,0.18209801697245662,The house
+Rand::N,fringe,0.1818192080189384,Spatial relations
+aufhängen::V,hang up,0.18130275731735068,Basic actions and technology
+drehen::V,spin,0.18110253987893782,Motion
+umdrehen::V,turn around,0.1810847150839103,Motion
+fallen::V,fall,0.18095711707332265,Motion
+vor::PRP,in front of,0.1806963211443656,Spatial relations
+loben::V,praise,0.1799316428803454,Emotions and values
+reiben::V,rub,0.17981768675922077,Basic actions and technology
+Stab::N,staff,0.17962617117102375,Social and political relations
+anziehen::V,put on,0.1787007623131923,Clothing and grooming
+Welt::N,world,0.1786342845671195,The physical world
+schieben::V,push,0.17776543416212637,Motion
+Gedächtnis::N,memory,0.17736928659066736,Cognition
+klopfen::V,knock,0.177248926769389,Motion
+alt[Lebewesen]::A,aged,0.17718585336406398,Time
+Beutel::N,pouch,0.17712826619412272,Basic actions and technology
+können::V,can,0.17696629404976782,Basic actions and technology
+Geschäft::N,business,0.17631619426663403,Modern world
+Linie::N,line,0.1760937140876359,Spatial relations
+stecken::V,stick,0.17519183021249646,Motion
+Gürtel::N,belt,0.17513112934563604,Clothing and grooming
+Bild::N,picture,0.17480179006772495,Modern world
+Ruder::N,oar,0.17466764044495758,Motion
+schneiden::V,cut,0.17456840832248857,Basic actions and technology
+kriechen::V,creep,0.17455164475549423,Motion
+schwenken::V,swing,0.17452457089434226,Basic actions and technology
+Leute::N,people,0.17430362513665998,Social and political relations
+Tisch::N,table,0.17427456430131644,The house
+Stange::N,pole,0.17417263271276534,The house
+kratzen::V,scrape,0.17398342904043088,Food and drink
+ziehen::V,pull,0.17335020682262348,Basic actions and technology
+gehen::V,go,0.1731058840802591,Motion
+Zeichen::N,sign,0.17297898982010135,Speech and language
+regnen::V,rain,0.17253608185305672,The physical world
+Schmutz::N,dirt,0.17202538159799552,Sense perception
+Loch::N,hole,0.17175332253687353,Spatial relations
+Spitze::N,tip,0.17127336194277754,Spatial relations
+sich beeilen::V,hurry,0.17110316742015,Time
+Träne::N,tear,0.17094696248613192,Emotions and values
+nähen::V,sew,0.17054878070382384,Clothing and grooming
+messen::V,measure,0.16927316703846393,Spatial relations
+schleifen::V,grind,0.16925687935383152,Basic actions and technology
+hinfallen::V,tumble,0.16919882452936902,Basic actions and technology
+wehen::V,blow,0.16900988331893294,Motion
+wenden::V,turn,0.16899201493709667,Motion
+bellen::V,bark,0.16766617617961263,Animals
+fett::A,fat,0.16695303746594492,Spatial relations
+fein::A,delicate,0.16668025378172788,Spatial relations
+Tropfen::N,drop,0.16613350106847358,Quantity
+schaukeln::V,seesaw,0.16597987674369852,Basic actions and technology
+füllen::V,fill,0.16584693053019317,Quantity
+hängen::V,hang,0.16581358152217218,Basic actions and technology
+Sache::N,thing,0.165244180277967,Possession
+Dreck::N,filth,0.16474953623121721,Sense perception
+Bogen[Waffe]::N,bow,0.16435723655404186,Basic actions and technology
+unter::PRP,under,0.16349637760820987,Spatial relations
+Ring::N,ring,0.1632684592338429,Clothing and grooming
+schütten::V,pour,0.16315924652056432,Basic actions and technology
+kleben::V,glue,0.1623858270314025,Motion
+Busen::N,bosom,0.16232983008194918,The body
+Schloss::N,lock,0.16221489470450579,The house
+Nagel::N,nail,0.1618278959595138,Basic actions and technology
+Wurm::N,worm,0.16173242525565054,Animals
+geradeaus::ADV,ahead,0.16138579293369057,Spatial relations
+Strich::N,stroke,0.1613069091339771,Modern world
+ertragen::V,endure,0.16047245797743434,Basic actions and technology
+küssen::V,kiss,0.16036592124874074,Emotions and values
+heulen::V,howl,0.16036015263685252,Speech and language
+aufstehen::V,get up,0.16032380272453367,Motion
+rudern::V,row,0.1601235232432955,Motion
+Rohr::N,pipe,0.1599373402208952,Modern world
+Deckel::N,cover,0.15845315912401456,Basic actions and technology
+Lärm::N,noise,0.15828972143022466,Sense perception
+Schaum::N,foam,0.15804362050688162,The physical world
+Platte::N,slab,0.15745934738184833,Modern world
+Falle::N,trap,0.1574431914348336,Basic actions and technology
+Eimer::N,bucket,0.157366491969719,Basic actions and technology
+Lust::N,desire,0.15719294513629345,Emotions and values
+Knopf::N,button,0.15681116558919306,Clothing and grooming
+stricken::V,knit,0.1566898405031961,Basic actions and technology
+Faden::N,thread,0.15662446567533936,Clothing and grooming
+Gabel::N,fork,0.15634945430378713,Food and drink
+stechen::V,sting,0.15535941717608756,The body
+legen::V,lay,0.1552841085615532,Basic actions and technology
+Schritt::N,step,0.15517322501842543,The house
+vergehen::V,pass,0.15515798388525143,Time
+graben::V,dig,0.15503913775713746,Agriculture and vegetation
+Nadel::N,needle,0.15449700092203514,Clothing and grooming
+Band::N,ribbon,0.15419400297183816,Basic actions and technology
+voll::A,full,0.1531398377088495,Quantity
+verderben::V,spoil,0.1531199477643309,Social and political relations
+Brett::N,board,0.15167087588362665,The house
+halten::V,hold,0.1507216238901092,Possession
+pflücken::V,pick,0.1506855397741049,Basic actions and technology
+klingeln::V,ring,0.15060153031587586,Modern world
+beherrschen::V,rule,0.15048382867386548,Social and political relations
+sich schlagen::V,brawl,0.14958333289352055,Basic actions and technology
+Gegenstand::N,item,0.14949855683451638,The physical world
+Kamm::N,comb,0.14859594277110724,Clothing and grooming
+stehen::V,stand,0.1485395207799558,Spatial relations
+liegen::V,lie,0.147697655065763,Spatial relations
+Seite::N,side,0.14744295397661553,Spatial relations
+richtig::A,correct,0.1462571535784584,Emotions and values
+Welle::N,wave,0.14623853835318038,The physical world
+reißen::V,snap,0.14595980812459064,Basic actions and technology
+Lagerfeuer::N,campfire,0.14531381423957887,Basic actions and technology
+umrühren::V,stir,0.14520897550974535,Food and drink
+siegen::V,win,0.1451584948302323,Social and political relations
+rühren::V,move,0.14484714900769532,Basic actions and technology
+Griff::N,handle,0.1440593975478832,Basic actions and technology
+zählen::V,count,0.14404819725166426,Quantity
+Platz::N,space,0.1436030637428344,Spatial relations
+Puppe::N,doll,0.1422581920775142,Modern world
+lassen::V,let,0.14116669453614944,Basic actions and technology
+reichen::V,hand,0.1407433596873207,Basic actions and technology
+schleppen::V,drag,0.14070651546429105,Basic actions and technology
+fallen lassen::V,drop,0.13981938616304423,Basic actions and technology
+tragen::V,carry,0.13920841668436842,Motion
+Mitte::N,middle,0.13880405170040747,Spatial relations
+Schaufel::N,shovel,0.13745990850573497,Agriculture and vegetation
+Spaten::N,spade,0.13642387215999016,Agriculture and vegetation
+Laus::N,louse,0.13636150692642446,Animals
+fegen::V,sweep,0.13542730700620606,Basic actions and technology
+Ende::N,end,0.13478737843880956,Spatial relations
+Schwarm::N,swarm,0.1346447180194422,Animals
+Riemen::N,strap,0.13364031357345485,Basic actions and technology
+Regal::N,shelf,0.13311212683803667,The house
+wiegen::V,rock,0.13274894805874135,Motion
+fremd::A,foreign,0.13183520665127724,Cognition
+geraten::V,turn out,0.1283282799263713,Cognition
+eilen::V,rush,0.1269876125644194,Motion
+einwickeln::V,wrap,0.12678632195969813,Motion
+sich trennen::V,separate,0.12598307594093644,Motion
+Ast::N,limb,0.12525775159459904,The physical world
+lebendig::A,living,0.12481749521932128,The body
+Kante::N,edge,0.12480566954591002,Spatial relations
+Gesellschaft::N,company,0.12379523138594258,Modern world
+Muster::N,pattern,0.12329375725751188,The physical world
+Figur::N,figure,0.1228740969503466,Social and political relations
+Last::N,load,0.12286604238468221,Basic actions and technology
+stumpf::A,blunt,0.12278433372555282,Sense perception
+drücken::V,press,0.1223020777158846,Basic actions and technology
+nackt::A,naked,0.12218439448102827,The body
+Bau::N,lair,0.12150589889692327,Animals
+Stück::N,piece,0.1201370783860532,Quantity
+Zweig::N,branch,0.12004588176975022,Agriculture and vegetation
+Feder::N,feather,0.11956647542578644,The body
+stöhnen::V,groan,0.11951841253666386,Emotions and values
+prahlen::V,brag,0.11907294081004238,Speech and language
+mögen::V,like,0.1190662145216814,Emotions and values
+Knoten::N,knot,0.11906553731551735,Basic actions and technology
+scheinen[Sonne]::V,shine,0.11825566700729069,Sense perception
+schwanken::V,sway,0.11732892857433155,Motion
+blasen::V,blow,0.11716489835666072,Basic actions and technology
+kämmen::V,comb,0.11707113250626532,Clothing and grooming
+Ecke::N,corner,0.11676092636968041,Spatial relations
+Kissen::N,pillow,0.11551332279457083,The house
+Art::N,sort,0.11550299176083058,Cognition
+untergehen[Sonne]::V,set,0.11532646133921687,The physical world
+leer::A,empty,0.11486384483661737,Quantity
+brausen::V,roar,0.11431795250695806,Basic actions and technology
+Haufen::N,heap,0.1140790652674138,Basic actions and technology
+passieren::V,happen,0.1130993488696208,Basic actions and technology
+hüten::V,herd,0.11292206496477107,Basic actions and technology
+schreiten::V,pace,0.11208677814593528,Basic actions and technology
+sich rühren::V,budge,0.11083555755114181,Motion
+Winkel::N,angle,0.10955005940306592,Spatial relations
+kehren::V,sweep,0.10917235813526777,Basic actions and technology
+aufgehen[Sonne]::V,rise,0.1087344145953543,The physical world
+aufziehen::V,bring up,0.10720922483467302,Basic actions and technology
+Gang::N,walk,0.10516534655657468,Quantity
+Scheibe::N,slice,0.10388630348879169,Modern world
+sausen::V,dash,0.10126446527413575,Motion
+Reihe::N,row,0.0979338258257046,Spatial relations
+antreiben::V,urge,0.09193062228188864,Emotions and values
+treiben::V,drive,0.08948453129902408,Animals
+Netz::N,net,0.08764987307817187,Basic actions and technology
+Schlinge::N,noose,0.0837968920709631,Basic actions and technology
+Besen::N,broom,0.08218632706797784,Basic actions and technology
+Spur::N,track,0.07681937034806478,The body
+Wiege::N,cradle,0.06936262437934124,Modern world
+Bündel::N,bundle,0.067993548023457,Basic actions and technology
+Leine::N,leash,0.06568173057838739,Basic actions and technology
+lärmen::V,be noisy,NA,Basic actions and technology
+klirren::V,tinkle,NA,Basic actions and technology
+rauschen::V,rustle,NA,Basic actions and technology
+krank sein::V,be ill,NA,Basic actions and technology
+sich ärgern::V,be annoyed,NA,Emotions and values
+müde werden::V,get tired,NA,The body
